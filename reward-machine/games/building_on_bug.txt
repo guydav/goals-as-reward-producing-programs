@@ -1,0 +1,14 @@
+(define (game building-test) (:domain many-objects-room-v1)
+(:constraints (and
+    (preference chairOnTallRectBlock (exists (?c - chair ?l - tall_rectangular_block)
+        (at-end
+            (and
+                (on ?l ?c)
+            )
+        )
+    ))
+))
+(:scoring (+
+    (* (count chairOnTallRectBlock) 1)
+))
+)

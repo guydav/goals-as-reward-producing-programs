@@ -1,0 +1,619 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{tabu}
+\usepackage{graphicx}
+\usepackage{placeins}
+\usepackage[margin=1in]{geometry}
+\usepackage{float}
+\usepackage{mathtools}
+\usepackage{textcomp}
+\usepackage{pdfpages}
+\usepackage{minted}
+\usepackage[style=iso]{datetime2}
+\usepackage{bbm}
+\usepackage[flushleft]{threeparttable}
+\usepackage{tikz}
+\usetikzlibrary{bayesnet}
+\usepackage{braket}
+\usepackage{cancel}
+\usepackage{enumitem}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{titling}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage{subcaption}
+\usepackage{syntax}
+\usepackage{listings}
+\include{pddl}
+\lstset{
+    language=PDDL,
+    escapeinside={(*}{*)},
+}
+\DeclareFontShape{OT1}{cmtt}{bx}{n}{<5><6><7><8><9><10><10.95><12><14.4><17.28><20.74><24.88>cmttb10}{}
+
+
+\usepackage[american]{babel}
+\usepackage{csquotes}
+% \usepackage[style=apa,backend=biber]{biblatex}
+% \DeclareLanguageMapping{american}{american-apa}
+% \bibliography{references} % .bib file
+% \nocite{*}
+
+\setlength{\droptitle}{-8em}
+
+% \bibliographystyle{apacite}
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\EV}{E}
+\DeclareMathOperator*{\var}{var}
+\DeclareMathOperator*{\tr}{tr}
+\DeclareMathOperator*{\mathspan}{span}
+\newcommand{\MAT}[1]{\begin{bmatrix} #1 \end{bmatrix}}
+\newcommand{\sMAT}[1]{\left(\begin{smallmatrix} #1 \end{smallmatrix}\right)}
+\DeclareMathOperator*{\vecop}{vec}
+\newcommand{\norm}[1]{\left\Vert #1 \right\Vert}
+\newcommand{\fnorm}[1]{\left\Vert #1 \right\Vert_F}
+\newcommand{\indep}{\perp \!\!\! \perp}
+\newcommand{\sol}{{\bf Solution: }}
+\newcommand{\soln}{\sol}
+\newcommand{\solution}{\sol}
+\newcommand{\TODO}{{\bf \color{red} TODO: THIS}}
+
+% \renewcommand{\dateseparator}{--}
+
+\newcommand{\figref}[1]{Figure~\ref{#1}}
+
+\pagestyle{empty} \addtolength{\textwidth}{1.0in}
+\addtolength{\textheight}{0.5in} \addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\newcommand{\ruleskip}{\bigskip\hrule\bigskip}
+\newcommand{\nodify}[1]{{\sc #1}} \newcommand{\points}[1]{{\textbf{[#1
+points]}}}
+
+\newcommand{\bitem}{\begin{list}{$\bullet$}%
+{\setlength{\itemsep}{0pt}\setlength{\topsep}{0pt}%
+\setlength{\rightmargin}{0pt}}} \newcommand{\eitem}{\end{list}}
+
+\newcommand{\G}{\mathcal{G}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\LL}{\mathcal{L}}
+
+%\newcommand{\bE}{\mbox{\boldmath $E$}}
+%\newcommand{\be}{\mbox{\boldmath $e$}}
+%\newcommand{\bU}{\mbox{\boldmath $U$}}
+%\newcommand{\bu}{\mbox{\boldmath $u$}}
+%\newcommand{\bQ}{\mbox{\boldmath $Q$}}
+%\newcommand{\bq}{\mbox{\boldmath $q$}}
+%\newcommand{\bX}{\mbox{\boldmath $X$}}
+%\newcommand{\bY}{\mbox{\boldmath $Y$}}
+%\newcommand{\bZ}{\mbox{\boldmath $Z$}}
+%\newcommand{\bx}{\mbox{\boldmath $x$}}
+%\newcommand{\by}{\mbox{\boldmath $y$}}
+%\newcommand{\bz}{\mbox{\boldmath $z$}}
+
+\newcommand{\true}{\mbox{true}}
+\newcommand{\Parents}{\mbox{Parents}}
+
+\newcommand{\ww}{{\bf w}}
+\newcommand{\xx}{{\bf x}}
+\newcommand{\yy}{{\bf y}}
+\newcommand{\real}{\ensuremath{\mathbb{R}}}
+
+
+\newcommand{\eat}[1]{}
+
+\newcommand{\CInd}[3]{({#1} \perp {#2} \mid {#3})}
+\newcommand{\Ind}[2]{({#1} \perp {#2})}
+
+\setlength{\parindent}{0pt} \setlength{\parskip}{0.5ex}
+
+% \title{Homework 12} %  \vspace{-3cm} % before name to raise
+% \subtitle{MATH-GA 2110}
+% \vspace{-5cm} % before name to raise
+\title{Game Creation DSL}
+\author{Guy Davidson}
+% \date{\today}
+
+
+\begin{document}
+\maketitle
+
+\section{DSL Docuemntation as of \today}
+
+\subsection*{Color-coding}
+\begin{itemize}
+\item {\color{red} \textbf{Undefined terms (red)}}: a term that appears somewhere that I forgot to provide a definition for
+\item {\color{gray} \textbf{Unused terms (gray)}}: a term that appears in the definitions I documented but does not appear in any games
+\item {\color{teal} \textbf{New terms (teal)}}: a term that appears for the first time in the newest batch of games I translated
+\end{itemize}
+\subsection{Game Definition}
+\begin{grammar}
+<game> ::= (define (game <name>) \\
+  (:domain <name>) \\
+  (:setup <setup>) \\
+  (:constraints <constraints>) \\
+  (:terminal <terminal>) \\
+  (:scoring <scoring>) \\)
+
+<name> ::= /[A-z]+(_[A-z0-9]+)*/ "#" a letter, optionally followed by letters, numbers, and underscores
+\end{grammar}
+
+\subsection{Setup}
+PDDL doesn't have any close equivalent of this, but when reading through the games participants specify,
+        they often require some transformation of the room from its initial state before the game can be played.
+        We could treat both as parts of the gameplay, but we thought there's quite a bit to be gained by splitting them -- for example,
+        the policies to setup a room are quite different from the policies to play a game (much more static). \\
+
+        The one nuance here came from the (game-conserved ...) and (game-optional ...) elements. It seemed to us that some setup elements should be maintained
+        throughout gameplay (for example, if you place a bin somewhere to throw into, it shouldn't move unless specified otherwise).
+        Other setup elements can, or often must change -- for example, if you set the balls on the desk to throw them, you'll have to pick them up off the desk to throw them.
+        These elements provide that context, which could be useful for verifying that agents playing the game don't violate these conditions.
+
+\begin{grammar}
+<setup> ::= (and <setup> <setup>$^+$) \alt
+    (or <setup> <setup>$^+$) \alt
+    (not <setup>) \alt
+    (exists (<typed list(variable)>) <setup>) \alt
+    (forall (<typed list(variable)>) <setup>) \alt
+    <setup-statement>
+
+<setup-statement> ::= (game-conserved <setup-predicate>) \alt
+    (game-optional <setup-predicate>)
+
+<setup-predicate> ::= (and <setup-predidcate>$^+$) \alt
+    (or <setup-predicate>$^+$) \alt
+    (not <setup-predicate> \alt
+    (exists (<typed list(variable)>) <setup-predicate>) \alt
+    (forall (<typed list(variable)>) <setup-predicate>) \alt
+    <f-comp> \alt
+    <predicate>
+
+
+<f-comp> ::= (<comp-op> <function-eval-or-number> <function-eval-or-number>) \alt
+    (= <function-eval-or-number>$^+$)
+
+<comp-op> ::=  \textlangle \ | \textlangle = \ | = \ | \textrangle \ | \textrangle =
+
+<function-eval-or-number> ::= <function-eval> | <number>
+
+<function-eval> ::= (<name> <function-term>$^+$)
+
+<function-term> ::= <name> | <variable> | <number> | <predicate>
+
+<variable-list> ::= (<variable-type-def>$^+$)
+
+<variable-type-def> ::= <variable>$^+$ - <type-def>
+
+<variable> ::= /\textbackslash?[a-z][a-z0-9]*/  "#" a question mark followed by a letter, optionally followed by additional letters or numbers
+
+<type-def> ::= <name> | <either-types>
+
+<either-types> ::= (either <name>$^+$)
+
+<predicate> ::= (<name> <predicate-term>$^*$)
+
+<predicate-term> ::= <name> | <variable> | <predicate> "#" In at least one case, I wanted to have a predicate act on other predicates, but that doesn't really make sense. See the discussion of the (side ...) predicate below.
+
+
+\end{grammar}
+
+
+
+\subsection{Gameplay Preferences}
+The gameplay preferences specify the core of a game's semantics, capturing how a game should be played by specifying temporal constraints over predicates.
+
+        PDDL calls their temporal preferences 'constraints', but that's not entirely the right name for us. Maybe we should rename? \\
+
+\begin{grammar}
+<constraints> ::= <pref-def> | (and <pref-def>$^+$)
+
+<pref-def> ::= <pref-forall> | <preference>
+
+<pref-forall> ::= (forall <variable-list> <preference>) "#" this syntax is used to specify variants of the same preference for different object, which differ in their scoring. These are specified using the <pref-name-and-types> syntax element's optional types, see scoring below.
+
+<preference> ::= (preference <name> <preference-quantifier>)
+
+<preference-quantifier> ::= (exists (<variable-list>) <preference-body>
+\alt  (forall (<variable-list>) <preference-body>)
+\alt <preference-body>)
+
+<preference-body> ::=  <then> | <at-end> | <always>
+
+<at-end> ::= (at-end <pref-predicate>)
+
+<then> ::= (then <seq-func> <seq-func>$^+$)
+
+<seq-func> ::= <once> | <once-measure> | <hold> | <hold-while>
+
+<once> ::= (once <pref-predicate>) "#" The predicate specified must hold for a single world state
+
+{ \color{teal} <once-measure> ::= (once <pref-predicate> <function-eval>) "#" The predicate specified must hold for a single world state, and record the value of the function evaluation }
+
+<hold> ::= (hold <pref-predicate>) "#" The predicate specified must hold for every state between the previous temporal operator and the next one
+
+<hold-while> ::= (hold-while <pref-predicate> <pref-predicate>$^+$) "#" The predicate specified must hold for every state between the previous temporal operator and the next one. While it does, at least one state must satisfy each of the predicates specified in the second arumgnet onward
+
+<pref-predicate> ::= <pref_predicate_and> \alt
+    <pref-predicate-or> \alt
+    <pref-predicate-not> \alt
+    <pref-predicate-exists> \alt
+    <pref-predicate-forall> \alt
+    <predicate>
+    <f-comp>
+
+<pref-predicate-and> ::= (and <pref-predicate>$^+$)
+
+<pref-predicate-or> ::= (or <pref-predicate>$^+$)
+
+<pref-predicate-not> ::= (not <pref-predicate>)
+
+<pref-predicate-exists> ::= (exists <variable-list> <pref-predicate>)
+
+<pref-predicate-forall> ::= (forall <variable-list> <pref-predicate>)
+
+
+<f-comp> ::= (<comp-op> <function-eval-or-number> <function-eval-or-number>) \alt
+    (= <function-eval-or-number>$^+$)
+
+<comp-op> ::=  \textlangle \ | \textlangle = \ | = \ | \textrangle \ | \textrangle =
+
+<function-eval-or-number> ::= <function-eval> | <number>
+
+<function-eval> ::= (<name> <function-term>$^+$)
+
+<function-term> ::= <name> | <variable> | <number> | <predicate>
+
+<variable-list> ::= (<variable-type-def>$^+$)
+
+<variable-type-def> ::= <variable>$^+$ - <type-def>
+
+<variable> ::= /\textbackslash?[a-z][a-z0-9]*/  "#" a question mark followed by a letter, optionally followed by additional letters or numbers
+
+<type-def> ::= <name> | <either-types>
+
+<either-types> ::= (either <name>$^+$)
+
+<predicate> ::= (<name> <predicate-term>$^*$)
+
+<predicate-term> ::= <name> | <variable> | <predicate> "#" In at least one case, I wanted to have a predicate act on other predicates, but that doesn't really make sense. See the discussion of the (side ...) predicate below.
+
+
+\end{grammar}
+
+
+
+\subsection{Terminal Conditions}
+Some participants explicitly specify terminal conditions, but we consider this to be optional.
+
+\begin{grammar}
+<terminal> ::= (and <terminal>$^+$) \alt
+        (or <terminal>$+$) \alt
+        (not <terminal>) \alt
+        <terminal-comp>
+
+<terminal-comp> ::= (<comp-op> <scoring-expr> <scoring-expr>)
+
+    <comp-op> ::=  \textlangle \ | \textlangle = \ | = \ | \textrangle \ | \textrangle =
+
+
+
+\end{grammar}
+For a full specification of the \textlangle scoring-expr\textrangle\ token, see the scoring section below.
+
+
+
+\subsection{Scoring}
+Scoring rules specify how to count preferences (count once, once for each unique objects that fulfill the preference, each time a preference is satisfied, etc.), and the arithmetic to combine
+        counted preference statisfactions to get a final score.
+
+        PDDL calls their equivalent section (:metric ...), but we renamed because it made more sense to in the context of games.
+
+\begin{grammar}
+<scoring> ::= (maximize <scoring-expr>) \alt (minimize <scoring-expr>)
+
+<scoring-expr> ::= (<multi-op> <scoring-expr>$^+$) \alt
+        (<binary-op> <scoring-expr> <scoring-expr>) \alt
+        (- <scoring-expr>) \alt
+        (total-time) \alt
+        (total-score) \alt
+        <scoring-comp> \alt
+        <preference-eval>
+
+
+
+<scoring-comp> ::=  (<comp-op> <scoring-expr> <scoring-expr>) \alt
+        (= <scoring-expr>$^+$)
+
+
+<preference-eval> ::=  <count-nonoverlapping> \alt
+        <count-once> \alt
+        <count-once-per-objects> \alt
+        <count-nonoverlapping-measure> \alt
+        <count-unique-positions> \alt
+        <count-same-positions> \alt
+        <count-maximal-nonoverlapping> \alt
+        <count-maximal-overlapping> \alt
+        <count-maximal-once-per-objects> \alt
+        <count-maximal-once> \alt
+        <count-once-per-external-objects>
+
+
+
+<count-nonoverlapping> ::= (count-nonoverlapping <pref-name-and-types>) "#" count how many times the preference is satisfied by non-overlapping sequences of states
+
+<count-once> ::= (count-once <pref-name-and-types>) "#" count whether or not this preference was satisfied at all
+
+<count-once-per-objects> ::= (count-once-per-objects <pref-name-and-types>) "#" count once for each unique combination of objects quantified in the preference that satisfy it
+
+{ \color{teal} <count-nonoverlapping-measure> ::= (count-nonoverlapping-measure <pref-name-and-types>) "#" Can only be used in preferences including a <once-measure> modal, maps each preference satistifaction to the value of the function evaluation in the <once-measure> }
+
+<count-unique-positions> ::= (count-unique-positions <pref-name-and-types>) "#" count how many times the preference was satisfied with quantified objects that remain stationary within each preference satisfcation, and have different positions between different satisfactions.
+
+<count-same-positions> ::= (count-same-positions <pref-name-and-types>) "#" count how many times the preference was satisfied with quantified objects that remain stationary within each preference satisfcation, and have (approximately) the same position between different satisfactions.
+
+<note> : "#" All of the count-maximal-... operators refer to counting only for preferences inside a (forall ...), and count only for the object quantified externally that has the most preference satisfactions to it. If there exist multiple preferences in a single (forall ...) block, score for the single object that satisfies the most over all such preferences.
+
+<count-maximal-nonoverlapping> ::= (count-maximal-nonoverlapping <pref-name-and-types>) "#" For the single externally quantified object with the most satisfcations, count non-overlapping satisfactions of this preference
+
+{ \color{teal} <count-maximal-overlapping> ::= (count-maximal-overlapping <pref-name-and-types>) "#" For the single externally quantified object with the most satisfcations, count how many satisfactions of this preference with different objects overlap in their states }
+
+<count-maximal-once-per-objects> ::= (count-maximal-once-per-objects <pref-name-and-types>) "#" For the single externally quantified object with the most satisfcations, count this preference for each set of quantified objects that satisfies it
+
+<count-maximal-once> ::= (count-maximal-once <pref-name-and-types>) "#" For the externally quantified object with the most satisfcations (across all preferences in the same (forall ...) block), count this preference at most once
+
+{ \color{teal} <count-once-per-external-objects> ::=  (count-once-per-external-objects <pref-name-and-types>) "#" Similarly to count-once-per-objects, but counting only for each unique object or combination of objects quantified in the (forall ...) block including this preference }
+
+<pref-name-and-types> ::= <name> <pref-object-type>$^*$ "#" the optional <pref-object-type>s are used to specify a particular variant of the preference for a given object, see the <pref-forall> syntax above.
+
+    <pref-object-type> ::= : <name>
+
+
+
+
+\end{grammar}
+
+
+
+\subsection{Predicates}
+The predicates are not defined as part of the DSL, but rather we envision them is being specific to a domain and being specified to any model as an input or something to be conditioned on. \\
+
+            The following describes all predicates currently found in our game dataset.
+
+\begin{lstlisting}
+(= <arg1> <arg2>) [7 references] ; Are these two objects the same object?
+(above <arg1> <arg2>) [5 references] ; Is the first object above the second object?
+(adjacent <arg1> <arg2>) [76 references] ; Are the two objects adjacent? [will probably be implemented as distance below some threshold]
+(adjacent_side <3 or 4 arguments>) [14 references] ; Are the two objects adjacent on the sides specified? Specifying a side for the second object is optional, allowing to specify <obj1> <side1> <obj2> or <obj1> <side1> <obj2> <side2>
+(agent_crouches ) [2 references] ; Is the agent crouching?
+(agent_holds <arg1>) [327 references] ; Is the agent holding the object?
+(*\color{teal} (between <arg1> <arg2> <arg3>) [7 references] ; Is the second object between the first object and the third object?*)
+(broken <arg1>) [2 references] ; Is the object broken?
+(*\color{teal} (equal_x_position <arg1> <arg2>) [2 references] ; Are these two objects (approximately) in the same x position? (in our environment, x, z are spatial coordinates, y is the height)*)
+(equal_z_position <arg1> <arg2>) [5 references] ; Are these two objects (approximately) in the same z position? (in our environment, x, z are spatial coordinates, y is the height)
+(faces <arg1> <arg2>) [6 references] ; Is the front of the first object facing the front of the second object?
+(game_over ) [4 references] ; Is this the last state of gameplay?
+(game_start ) [3 references] ; Is this the first state of gameplay?
+(in <2 or 3 arguments>) [121 references] ; Is the second argument inside the first argument? [a containment check of some sort, for balls in bins, for example]
+(in_motion <arg1>) [311 references] ; Is the object in motion?
+(*\color{teal} (is_setup_object <arg1>) [10 references] ; Is this the object of the same type referenced in the setup?*)
+(object_orientation <arg1> <arg2>) [15 references] ; Is the first argument, an object, in the orientation specified by the second argument? Used to check if an object is upright or upside down
+(on <arg1> <arg2>) [165 references] ; Is the second object on the first one?
+(open <arg1>) [3 references] ; Is the object open? Only valid for objects that can be opened, such as drawers.
+(opposite <arg1> <arg2>) [4 references] ; So far used only with walls, or sides of the room, to specify two walls opposite each other in conjunction with other predicates involving these walls
+(rug_color_under <arg1> <arg2>) [11 references] ; Is the color of the rug under the object (first argument) the color specified by the second argument?
+(*\color{teal} (same_type <arg1> <arg2>) [3 references] ; Are these two objects of the same type?*)
+(toggled_on <arg1>) [4 references] ; Is this object toggled on?
+(touch <arg1> <arg2>) [49 references] ; Are these two objects touching?
+(type <arg1> <arg2>) [9 references] ; Is the first argument, an object, an instance of the type specified by the second argument?
+\end{lstlisting}
+
+
+
+\subsection{Types}
+The types are also not defined as part of the DSL, but we envision them as operating similarly to the predicates. \\
+
+            The following describes all types currently found in our game dataset.
+
+\begin{lstlisting}
+game_object [33 references] ; Parent type of all objects
+agent [87 references] ; The agent
+building [21 references] ; Not a real game object, but rather, a way to refer to structures the agent builds
+---------- (* \textbf{Blocks} *) ----------
+block [27 references] ; Parent type of all block types:
+bridge_block [11 references]
+cube_block [40 references]
+(*\color{teal} blue_cube_block [8 references] *)
+(*\color{teal} tan_cube_block [1 reference] *)
+(*\color{teal} yellow_cube_block [8 references] *)
+flat_block [5 references]
+pyramid_block [14 references]
+(*\color{teal} red_pyramid_block [2 references] *)
+(*\color{teal} triangle_block [3 references] *)
+(*\color{teal} yellow_pyramid_block [2 references] *)
+cylindrical_block [12 references]
+tall_cylindrical_block [7 references]
+---------- (* \textbf{Balls} *) ----------
+ball [40 references] ; Parent type of all ball types:
+beachball [23 references]
+basketball [18 references]
+dodgeball [110 references]
+blue_dodgeball [6 references]
+(*\color{teal} red_dodgeball [4 references] *)
+pink_dodgeball [18 references]
+golfball [28 references]
+green_golfball [2 references] ; (* \textbf Do we want to specify colored objects or not? *)
+---------- (* \textbf{Colors} *) ----------
+color [6 references] ; Likewise, not a real game object, mostly used to refer to the color of the rug under an object
+(*\color{teal} blue [1 reference] *)
+(*\color{teal} brown [1 reference] *)
+green [5 references]
+pink [14 references]
+orange [3 references]
+purple [4 references]
+red [8 references]
+(*\color{teal} tan [1 reference] *)
+white [1 reference]
+yellow [14 references]
+---------- (* \textbf{Other moveable/interactable objects} *) ----------
+alarm_clock [8 references]
+book [11 references]
+blinds [2 references] ; The blinds on the windows (which for a while I did not know you could open and close)
+chair [17 references]
+cellphone [6 references]
+cd [6 references]
+credit_card [1 reference]
+curved_wooden_ramp [17 references]
+desktop [6 references]
+doggie_bed [26 references]
+hexagonal_bin [124 references]
+key_chain [5 references]
+lamp [2 references]
+laptop [7 references]
+main_light_switch [3 references] ; The main light switch on the wall
+mug [3 references]
+triangular_ramp [10 references]
+green_triangular_ramp [1 reference] ; (* \textbf Do we want to specify colored objects or not? *)
+(*\color{teal} pen [2 references] *)
+(*\color{teal} pencil [2 references] *)
+pillow [12 references]
+teddy_bear [14 references]
+watch [2 references]
+---------- (* \textbf{Immoveable objects} *) ----------
+bed [48 references]
+(*\color{gray} corner [N/A references] ; Any of the corners of the room*)
+(*\color{teal} south_west_corner [2 references] ; The corner of the room where the south and west walls meet*)
+door [9 references] ; The door out of the room
+desk [40 references]
+(*\color{teal} desk_shelf [2 references] ; The shelves under the desk*)
+drawer [5 references] ; Either drawer in the side table
+top_drawer [6 references] ; The top of the two drawers in the nightstand near the bed. (* \textbf Do we want to specify this differently? *)
+floor [24 references]
+rug [37 references]
+shelf [10 references]
+(*\color{teal} bottom_shelf [1 reference] *)
+(*\color{teal} top_shelf [5 references] *)
+side_table [4 references] ; The side table/nightstand next to the bed
+sliding_door [2 references] ; The sliding doors on the south wall (big windows)
+(*\color{teal} east_sliding_door [1 reference] ; The eastern of the two sliding doors (the one closer to the desk)*)
+wall [17 references] ; Any of the walls in the room
+south_wall [1 reference] ; The wall with the sliding doors
+west_wall [2 references] ; The wall the bed is aligned to
+---------- (* \textbf{Non-object-type predicate arguments} *) ----------
+back [3 references]
+front [8 references]
+left [2 references]
+right [2 references]
+(*\color{teal} sideways [3 references] *)
+upright [10 references]
+upside_down [2 references]
+(*\color{teal} front_left_corner [1 reference] ; The front-left corner of a specific object (as determined by its front)*)
+---------- (* \textbf{Undescribed types} *) ----------
+(*\color{red} north_wall [1 reference]*)
+(*\color{red} blue_pyramid_block [3 references]*)
+\end{lstlisting}
+
+
+
+
+\section{Modal Definitions in Linear Temporal Logic}
+\subsection{Linear Temporal Logic definitions}
+Linear Temporal Logic (LTL) offers the following operators, and using $\varphi$ and $\psi$ as the symbols (in our case, predicates).
+I'm trying to translate from standard logic notation to something that makes sense in our case, where we're operating sequence of states $S_0, S_1, \cdots, S_n$.
+\begin{itemize}
+    \item \textbf{Next}, $X \psi$: at the next timestep, $\psi$ will be true. If we are at timestep $i$, then $S_{i+1} \vdash \psi$
+
+    \item \textbf{Finally}, $F \psi$: at some future timestep, $\psi$ will be true. If we are at timestep $i$, then $\exists j > i:  S_{j} \vdash \psi$
+
+    \item \textbf{Globally}, $G \psi$: from this timestep on, $\psi$ will be true. If we are at timestep $i$, then $\forall j: j \geq i: S_{j} \vdash \psi$
+
+    \item \textbf{Until}, $\psi U \varphi$: $\psi$ will be true from the current timestep until a timestep at which $\varphi$ is true. If we are at timestep $i$, then $\exists j > i: \forall k: i \leq k < j: S_k \vdash \psi$, and $S_j \vdash \varphi$.
+    \item \textbf{Strong release}, $\psi M \varphi$: the same as until, but demanding that both $\psi$ and $\varphi$ are true simultaneously: If we are at timestep $i$, then $\exists j > i: \forall k: i \leq k \leq j: S_k \vdash \psi$, and $S_j \vdash \varphi$.
+
+    \textit{Aside:} there's also a \textbf{weak until}, $\psi W \varphi$, which allows for the case where the second is never true, in which case the first must hold for the rest of the sequence. Formally, if we are at timestep $i$, \textit{if} $\exists j > i: \forall k: i \leq k < j: S_k \vdash \psi$, and $S_j \vdash \varphi$, and otherwise, $\forall k \geq i: S_k \vdash \psi$. Similarly there's \textbf{release}, which is the similar variant of strong release. I'm leaving those two as an aside since I don't know we'll need them.
+
+\end{itemize}
+
+\subsection{Satisfying a (then ...) operator}
+Formally, to satisfy a preference using a (then ...) operator, we're looking to find a sub-sequence of $S_0, S_1, \cdots, S_n$ that satisfies the formula we translate to.
+We translate a (then ...) operator by translating the constituent sequence-functions (once, hold, while-hold)\footnote{These are the ones we've used so far in the interactive experiment dataset, even if we previously defined other ones, too.} to LTL.
+Since the translation of each individual sequence function leaves the last operand empty, we append a `true' ($\top$) as the final operand, since we don't care what happens in the state after the sequence is complete.
+
+(once $\psi$) := $\psi X \cdots$
+
+(hold $\psi$) := $\psi U \cdots$
+
+(hold-while $\psi$ $\alpha$ $\beta$ $\cdots \nu$) := ($\psi M \alpha) X (\psi M \beta) X \cdots X (\psi M \nu) X \psi U \cdots$ where the last $\psi U \cdots$ allows for additional states satisfying $\psi$ until the next modal is satisfied.
+
+For example, a sequence such as the following, which signifies a throw attempt:
+\begin{lstlisting}
+(then
+    (once (agent_holds ?b))
+    (hold (and (not (agent_holds ?b)) (in_motion ?b)))
+    (once (not (in_motion ?b)))
+)
+\end{lstlisting}
+Can be translated to LTL using $\psi:=$ (agent_holds ?b), $\varphi:=$ (in_motion ?b) as:
+
+$\psi X (\neg \psi \wedge \varphi) U (\neg \varphi) X \top $
+
+Here's another example:
+\begin{lstlisting}
+(then
+    (once (agent_holds ?b))  (* \color{blue} $\alpha$*)
+    (hold-while
+        (and (not (agent_holds ?b)) (in_motion ?b)) (* \color{blue} $\beta$ *)
+        (touch ?b ?r) (* \color{blue} $\gamma$*)
+    )
+    (once  (and (in ?h ?b) (not (in_motion ?b)))) (* \color{blue} $\delta$*)
+)
+\end{lstlisting}
+If we translate each predicate to the letter appearing in blue at the end of the line, this translates to:
+
+$\alpha X (\beta M \gamma) X \beta U \delta X \top$
+
+\subsection{Satisfying (at-end ...) or (always ...) operators}
+Thankfully, the two other types of temporal specifications we find ourselves using as part of preferences are simpler to translate.
+Satisfying an (at-end ...) operator does not require any temporal logic, since the predicate it operates over is evauated at the terminal state of gameplay.
+The (always ...) operator is equivalent to the LTL globally operator: (always $\psi$) := $G \psi$, with the added constraint that we begin at the first timestep of gameplay.
+
+
+% I'll attempt to check slightly more formally at some point, but I don't think we end up with many structures that are more complex than this.
+% The predicate end up being rather more complex, but that doesn't matter to the LTL translation.
+
+% \section{Modal Definitions}
+
+% \begin{itemize}
+%     \item These definitions attempt to offer precision on how the (then ...) operator works. It receives a series of sequence-functions (once, hold, etc.), each of which is parameterized by one or more predicate conditions.
+
+%     \item For the inner sequence-functions, I used the parentheses notation to mean "evaluated at these timesteps" -- does this notation make sense? Should I also use it for the entire then-expression?
+
+%     \item I've only provided here the for the ones currently used in the interactive experiment.
+% \end{itemize}
+
+% $(\text{then}\ \langle SF_1 \rangle \ \langle SF_2 \rangle \cdots \langle SF_n \rangle) := \exists t_0 \leq t_1 < t_2 < \cdots < t_n$ such that $SF_1(t_0, t_1) \land SF_2(t_1, t_2) \land \cdots \land SF_n(t_{n-1}, t_n) = \text{true}$, that is, each seq-func evaluated at these timesteps evaluates to true.
+
+% $(\text{once}\ \langle C \rangle)(t_{i-1}, t_i) := t_i = t_{i-1} + 1, S[t_i] \vdash C$, that is, the condition C holds at the next timestep from the previous assigned timestep.
+
+% $(\text{hold}\ \langle C \rangle)(t_{i-1}, t_i) := \forall t:  t_{i-1} < t \leq t_i, S[t] \vdash C$, that is, the condition holds for all timesteps starting immediately after the previous timestep and until the current timestep.
+
+% $(\text{hold-while}\ \langle C \rangle \ \langle C_a \rangle \cdots \langle C_m \rangle)(t_{i-1}, t_i) := \forall t:  t_{i-1} < t \leq t_i, S[t] \vdash C$ and $\exists t_a, \cdots, t_m: t_{i-1} < t_a < \cdots < t_m < t_i$ such that $S[t_a] \vdash C_a, \cdots, S[t_m] \vdash C_m$, that is, the same as hold happens, and while this condition $C$ holds, there exist non-overlapping states in sequence where each of the additional conditions provided hold for at least a single state.
+
+% $(\text{hold-for}\ \langle n \rangle \ \langle C \rangle)(t_{i-1}, t_i) := t_i \geq t_{i-1} + n, \forall t:  t_{i-1} < t \leq t_i, S[t] \vdash C$, that is, the same as the standard hold but for at least $n$ timesteps.
+
+% $(\text{forall-sequence}\ \langle \text{forall-quantifier(s)} \rangle \ \langle \text{then-expr} \rangle)(t_{i-1}, t_i): \forall o \in \{a, b, \cdots, k\}$ satisfying the object assignments in the forall quantifier, $\exists t_0^o, t_1^o, \cdots, t_m^o$ that satisfy the inner then expression, such that $t_{i-1} < t_0^a < \cdots t_m^a < t_0^b < \cdots t_m^b < \cdots < t_0^k < \cdots t_m^k < t_i$, that is, the series of timesteps satisfying the inner then-expression for each object assignment do not overlap, happen in sequence, and fall between the previous assigned timestep and the current assigned timestep.
+
+% \section{Open Questions}
+% \begin{itemize}
+%     \item Do we want to define syntax to quantify streaks? Some participants will use language like ``every three successful scores in a row get you a point''. An alternative to defining syntax or sequences would be to define the preference to count three successful attempts in a row, but that might be more awkward?
+
+%     \item How do we want to work with type hierarchy, such as block or ball being the super-types for all blocks or balls -- is it an implicit (either ...) over all of the sub-types? Or do we want to provide the hierarchy in some way to the model, perhaps as part of the enumeration of all valid types in a given environment/scene?
+
+%     \item (I'm sure there are more open questions -- will add later)
+% \end{itemize}
+
+\end{document}

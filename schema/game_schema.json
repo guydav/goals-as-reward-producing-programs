@@ -1,0 +1,133 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {"type": "string"},
+        "index": {"type": "number"},
+        "room": {"type": "string"},
+        "notes": {"type": "string"},
+        "throwing": {
+            "type": "object",
+            "properties": {
+                "test": {"#ref": "/gameSchemas/objectWithPredicates"},
+                "what": {
+                    "type": "array",
+                    "items": {
+                        "enum": ["golfball", "dodgeball", "basketball", "beachball", "teddy_bear"]
+                    }
+                },
+                "from": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "object": { "enum": ["door", "rug", "desk"] },
+                            "predicate": {"enum": ["on", "adjacent"]}
+                        },
+                        "required": ["object"]
+                    }
+                },
+                "on": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "object": {"enum": ["curved_wooden_ramp", "triangular_ramp"]},
+                            "predicates": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "object": {"enum": ["block", "hexagonal_bin", "room_center"]},
+                                        "predicate": {"enum": ["left", "right", "adjacent", "near", "facing"]}
+                                    }
+                                }
+                            }
+                        },
+                        "required": ["object"]
+                    }
+                },
+                "to": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "object": {"enum": ["doggie_bed", "hexagonal_bin", "building", "pillow", "top_drawer"]},
+                            "goal": {"enum": ["in", "over", "hit", "on"]},
+                            "predicates": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "object": {"enum": ["bed", "floor", "curved_wooden_ramp", "room_center", ""]},
+                                        "predicate": {"enum": ["left", "right", "adjacent", "on", "open"]}
+                                    }
+                                }
+                            }
+                        },
+                        "required": ["object", "goal"]
+                    }
+                }
+            },
+            "required": ["what", "to"],
+            "additionalProperties": false
+        },
+        "building": {
+            "type": "object",
+            "properties": {
+                "objects": {"enum": ["block", "any"]},
+                "goal": {"enum": ["num_objects", "structure"]},
+                "structure": {"enum": ["pyramid", "tower"]},
+                "order": {
+                    "type": "array",
+                    "items": {"enum": ["any", "pyramid_block", "bridge_block", "flat_block", "tall_cylindrical_block", "cube_block"] }
+                },
+                "on": {
+                    "type": "object",
+                    "properties": {
+                        "object": {"enum": ["hexagonal_bin"]},
+                        "predicates": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "object": {"enum": ["bed", "floor", "curved_wooden_ramp", "room_center", ""]},
+                                    "predicate": {"enum": ["left", "right", "adjacent", "on", "open", "upside_down"]}
+                                },
+                                "required": ["predicate"]
+                            }
+                        }
+                    },
+                    "required": ["object"],
+                    "additionalProperties": false
+                }
+            },
+            "required": ["objects", "goal"],
+            "additionalProperties": false
+        }
+    },
+    "additionalProperties": false,
+    "required": ["id", "room"],
+
+    "$defs": {
+        "objectWithPredicates": {
+            "$id": "/gameSchemas/objectWithPredicates",
+            "type": "object",
+            "properties": {
+                "object": {"enum": ["hexagonal_bin"]},
+                "predicates": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "object": {"enum": ["bed", "floor", "curved_wooden_ramp", "room_center", ""]},
+                            "predicate": {"enum": ["left", "right", "adjacent", "on", "open", "upside_down"]}
+                        },
+                        "required": ["predicate"]
+                    }
+                }
+            },
+            "required": ["object"],
+            "additionalProperties": false
+        }
+    }
+}

@@ -1,0 +1,126 @@
+{
+    "$id": "GameSchema",
+    "type": "object",
+    "properties": {
+        "metadata": {
+            "type": "object",
+            "properties": {
+                "id": {"type": "string"},
+                "index": {"type": "number"},
+                "room": {"type": "string"},
+                "notes": {"type": "string"}
+            },
+            "required": ["id", "index", "room"],
+            "additionalProperties": false
+        },
+        "throwing": {
+            "type": "object",
+            "properties": {
+                "what": {
+                    "type": "array",
+                    "items": {"$ref": "#/$defs/throwingObject"}
+                },
+                "from": {
+                    "type": "array",
+                    "items": { "$ref": "#/$defs/objectWithPredicates" }
+                },
+                "on": {
+                    "type": "array",
+                    "items": { "$ref": "#/$defs/objectWithPredicates" }
+                },
+                "goal": {
+                    "type": "array",
+                    "items": {"enum": ["in", "over", "hit", "on", "nearest", "knock_over", "move", "not_knock", "under"]}
+                },
+                "to": {
+                    "type": "array",
+                    "items": { "$ref": "#/$defs/objectWithPredicates" }
+                }
+            },
+            "required": ["what", "to", "goal"],
+            "additionalProperties": false
+        },
+        "building": {
+            "type": "object",
+            "properties": {
+                "objects": {
+                    "type": "array",
+                    "items": {"$ref": "#/$defs/buildingObject"}
+                },
+                "goal": {"enum": ["num_objects", "structure", "num_simultaneous_objects"]},
+                "structure": {"enum": ["pyramid", "tower", "match_setup"]},
+                "order": {
+                    "type": "array",
+                    "items": {"$ref": "#/$defs/buildingObject"}
+                },
+                "on": { "$ref": "#/$defs/objectWithPredicates" }
+            },
+            "required": ["objects", "goal"],
+            "additionalProperties": false
+        },
+        "organizing": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "what": {
+                        "type": "array",
+                        "items": {"$ref": "#/$defs/moveableObject"}
+                    },
+                    "from": { "$ref": "#/$defs/objectWithPredicates" },
+                    "to": {
+                        "type": "array",
+                        "items": {"$ref": "#/$defs/objectWithPredicates"}
+                    },
+                    "condition": { "enum": ["order", "same_color"] }
+                },
+                "required": ["what", "to"]
+            }
+        }
+    },
+    "additionalProperties": false,
+
+    "$defs": {
+        "objectWithPredicates": {
+            "type": "object",
+            "properties": {
+                "object": {"$ref": "#/$defs/anyObject"},
+                "predicates": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "object": {"$ref": "#/$defs/anyObject"},
+                            "predicate": {"$ref": "#/$defs/predicate"},
+                            "negate": {"type": "boolean", "default": false}
+                        },
+                        "required": ["predicate"],
+                        "additionalProperties": false
+                    }
+                }
+            },
+            "required": ["object"],
+            "additionalProperties": false
+        },
+        "anyObject": {"anyOf": [
+            {"$ref": "#/$defs/schemaReferences"},
+            {"$ref": "#/$defs/immoveableObject"},
+            {"$ref": "#/$defs/moveableObject"},
+            {"const": "agent"}
+        ]},
+        "schemaReferences": {"enum": ["from"]},
+        "immoveableObject": {"enum": ["desk", "room_corner", "floor", "room_center", "rug", "door", "shelf", "building", "bed", "drawer", "top_drawer", "west_wall", "south_wall", "wall", "room_side", "sliding_door", "desk_shelf", "side_table", "east_sliding_door", "top_shelf", "south_west_corner"]},
+
+        "moveableObject": {"anyOf": [
+            {"$ref": "#/$defs/throwingObject"},
+            {"$ref": "#/$defs/buildingObject"},
+            {"$ref": "#/$defs/otherObject"},
+            {"const": ""}
+        ]},
+        "throwingObject": {"enum": ["ball", "golfball", "dodgeball", "basketball", "beachball", "teddy_bear", "book", "cube_block", "laptop", "pink_dodgeball", "green_golfball", "alarm_clock", "cellphone", "mug", "key_chain", "cd", "game_object", "red_dodgeball", "blue_cube_block", "yellow_cube_block", "triangle_block", "pyramid_block", "pillow"]},
+        "buildingObject": {"enum": ["any", "block", "pyramid_block", "bridge_block", "flat_block", "tall_cylindrical_block", "cube_block", "cylindrical_block", "triangular_block", "hexagonal_bin", "game_object"] },
+        "otherObject": {"enum": ["doggie_bed", "curved_wooden_ramp",  "hexagonal_bin", "pillow", "chair", "triangular_ramp", "key_chain", "cellphone", "mug", "cd", "watch", "credit_card", "alarm_clock", "main_light_switch", "small_ramp", "green_triangular_ramp", "desktop", "blinds", "pencil", "pen", "pink", "yellow", "pink_object", "blue_object", "brown_object", "pillow", "green_object", "tan_object"]},
+
+        "predicate": {"enum": ["left", "right", "adjacent", "on", "open", "upside_down", "left", "near", "faces", "touch", "opposite", "equal", "equal_z_position", "toggled_on", "in", "sideways", "above", "behind", "rug_color_under", "between", "upright", "same_color", "equal_x_position", "greater_x_position"]}
+    }
+}

@@ -1,0 +1,107 @@
+{
+    "param_grid": {
+        "fitness__loss_function": ["fitness_softmin_loss"],
+        "fitness__lr": [4e-3, 1e-3],
+        "fitness__k": [256, 512, 1024],
+        "fitness__batch_size": [1, 2, 4]
+    },
+
+    "train_kwargs": {
+        "n_epochs": 25000,
+        "patience_epochs": 500,
+        "use_lr_scheduler": false,
+        "shuffle_negatives": true,
+        "split_validation_from_train": true,
+        "evaluate_opposite_shuffle_mode": false,
+        "full_dataset_on_device": true,
+        "bias_init_margin_ratio": 0.01,
+        "negative_score_reduction": "none"
+    },
+
+    "train_kwargs_l1": {
+        "n_epochs": 25000,
+        "patience_epochs": 500,
+        "use_lr_scheduler": false,
+        "shuffle_negatives": true,
+        "split_validation_from_train": true,
+        "evaluate_opposite_shuffle_mode": false,
+        "full_dataset_on_device": true,
+        "bias_init_margin_ratio": 0.01,
+        "negative_score_reduction": "none",
+        "regularizer": 1
+    },
+
+    "train_kwargs_l2": {
+        "n_epochs": 25000,
+        "patience_epochs": 500,
+        "use_lr_scheduler": false,
+        "shuffle_negatives": true,
+        "split_validation_from_train": true,
+        "evaluate_opposite_shuffle_mode": false,
+        "full_dataset_on_device": true,
+        "bias_init_margin_ratio": 0.01,
+        "negative_score_reduction": "none",
+        "weight_decay": 0.003
+    },
+
+    "cv_kwargs": {
+        "refit": "overall_ecdf",
+        "error_score": "raise"
+    },
+
+    "cv_kwargs_refit_loss": {
+        "refit": "loss",
+        "error_score": "raise"
+    },
+
+    "ignore_categories_mapping": {
+        "minimal_counting_grammar_use_forall": ["forall_less_important", "counting_less_important", "grammar_use_less_important", "predicate_under_modal", "predicate_role_filler", "compositionality"],
+        "minimal_counting_grammar_use": ["counting_less_important", "grammar_use_less_important", "predicate_under_modal", "predicate_role_filler", "compositionality"],
+        "minimal_counting": ["counting_less_important", "predicate_under_modal", "predicate_role_filler", "compositionality"],
+        "minimal": ["counting", "predicate_under_modal", "predicate_role_filler", "compositionality"]
+    },
+
+    "param_grid_baseline": {
+        "fitness__loss_function": ["fitness_softmin_loss", "fitness_softmin_loss_positive_to_all_negatives"],
+        "fitness__lr": [4e-3, 1e-3],
+        "fitness__k": [256, 512, 1024],
+        "fitness__batch_size": [1, 2, 4]
+    },
+
+    "param_grid_full": {
+        "fitness__loss_function": ["fitness_softmin_loss", "fitness_softmin_loss_positive_to_all_negatives"],
+        "fitness__lr": [4e-3, 1e-3, 3e-4],
+        "fitness__k": [256, 512, 1024],
+        "fitness__batch_size": [1, 2, 4, 8, 16]
+    },
+
+    "param_grid_minimal": {
+        "fitness__loss_function": ["fitness_softmin_loss"],
+        "fitness__lr": [4e-3],
+        "fitness__k": [1024],
+        "fitness__batch_size": [4]
+    },
+
+    "param_grid_l1": {
+        "fitness__loss_function": ["fitness_softmin_loss"],
+        "fitness__lr": [4e-3, 1e-3],
+        "fitness__k": [256, 512, 1024],
+        "fitness__batch_size": [1, 2, 4],
+        "fitness__regularization_weight": [0.03]
+    },
+
+    "param_grid_l1_sweep": {
+        "fitness__loss_function": ["fitness_softmin_loss"],
+        "fitness__lr": [4e-3, 1e-3],
+        "fitness__k": [256, 512, 1024],
+        "fitness__batch_size": [1, 2, 4],
+        "fitness__regularization_weight": [0.01, 0.03, 0.1]
+    },
+
+    "param_grid_l2": {
+        "fitness__loss_function": ["fitness_softmin_loss"],
+        "fitness__lr": [4e-3, 1e-3],
+        "fitness__k": [256, 512, 1024],
+        "fitness__batch_size": [1, 2, 4]
+    }
+}

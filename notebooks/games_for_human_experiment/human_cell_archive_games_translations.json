@@ -1,0 +1,512 @@
+[
+    {
+        "key": [
+            1,
+            0,
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            1,
+            0,
+            0
+        ],
+        "text": "To set up the game, place a hexagonal bin on the floor. The game involves two types of actions: throwing a blue cylindrical block into the bin and picking up, releasing, and picking up again a pyramid block. Additionally, by the end of the game, a red pyramid block should be stacked on top of a cylindrical block, which is in turn stacked on a regular block. Your score is calculated by multiplying 19 by the number of times you've successfully completed each of these actions."
+    },
+    {
+        "key": [
+            1,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "To set up the game, place a hexagonal bin on the floor. The game involves throwing balls and dodgeballs so that they land on the hexagonal bin and stop moving. Your score at the end of the game is calculated by multiplying -4 with the number of successful throws you made with both balls and dodgeballs."
+    },
+    {
+        "key": [
+            1,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0
+        ],
+        "text": "To set up the game, place a hexagonal bin near the west sliding door. The game involves two main actions. First, hold a dodgeball and throw it into the hexagonal bin. Second, stack a cube block and a red pyramid block on a cylindrical block in such a way that the red pyramid block is also on the cube block. The game ends when both these actions have been completed. Your score is calculated by multiplying -6 by the number of times you've successfully completed both actions."
+    },
+    {
+        "key": [
+            1,
+            0,
+            2,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+        ],
+        "text": "To set up the game, place a hexagonal bin near the center of the room. The game involves throwing dodgeballs either onto a desk or into the hexagonal bin. Your score at the end of the game is calculated by multiplying 20 by the number of successful throws you made onto the desk and into the bin."
+    },
+    {
+        "key": [
+            1,
+            1,
+            2,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+        ],
+        "text": "To play this game, hold a ball and throw it. The goal is to get the ball to stop moving inside a hexagonal bin. Your score at the end of the game is 15 times the number of successful throws you made into the bin."
+    },
+    {
+        "key": [
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "To play this game, pick up a beachball and throw it so that it lands on a hexagonal bin. The game ends when you decide to stop, and your score is the number of times you successfully land a beachball on the bin."
+    },
+    {
+        "key": [
+            1,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0
+        ],
+        "text": "To set up the game, place a hexagonal bin on the floor. The game involves throwing balls into either the hexagonal bin or the bottom drawer. Your score at the end of the game is calculated by multiplying -4 by the number of successful throws you made into either the hexagonal bin or the bottom drawer."
+    },
+    {
+        "key": [
+            1,
+            0,
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+        ],
+        "text": "To set up the game, place a hexagonal bin in the center of the room. The game involves throwing balls and dodgeballs. You can throw a ball so it lands on the hexagonal bin, throw a dodgeball so it lands inside the hexagonal bin, or throw a dodgeball so it lands on a doggie bed. At the end of the game, your score is calculated by multiplying 19 by the number of successful throws you made for each of these three tasks."
+    },
+    {
+        "key": [
+            1,
+            1,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0
+        ],
+        "text": "To play this game, throw balls into either a hexagonal bin or the bottom drawer. Your score at the end of the game is calculated by multiplying 19 by the number of successful throws into both the hexagonal bin and the bottom drawer."
+    },
+    {
+        "key": [
+            1,
+            1,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "To play this game, throw balls so that they land and stop moving either on a hexagonal bin or on the bottom drawer. Your score at the end of the game is 14 times the number of successful throws that satisfy both conditions."
+    },
+    {
+        "key": [
+            1,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "To set up the game, place every ball near the desk. The objective of the game is to throw these balls onto the desk. Your score at the end of the game is determined by the number of different balls you successfully threw onto the desk."
+    },
+    {
+        "key": [
+            1,
+            1,
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+        ],
+        "text": "To play this game, throw dodgeballs and basketballs into or onto a hexagonal bin. Your score at the end of the game is 19 times the number of successful throws you made with each type of ball into or onto the bin."
+    },
+    {
+        "key": [
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "To play this game, place objects on the desk and ensure they are not in motion. The game ends when you decide to stop, and your score is equal to the number of different objects that you successfully placed on the desk."
+    },
+    {
+        "key": [
+            1,
+            0,
+            2,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "To set up the game, place a hexagonal bin on the floor. The game involves throwing balls into the bin. Specifically, you must hold a ball, throw it, and have it land and stop moving inside the bin. This applies to both dodgeballs and other balls. Your score at the end of the game is calculated by multiplying -4 by the number of successful throws you made, regardless of the type of ball used."
+    },
+    {
+        "key": [
+            1,
+            1,
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+        ],
+        "text": "To play this game, throw balls and other objects. Preference 1 is satisfied when you throw a ball and it lands on a hexagonal bin. Preference 2 is satisfied when you throw a ball while standing next to a tan cylindrical block. Preference 3 is satisfied when you throw any object while standing next to a side table. At the end of the game, your score is calculated by multiplying the number of times each preference has been satisfied by 17."
+    },
+    {
+        "key": [
+            1,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+        ],
+        "text": "To set up the game, place a hexagonal bin near the west wall. The game involves throwing balls with the aim of landing them either inside the hexagonal bin or on the bottom drawer. Your score at the end of the game is seven times the number of successful throws that satisfy either of these conditions."
+    },
+    {
+        "key": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "To set up the game, place a hexagonal bin near the west sliding door. The objective of the game is to throw balls into the bin. Your score at the end of the game is calculated by multiplying -8 by the number of successful throws you made into the bin."
+    },
+    {
+        "key": [
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+        ],
+        "text": "To set up the game, place a hexagonal bin on the floor. The objective of the game is to throw dodgeballs into the bin. Your score at the end of the game is equal to the number of successful throws you made into the bin."
+    },
+    {
+        "key": [
+            1,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "To play this game, pick up a ball and throw it so that it lands and stops moving on the desk. Your score at the end of the game is determined by the number of different balls you successfully land on the desk."
+    },
+    {
+        "key": [
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+        ],
+        "text": "To play this game, pick up a dodgeball and throw it into a hexagonal bin. The game ends when you decide to stop, and your score is equal to the number of successful throws you made into the bin."
+    },
+    {
+        "key": [
+            1,
+            0,
+            2,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+        ],
+        "text": "To set up the game, place a hexagonal bin near the west wall. The game involves throwing balls into the bin. Each successful throw that results in a ball stopping inside the bin earns you points. The game ends when you decide to stop playing, and your final score is 40 times the number of successful throws you made."
+    },
+    {
+        "key": [
+            1,
+            0,
+            2,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "To set up the game, place every dodgeball near the desk. The objective of the game is to throw dodgeballs onto the desk. The game ends after you've successfully thrown a dodgeball onto the desk 16 times. Your score at the end of the game is 14 times the number of successful throws you made."
+    },
+    {
+        "key": [
+            1,
+            0,
+            2,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "To set up the game, place all dodgeballs near the desk. The game involves throwing dodgeballs either onto the bed or onto the floor. The game ends after you've successfully thrown a dodgeball onto the bed at least 16 times. Your final score is 19 times the number of successful throws you made onto both the bed and the floor."
+    },
+    {
+        "key": [
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+        ],
+        "text": "To play this game, stack a red pyramid block on top of a cylindrical block, which should also be on top of another block. At the end of the game, your score is calculated by multiplying -4 by the number of times you've successfully created this specific block arrangement."
+    },
+    {
+        "key": [
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "To set up the game, place a drawer near the floor. The objective of the game is to place different objects inside the bottom drawer, ensuring they are not in motion. The game concludes when you decide to stop, and your score is determined by the number of different objects you successfully placed in the drawer."
+    },
+    {
+        "key": [
+            1,
+            0,
+            4,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+        ],
+        "text": "To set up the game, place a hexagonal bin on the floor. The game involves throwing balls with the aim of landing them on specific locations. The first preference is to throw a dodgeball and have it land on the desk. The second preference is to throw a dodgeball into the hexagonal bin. The third preference is to throw any ball and have it land on the bed. The fourth preference is to throw any ball into the hexagonal bin. At the end of the game, your score is calculated by multiplying -7 by the number of times each preference has been satisfied."
+    },
+    {
+        "key": [
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "To set up the game, place a hexagonal bin on the floor. The objective of the game is to throw dodgeballs into the bin. Your score at the end of the game is equal to the number of successful throws you made into the bin."
+    },
+    {
+        "key": [
+            1,
+            1,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0
+        ],
+        "text": "To play this game, you need to pick up a block, throw it, and then pick it up again after it has stopped moving. You can also score by simply picking up a block and throwing it. Your score at the end of the game is calculated by multiplying -8 by the number of times you've satisfied either of these actions."
+    },
+    {
+        "key": [
+            1,
+            0,
+            3,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0
+        ],
+        "text": "To set up the game, place a hexagonal bin near the west sliding door. The game involves throwing balls and specifically dodgeballs into the bin. The game has three preferences: throwing any ball into the bin, throwing a dodgeball into the bin, and simply throwing a dodgeball. At the end of the game, your score is calculated by multiplying -6 by the number of times each preference has been satisfied."
+    },
+    {
+        "key": [
+            1,
+            1,
+            2,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "To play this game, hold a ball and throw it. The goal is to get the ball to stop moving inside a hexagonal bin and on the bin. Your score at the end of the game is calculated by multiplying -4 with the number of times you've thrown a ball and the number of times you've successfully landed a ball in the bin."
+    }
+]

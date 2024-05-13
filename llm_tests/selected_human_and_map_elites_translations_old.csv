@@ -1,0 +1,523 @@
+Section,Stage 0,Stage 1 (Automated),Stage 2 (Human),Stage 3 (Human)
+game-8,,,,
+SETUP,"(:setup (and
+    (exists (?c - curved_wooden_ramp)
+        (game-conserved (on floor ?c))
+    )
+))","In order to set up the game, the following must all be true for every time step:
+- there exists an object ?c of type curved_wooden_ramp, such that ?c is on floor","In order to set up the game, put a curved wooden ramp on the floor and make sure it stays there for the duration of the game","In order to set up the game, put a curved wooden ramp on the floor and make sure it stays there for the duration of the game. Then, stand in front of the ramp and throw dodgeballs so they touch the ramp and then land behind it. The game ends after you successfully throw a dodgeball in this way. You get 3 points if you did so in one attempt, 2 points if you did so in two attempts, and 1 point if you did so in three or more attempts."
+PREFERENCES,"(:constraints (and
+    (preference throwOverRamp  ; TODO: does this quanitfy over reasonably?
+        (exists (?d - dodgeball ?c - curved_wooden_ramp)
+            (then
+                (once (and
+                    (agent_holds ?d)
+                    (< (distance_side ?c front agent) (distance_side ?c back agent))
+                ))
+                (hold-while
+                    (and (not (agent_holds ?d)) (in_motion ?d))
+                    (on ?c ?d)
+                )
+                (once (and
+                    (not (in_motion ?d))
+                    (< (distance_side ?c back ?d) (distance_side ?c front ?d))
+                ))
+            )
+        )
+    )
+    (preference throwAttempt
+        (exists (?b - dodgeball)
+            (then
+                (once (agent_holds ?b))
+                (hold (and (not (agent_holds ?b)) (in_motion ?b)))
+                (once (not (in_motion ?b)))
+            )
+        )
+    )
+))","The preferences of the game are:
+
+-----Preference 1-----
+    The variables required by this preference are:
+    -?c of type curved_wooden_ramp
+    -?d of type dodgeball
+
+    This preference is satisfied when:
+    - first, there is a state where (the agent is holding ?d) and (the distance between agent and the front of ?c is less than the distance between agent and the back of ?c)
+    - next, there is a sequence of one or more states where (it's not the case that the agent is holding ?d) and (?d is in motion) Additionally, during this sequence there is a state where (?d is on ?c) (in that order).
+    - finally, there is a state where (it's not the case that ?d is in motion) and (the distance between ?d and the back of ?c is less than the distance between ?d and the front of ?c)
+
+-----Preference 2-----
+    The variables required by this preference are:
+    -?b of type dodgeball
+
+    This preference is satisfied when:
+    - first, there is a state where the agent is holding ?b
+    - next, there is a sequence of one or more states where (it's not the case that the agent is holding ?b) and (?b is in motion)
+    - finally, there is a state where it's not the case that ?b is in motion","The preferences of the game are:
+
+-----Preference 1-----
+This preference is satisfied when:
+-first, the agent holds a dodgeball and is standing closer to the front of a curved wooden ramp than the back of the ramp
+-next, the agent throws the dodgeball and it touches the ramp during its flight
+-finally, the dodgeball stops moving and is closer to the back of the ramp than the front of the ramp
+
+-----Preference 2-----
+This preference is satisfied when:
+-first, the agent holds a dodgeball
+-next, the agent throws the dodgeball
+-finally, the dodgeball stops moving",
+TERMINAL,"(:terminal (>= (count-once throwOverRamp) 1)
+)","The game ends when min(1, the number of times 'Preference 1' has been satisfied) is greater than or equal to 1",The game ends when Preference 1 has been satisfied at least once,
+SCORING,"(:scoring (+
+    (* 3 (= (count throwAttempt) 1) (count-once throwOverRamp))
+    (* 2 (= (count throwAttempt) 2) (count-once throwOverRamp))
+    (* (>= (count throwAttempt) 3) (count-once throwOverRamp))
+)","At the end of the game, the player's score is the sum of (the product of (3); (the number of times 'Preference 2' has been satisfied is equal to 1); and (min(1, the number of times 'Preference 1' has been satisfied))); (the product of (2); (the number of times 'Preference 2' has been satisfied is equal to 2); and (min(1, the number of times 'Preference 1' has been satisfied))); and (the product of (the number of times 'Preference 2' has been satisfied is greater than or equal to 3) and (min(1, the number of times 'Preference 1' has been satisfied)))","At the end of the game, the player's score is 3 if Preference 1 is satisfied once and Preference 2 is satisfied once; their score is 2 if Preference 1 is satisfied once and Preference 2 is satisfied twice; and their score is 1 if Preference 1 is satisfied once and Preference 2 is satisfied 3 or more times",
+game-3,,,,
+SETUP,,,,"To play this game, make buildings out of blocks. At the end of the game, your score is equal to the largest number of different blocks used to make any of the current buildings."
+PREFERENCES,"(:constraints (and
+    (forall (?b - building)
+        (preference blockInTowerAtEnd (exists (?l - block)
+            (at-end (in ?b ?l))
+        ))
+    )
+))","The preferences of the game are:
+
+-----Preference 1-----
+    The variables required by this preference are:
+    -?b of type building
+    -?l of type block
+
+    This preference is satisfied when:
+    - in the final game state, ?l is inside of ?b","The preferences of the game are:
+
+-----Preference 1-----
+This preference is satisfied when:
+-at the end of the game, a block is used as part of a building",
+TERMINAL,,,,
+SCORING,"(:scoring (external-forall-maximize
+    (count-once-per-objects blockInTowerAtEnd)
+))","At the end of the game, the player's score is the maximum value of (the number of times 'Preference 1' has been satisfied with different objects) over all quantifications of ?b (of type building)
+","At the end of the game, the player's score is equal to the greatest number of times Preference 1 had been satisfied with different objects within a particular building ",
+game-22,,,,
+SETUP,"(:setup (and
+    (exists (?h - hexagonal_bin) (game-conserved (adjacent bed ?h)))
+    (forall (?b - ball) (game-optional (on rug ?b)))
+    (game-optional (not (exists (?g - game_object) (on desk ?g))))
+))","In order to set up the game, the following must all be true for at least one time step:
+- for any object ?b of type ball, ?b is on rug
+- it's not the case that there exists an object ?g of type game_object, such that ?g is on desk
+
+and in addition, the following must all be true for every time step:
+- there exists an object ?h of type hexagonal_bin, such that bed is adjacent to ?h","In order to set up the game, put every ball on the rug and make sure that there are no objects on the desk. In addition, put a hexagonal bin next to the bed and make sure that it stays there throughout the game","In order to set up the game, put every ball on the rug and make sure that there are no objects on the desk. In addition, put a hexagonal bin next to the bed and make sure that it stays there throughout the game. Then, throw balls into the bin while standing on the either the red, yellow, or pink sections of the rug. The game ends after you've made at least 8 throw attempts. Your score at the end of the game depends on the number of successful throws into the bin made with different kinds of balls while standing on differently-colored sections of the rug. While standing on a red section, successful throws with a dodgeball are worth 2 points, throws with a basketball are worth 3 points, and throws with a beachball are worth 4 points. While standing on a pink section, dodgeball throws give 3 points, basketball throws give 4 points, and beachball throws give 5 points. Finally, while standing on a yellow section, dodgeball throws give 4 points, basketball throws give 5 points, and beachball throws give 6 points."
+PREFERENCES,"(:constraints (and
+    (forall (?b - ball ?x - (either red yellow pink))
+        (preference throwBallToBin
+            (exists (?h - hexagonal_bin)
+                (then
+                    (once (and (agent_holds ?b) (on rug agent) (rug_color_under agent ?x)))
+                    (hold (and (not (agent_holds ?b)) (in_motion ?b)))
+                    (once (and (not (in_motion ?b)) (in ?h ?b)))
+                )
+            )
+        )
+    )
+    (preference throwAttempt
+        (exists (?b - ball)
+            (then
+                (once (and (agent_holds ?b) (on rug agent)))
+                (hold (and (not (agent_holds ?b)) (in_motion ?b)))
+                (once (not (in_motion ?b)))
+            )
+        )
+    )
+))","The preferences of the game are:
+
+-----Preference 1-----
+    The variables required by this preference are:
+    -?b of type ball
+    -?x of type red, yellow, or pink
+    -?h of type hexagonal_bin
+
+    This preference is satisfied when:
+    - first, there is a state where (the agent is holding ?b), (agent is on rug), and (the color of the rug under agent is ?x)
+    - next, there is a sequence of one or more states where (it's not the case that the agent is holding ?b) and (?b is in motion)
+    - finally, there is a state where (it's not the case that ?b is in motion) and (?b is inside of ?h)
+
+-----Preference 2-----
+    The variables required by this preference are:
+    -?b of type ball
+
+    This preference is satisfied when:
+    - first, there is a state where (the agent is holding ?b) and (agent is on rug)
+    - next, there is a sequence of one or more states where (it's not the case that the agent is holding ?b) and (?b is in motion)
+    - finally, there is a state where it's not the case that ?b is in motion","The preferences of the game are:
+
+-----Preference 1-----
+This preference is satisfied when:
+-first, the agent holds a ball while standing on a section of the rug that is either red, yellow, or pink
+-next, the agent throws the ball
+-finally, the ball lands in the bin and stops moving
+
+-----Preference 2-----
+This preference is satisfied when:
+-first, the agent holds a ball while standing on the rug
+-next, the agent throws the ball
+-finally, the ball stops moving",
+TERMINAL,"(:terminal
+    (>= (count throwAttempt) 8)
+)",The game ends when the number of times 'Preference 2' has been satisfied is greater than or equal to 8,The game ends when Preference 2 has been satisfied at least 8 times,
+SCORING,"(:scoring (+
+    (* 2 (count throwBallToBin:dodgeball:red))
+    (* 3 (count throwBallToBin:basketball:red))
+    (* 4 (count throwBallToBin:beachball:red))
+    (* 3 (count throwBallToBin:dodgeball:pink))
+    (* 4 (count throwBallToBin:basketball:pink))
+    (* 5 (count throwBallToBin:beachball:pink))
+    (* 4 (count throwBallToBin:dodgeball:yellow))
+    (* 5 (count throwBallToBin:basketball:yellow))
+    (* 6 (count throwBallToBin:beachball:yellow))
+))","At the end of the game, the player's score is the sum of (the product of (2) and (the number of times 'Preference 1' has been satisfied, where ?b is bound to an object of type dodgeball and ?x is bound to an object of type red)); (the product of (3) and (the number of times 'Preference 1' has been satisfied, where ?b is bound to an object of type basketball and ?x is bound to an object of type red)); (the product of (4) and (the number of times 'Preference 1' has been satisfied, where ?b is bound to an object of type beachball and ?x is bound to an object of type red)); (the product of (3) and (the number of times 'Preference 1' has been satisfied, where ?b is bound to an object of type dodgeball and ?x is bound to an object of type pink)); (the product of (4) and (the number of times 'Preference 1' has been satisfied, where ?b is bound to an object of type basketball and ?x is bound to an object of type pink)); (the product of (5) and (the number of times 'Preference 1' has been satisfied, where ?b is bound to an object of type beachball and ?x is bound to an object of type pink)); (the product of (4) and (the number of times 'Preference 1' has been satisfied, where ?b is bound to an object of type dodgeball and ?x is bound to an object of type yellow)); (the product of (5) and (the number of times 'Preference 1' has been satisfied, where ?b is bound to an object of type basketball and ?x is bound to an object of type yellow)); and (the product of (6) and (the number of times 'Preference 1' has been satisfied, where ?b is bound to an object of type beachball and ?x is bound to an object of type yellow))","At the end of the game, the player gets 2 points for every successful throw with a dodgeball while standing on a red section, 3 points for every successful throw with a basketball while standing on a red section, and 4 points for every successful throw with a beachball while standing on a red section. The player also gets 3 points for every successful throw with a dodgeball while standing on a pink section, 4 points for every successful throw with a basketball while standing on a pink section, and 5 points for every successful throw with a beachball while standing on a pink section. Finally, the player gets 4 points for every successful throw with a dodgeball while standing on a yellow section, 5 points for every successful throw with a basketball while standing on a yellow section, and 6 points for every successful throw with a beachball while standing on a yellow section",
+game-53,,,,
+SETUP,,,,"To play this game, clean up by putting balls in a bin in the corner of room, putting cube blocks on a shelf, and putting cellphones / keychains / mugs / credit cards / CDs / watches / alarm clocks in a drawer. You get 5 points for every object successfully put away at the end of the game."
+PREFERENCES,"(:constraints (and
+    (preference dodgeballsInPlace
+        (exists (?d - dodgeball ?h - hexagonal_bin ?w1 ?w2 - wall)
+            (at-end (and (in ?h ?d) (adjacent ?h ?w1) (adjacent ?h ?w2)))
+        )
+    )
+    (preference blocksInPlace
+        (exists (?c - cube_block ?s - shelf)
+            (at-end (on ?s ?c))
+        )
+    )
+    (preference smallItemsInPlace
+        (exists (?o - (either cellphone key_chain mug credit_card cd watch alarm_clock) ?d - drawer)
+            (at-end (and
+                (in ?d ?o)
+            ))
+        )
+    )
+))","The preferences of the game are:
+
+-----Preference 1-----
+    The variables required by this preference are:
+    -?d of type dodgeball
+    -?h of type hexagonal_bin
+    -?w1 and ?w2 of type wall
+
+    This preference is satisfied when:
+    - in the final game state, (?d is inside of ?h), (?h is adjacent to ?w1), and (?h is adjacent to ?w2)
+
+-----Preference 2-----
+    The variables required by this preference are:
+    -?c of type cube_block
+    -?s of type shelf
+
+    This preference is satisfied when:
+    - in the final game state, ?c is on ?s
+
+-----Preference 3-----
+    The variables required by this preference are:
+    -?o of type cellphone, key_chain, mug, credit_card, cd, watch, or alarm_clock
+    -?d of type drawer
+
+    This preference is satisfied when:
+    - in the final game state, (?o is inside of ?d)","The preferences of the game are:
+
+-----Preference 1-----
+This preference is satisfied when:
+-at the end of the game, a dodgeball is in a hexagonal bin and the bin is adjacent to two walls
+
+-----Preference 2-----
+This preference is satisfied when:
+-at the end of the game, a cube block is on a shelf
+
+-----Preference 3-----
+This preference is satisfied when:
+-at the end of the game, a cellphone, keychain, mug, credit card, CD, watch, or alarm clock is in a drawer",
+TERMINAL,,,,
+SCORING,"(:scoring (+
+    (* 5 (count-once-per-objects dodgeballsInPlace))
+    (* 5 (count-once-per-objects blocksInPlace))
+    (* 5 (count-once-per-objects smallItemsInPlace))
+))","At the end of the game, the player's score is the sum of (the product of (5) and (the number of times 'Preference 1' has been satisfied with different objects)), (the product of (5) and (the number of times 'Preference 2' has been satisfied with different objects)), and (the product of (5) and (the number of times 'Preference 3' has been satisfied with different objects))","At the end of the game, the player gets 5 points for every different set of objects used to satisfy Preference 1, 5 points for every different set of objects used to satisfy Preference 2, and 5 points for every different set of objects used to satisfy Preference 3",
+game-41,,,,
+SETUP,"(:setup (and
+    (exists (?w1 ?w2 - wall) (and
+        (game-conserved (opposite ?w1 ?w2))
+        (forall (?b - bridge_block) (game-conserved (and
+            (on floor ?b)
+            (= (distance ?w1 ?b) (distance ?w2 ?b))
+        )))
+        (forall (?g - game_object) (game-optional (or
+            (same_type ?g bridge_block)
+            (> (distance ?w1 ?g) (distance ?w2 ?g))
+        )))
+    ))
+))","In order to set up the game, the following must all be true for every time step:
+- there exists objects ?w1 and ?w2 of type wall, such that the following must all be true for at least one time step:
+- for any object ?g of type game_object, (?g is of the same type as bridge_block) or (the distance between ?w1 and ?g is greater than the distance between ?w2 and ?g)
+
+and in addition, the following must all be true for every time step:
+- ?w1 is opposite ?w2
+- for any object ?b of type bridge_block, (?b is on floor) and (the distance between ?w1 and ?b is equal to the distance between ?w2 and ?b)","In order to set up the game, pick two walls opposite of one another. Put every bridge block on the floor so that they are equidistant from both walls and make sure that they stay there throughout the game. Then put every other object closer to one wall than to the other.","In order to set up the game, pick two walls opposite of one another. Put every bridge block on the floor so that they are equidistant from both walls and make sure that they stay there throughout the game. Then put every other object closer to one wall than to the other. To play the game, pick up objects that are closer to one wall than another and move them so that they're closer to the other wall. The game ends after 30 seconds, and your score is the number of different objects that you moved from one side to the other."
+PREFERENCES,"(:constraints (and
+    (forall (?w1 ?w2 - wall)
+        (preference objectMovedRoomSide (exists (?g - game_object)
+            (then
+                (once (and
+                    (not (agent_holds ?g))
+                    (not (in_motion ?g))
+                    (not (same_type ?g bridge_block))
+                    (> (distance ?w1 ?g) (distance ?w2 ?g))
+                ))
+                (hold (or
+                    (agent_holds ?g)
+                    (in_motion ?g)
+                ))
+                (once (and
+                    (not (in_motion ?g))
+                    (< (distance ?w1 ?g) (distance ?w2 ?g))
+                ))
+            )
+        ))
+    )
+))","The preferences of the game are:
+
+-----Preference 1-----
+    The variables required by this preference are:
+    -?w1 and ?w2 of type wall
+    -?g of type game_object
+
+    This preference is satisfied when:
+    - first, there is a state where (it's not the case that the agent is holding ?g), (it's not the case that ?g is in motion), (it's not the case that ?g is of the same type as bridge_block), and (the distance between ?w1 and ?g is greater than the distance between ?w2 and ?g)
+    - next, there is a sequence of one or more states where (the agent is holding ?g) or (?g is in motion)
+    - finally, there is a state where (it's not the case that ?g is in motion) and (the distance between ?w1 and ?g is less than the distance between ?w2 and ?g)","The preferences of the game are:
+
+-----Preference 1-----
+This preference is satisfied when:
+-first, there's an object which isn't a bridge block, isn't moving or held by the agent, and is closer to one wall than another
+-next, the agent picks up and moves the object
+-finally, the object stops moving and is closer to the second wall than the first",
+TERMINAL,"(:terminal
+    (>= (total-time) 30)
+)",The game ends when (total-time) is greater than or equal to 30,The game ends after 30 seconds have elapsed,
+SCORING,"(:scoring (external-forall-maximize
+    (count-once-per-objects objectMovedRoomSide)
+))","At the end of the game, the player's score is the maximum value of (the number of times 'Preference 1' has been satisfied with different objects) over all quantifications of ?w1 (of type wall) and ?w2 (of type wall)","At the end of the game, the player's score is equal to the number of times Preference 1 was satisfied with different objects, maximized over the different choices of wall",
+MAP-Elites Game 1,,,,
+SETUP,,,,"To play this game, place dodgeballs so that they're either in a hexagonal bin or touching a pillow. The game ends after at least one dodgeball is in a hexagonal bin, and your score is equal to the number of objects in the room that aren't cylindrical blocks for each pair of dodgeball and pillow that are touching. "
+PREFERENCES,"(:constraints
+  (and
+    (preference preference0
+      (exists (?v0 - dodgeball ?v1 - hexagonal_bin)
+        (at-end
+          (in ?v1 ?v0)
+       )
+     )
+   )
+    (preference preference1
+      (exists (?v1 - dodgeball ?v2 - pillow ?v3 - game_object)
+        (at-end
+          (and
+            (not
+              (same_type ?v3 cylindrical_block)
+           )
+            (touch ?v2 ?v1)
+         )
+       )
+     )
+   )
+ )
+)","The preferences of the game are:
+
+-----Preference 1-----
+    The variables required by this preference are:
+    -?v0 of type dodgeball
+    -?v1 of type hexagonal_bin
+
+    This preference is satisfied when:
+    - in the final game state, ?v0 is inside of ?v1
+
+-----Preference 2-----
+    The variables required by this preference are:
+    -?v1 of type dodgeball
+    -?v3 of type game_object
+    -?v2 of type pillow
+
+    This preference is satisfied when:
+    - in the final game state, (it's not the case that ?v3 is of the same type as cylindrical_block) and (?v2 touches ?v1)","The preferences of the game are:
+
+-----Preference 1-----
+This preference is satisfied when:
+-at the end of the game, a dodgeball is inside a hexagonal bin
+
+-----Preference 2-----
+This preference is satisfied when:
+-at the end of the game, a dodgeball is touching a pillow and there's an object in the room that is not a cylindrical block",
+TERMINAL,"(:terminal
+  (or
+    (>= (count preference0) 1)
+ )
+)",The game ends when (the number of times 'Preference 1' has been satisfied is greater than or equal to 1),The game ends when Preference 1 has been satisfied at least once,
+SCORING,"(:scoring
+  (count preference1)
+)","At the end of the game, the player's score is the number of times 'Preference 2' has been satisfied","At the end of the game, the player's score is the number of times Preference 2 has been satisfied",
+MAP-Elites Game 2,,,,
+SETUP,"(:setup
+  (and
+    (exists (?v0 - triangular_ramp)
+      (game-conserved
+        (and
+          (adjacent ?v0 agent)
+       )
+     )
+   )
+ )
+)","In order to set up the game, the following must all be true for every time step:
+- there exists an object ?v0 of type triangular_ramp, such that (?v0 is adjacent to agent)","In order to set up the game, stand next to a triangular ramp and stay there throughout the game","In order to set up the game, stand next to a triangular ramp and stay there throughout the game. To play the game adjust objects in the room so that they're not moving and the object is closer to the rug than to the north wall of the room. The game ends after at least one object is not moving and closer to the rug, and your score is equal to the number of different objects that meet the conditions."
+PREFERENCES,"(:constraints
+  (and
+    (preference preference0
+      (exists (?v0 - game_object)
+        (at-end
+          (and
+            (not
+              (in_motion ?v0)
+           )
+            (< (distance rug ?v0) (distance north_wall ?v0))
+         )
+       )
+     )
+   )
+ )
+)","The preferences of the game are:
+
+-----Preference 1-----
+    The variables required by this preference are:
+    -?v0 of type game_object
+
+    This preference is satisfied when:
+    - in the final game state, (it's not the case that ?v0 is in motion) and (the distance between rug and ?v0 is less than the distance between north_wall and ?v0)","The preferences of the game are:
+
+-----Preference 1-----
+This preference is satisfied when:
+-at the end of the game, an object in the room isn't moving and is closer to the rug than to the north wall of the room",
+TERMINAL,"(:terminal
+  (or
+    (>= (count preference0) 1)
+    (>= (count preference0) 1)
+ )
+)",The game ends when (the number of times 'Preference 1' has been satisfied is greater than or equal to 1) or (the number of times 'Preference 1' has been satisfied is greater than or equal to 1),The game ends when Preference 1 has been satisfied at least once,
+SCORING,"(:scoring
+  (count preference0)
+)","At the end of the game, the player's score is the number of times 'Preference 1' has been satisfied","At the end of the game, the player's score is the number of times Preference 1 has been satisfied",
+MAP-Elites Game 3,,,,
+SETUP,,,,"To play the game, cause a book to move without picking it up. At the same time, a bottom shelf needs to be on a doggie bed. The game ends after a book has been made to move in this way at least 14 times, and your score is the number of times a book has been made to move in this way."
+PREFERENCES,"(:constraints
+  (and
+    (preference preference0
+      (exists (?v0 - book ?v1 - doggie_bed ?v2 - bottom_shelf)
+        (then
+          (once (and (not (in_motion ?v0)) (on ?v1 ?v2)))
+          (hold (and (not (agent_holds ?v0)) (in_motion ?v0)))
+          (once (not (in_motion ?v0)))
+       )
+     )
+   )
+ )
+)","The preferences of the game are:
+
+-----Preference 1-----
+    The variables required by this preference are:
+    -?v0 of type book
+    -?v2 of type bottom_shelf
+    -?v1 of type doggie_bed
+
+    This preference is satisfied when:
+    - first, there is a state where (it's not the case that ?v0 is in motion) and (?v2 is on ?v1)
+    - next, there is a sequence of one or more states where (it's not the case that the agent is holding ?v0) and (?v0 is in motion)
+    - finally, there is a state where it's not the case that ?v0 is in motion","The preferences of the game are:
+
+-----Preference 1-----
+This preference is satisfied when:
+-first, a book is not in motion and a bottom shelf is on a doggie bed
+-next, the books moves without being held by the agent
+-finally, the book stops moving",
+TERMINAL,"(:terminal
+  (>= (count preference0) 14)
+)",The game ends when the number of times 'Preference 1' has been satisfied is greater than or equal to 14,The game ends when Preference 1 has been satisfied at least once,
+SCORING,"(:scoring
+  (count preference0)
+)","At the end of the game, the player's score is the number of times 'Preference 1' has been satisfied","At the end of the game, the player's score is the number of times Preference 1 has been satisfied",
+MAP-Elites Game 4,,,,
+SETUP,"(:setup
+  (and
+    (exists (?v0 - curved_wooden_ramp)
+      (game-conserved
+        (and
+          (adjacent bed ?v0)
+       )
+     )
+   )
+ )
+)","In order to set up the game, the following must all be true for every time step:
+- there exists an object ?v0 of type curved_wooden_ramp, such that (bed is adjacent to ?v0)","In order to set up the game, put a curved wooden ramp next to the bed and make sure that it stays there throughout the game","In order to set up the game, put a curved wooden ramp next to the bed and make sure it stays there throughout the game. To play the game, throw balls. The game ends when there at least two objects that are both moving and on the bed. Your score is equal to the number of times you threw a ball."
+PREFERENCES,"(:constraints
+  (and
+    (preference preference0
+      (exists (?v0 - game_object)
+        (at-end
+          (and
+            (in_motion ?v0)
+            (on bed ?v0)
+         )
+       )
+     )
+   )
+    (preference preference1
+      (exists (?v1 - ball)
+        (then
+          (once (agent_holds ?v1))
+          (hold (and (in_motion ?v1) (not (agent_holds ?v1))))
+          (once (not (in_motion ?v1)))
+       )
+     )
+   )
+ )
+)","The preferences of the game are:
+
+-----Preference 1-----
+    The variables required by this preference are:
+    -?v0 of type game_object
+
+    This preference is satisfied when:
+    - in the final game state, (?v0 is in motion) and (?v0 is on bed)
+
+-----Preference 2-----
+    The variables required by this preference are:
+    -?v1 of type ball
+
+    This preference is satisfied when:
+    - first, there is a state where the agent is holding ?v1
+    - next, there is a sequence of one or more states where (?v1 is in motion) and (it's not the case that the agent is holding ?v1)
+    - finally, there is a state where it's not the case that ?v1 is in motion","The preferences of the game are:
+
+-----Preference 1-----
+This preference is satisfied when:
+-at the end of the game, an object is in motion and on the bed
+
+-----Preference 2-----
+This preference is satisfied when:
+-first, the agent holds a ball
+-next, the agent throws the ball
+-finally, the ball stops moving",
+TERMINAL,"(:terminal
+  (or
+    (>= (count preference0) 2)
+ )
+)",The game ends when (the number of times 'Preference 1' has been satisfied is greater than or equal to 2),The game ends when Preference 1 has been satisfied at least twice,
+SCORING,"(:scoring
+  (count preference1)
+)","At the end of the game, the player's score is the number of times 'Preference 2' has been satisfied","At the end of the game, the player's score is the number of times Preference 2 has been satisfied",

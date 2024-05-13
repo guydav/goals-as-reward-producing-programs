@@ -1,0 +1,1591 @@
+{
+    "games": [
+        {
+            "metadata": {
+                "id": "RfP7c4trKFGmDp6xpiG8",
+                "index": 0,
+                "room": "medium_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["basketball", "dodgeball", "beachball"],
+                "on": [{
+                    "object": "triangular_ramp",
+                    "predicates": [{"object": "hexagonal_bin", "predicate": "adjacent"}]
+                }],
+                "goal": ["hit"],
+                "to": [{
+                    "object": "hexagonal_bin"
+                }]
+            }
+        },
+        {
+            "metadata": {
+                "id": "SFpazSkgQ7MFSwDEa3c9",
+                "index": 2,
+                "room": "many_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["dodgeball", "golfball"],
+                "from": [{
+                    "object": "door",
+                    "predicates": [{"predicate": "adjacent"}]
+                }],
+                "goal": ["in"],
+                "to": [
+                    {
+                        "object": "top_drawer",
+                        "predicates": [{"predicate": "open"}]
+                    },
+                    {
+                        "object": "hexagonal_bin"
+                    }
+                ]
+            }
+        },
+        {
+            "metadata": {
+                "id": "lchV8TQjaHcYtHAqR31Q",
+                "index": 3,
+                "room": "many_objects",
+                "notes": "Construction game for num blocks"
+            },
+            "building": {
+                "objects": ["block"],
+                "structure": "tower",
+                "goal": "num_objects"
+            }
+        },
+        {
+            "metadata": {
+                "id": "elaUTwEvCJFrZToj8DBY",
+                "index": 5,
+                "room": "few_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["dodgeball"],
+                "goal": ["in"],
+                "to": [{
+                    "object": "hexagonal_bin"
+                }]
+            }
+        },
+        {
+            "metadata": {
+                "id": "ImigmCOsFcfkSwe0ctO2",
+                "index": 6,
+                "room": "medium_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["dodgeball", "basketball", "beachball"],
+                "from": [{"object": "desk", "predicates": [{"predicate": "adjacent"}] }],
+                "goal": ["in"],
+                "to": [{"object": "hexagonal_bin", "predicates": [{"object": "bed", "predicate": "adjacent"}]  }]
+            }
+        },
+        {
+            "metadata": {
+                "id": "Kns1TGpthEFdKLHHOcey",
+                "index": 8,
+                "room": "few_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["dodgeball"],
+                "goal": ["over"],
+                "to": [{"object": "curved_wooden_ramp"}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "cdo6CztpMH0It12THBAy",
+                "index": 9,
+                "room": "many_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["dodgeball", "basketball"],
+                "from": [{"object": "desk", "predicates": [{"predicate": "adjacent"}] }],
+                "goal": ["in"],
+                "to": [
+                    {"object": "hexagonal_bin"},
+                    {"object": "hexagonal_bin", "predicates": [{"object": "bed", "predicate": "on"}]}
+                ]
+            }
+        },
+        {
+            "metadata": {
+                "id": "jhO40BilcfyPMScEKLiE",
+                "index": 10,
+                "room": "medium_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["teddy_bear"],
+                "goal": ["on"],
+                "to": [{"object": "pillow"}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "rTVvF1dBAKE8juHCF69f",
+                "index": 11,
+                "room": "many_objects",
+                "notes": "Construction (for num blocks, ending with a pyramidal block)"
+            },
+            "building": {
+                "objects": ["block"],
+                "structure": "tower",
+                "goal": "num_objects",
+                "order": ["any", "pyramid_block"]
+            }
+        },
+        {
+            "metadata": {
+                "id": "gZ8ce0O2anOHAMWWJJZw",
+                "index": 12,
+                "room": "medium_objects",
+                "notes": "TODO: do we want to specify the moving locations think somehow?"
+            },
+            "throwing": {
+                "what": ["dodgeball"],
+                "on": [{"object": "curved_wooden_ramp"}],
+                "goal": ["in"],
+                "to": [{"object": "hexagonal_bin", "predicates": [{"object": "room_center", "predicate": "on"}] }]
+            }
+        },
+        {
+            "metadata": {
+                "id": "Q9FPLgdunp3o75RFGEU7",
+                "index": 13,
+                "room": "many_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["golfball", "dodgeball"],
+                "from": [{"object": "door", "predicates": [{"predicate": "adjacent"}] }],
+                "on": [{"object": "curved_wooden_ramp", "predicates": [
+                    {"object": "room_center", "predicate": "near"},
+                    {"object": "hexagonal_bin", "predicate": "faces"}
+                ]}],
+                "goal": ["in"],
+                "to": [{"object": "hexagonal_bin"}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "oevKPEL8LXqT4gswKdMK",
+                "index": 14,
+                "room": "medium_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["dodgeball", "basketball", "beachball"],
+                "from": [{"object": "rug", "predicates": [{"predicate": "on"}]}],
+                "goal": ["in"],
+                "to": [{"object": "hexagonal_bin"}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "5DOVQT0dE9jCRwYHvIx6",
+                "index": 15,
+                "room": "few_objects",
+                "notes": "The person specified a 'pyramidal' structure, but didn't do that in gameplay, do we consider it?"
+            },
+            "building": {
+                "objects": ["block"],
+                "structure": "pyramid",
+                "goal": "structure",
+                "on": {
+                    "object": "hexagonal_bin",
+                    "predicates": [
+                        {"object": "bed", "predicate": "adjacent"},
+                        {"predicate": "upside_down"}
+                    ]
+                }
+            },
+            "throwing": {
+                "what": ["dodgeball"],
+                "from": [{"object": "desk", "predicates": [{"predicate": "adjacent"}] }],
+                "goal": ["hit"],
+                "to": [{"object": "building"}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "yWOhJSjWiuzNkkHzhft",
+                "index": 16,
+                "room": "few_objects",
+                "notes": "To what extent do we want to specify setup as part of the schema?"
+            },
+            "throwing": {
+                "what": ["dodgeball"],
+                "on": [
+                    {
+                        "object": "curved_wooden_ramp",
+                        "predicates": [
+                            {"object": "hexagonal_bin", "predicate": "adjacent"},
+                            {"object": "block", "predicate": "left"},
+                            {"object": "block", "predicate": "right"}
+                        ]
+                    }
+                ],
+                "goal": ["in"],
+                "to": [{"object": "hexagonal_bin", "predicates": [{"object": "curved_wooden_ramp", "predicate": "adjacent"}]}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "PJ2WCWCLedT8sDLrvn49",
+                "index": 17,
+                "room": "medium_objects",
+                "notes": "The complex construction game -- specific order of blocks + scoring by color of each"
+            },
+            "building": {
+                "objects": ["block"],
+                "structure": "tower",
+                "goal": "structure",
+                "order": ["bridge_block", "flat_block", "tall_cylindrical_block", "cube_block", "pyramid_block"]
+            }
+        },
+        {
+            "metadata": {
+                "id": "SdpyTxFIhhYu7wNwmHFa",
+                "index": 19,
+                "room": "medium_objects"
+            },
+            "throwing": {
+                "what": ["basketball", "beachball", "beachball"],
+                "from": [{"object": "door", "predicates": [{"predicate": "adjacent"}] }],
+                "goal": ["on", "in"],
+                "to": [{"object": "doggie_bed"}, {"object": "hexagonal_bin"}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "qSbsQv2jOptuDovotsIE",
+                "index": 20,
+                "room": "medium_objects",
+                "notes": "mixture of construction (for # blocks, using blocks, no constraints) and throwing"
+            },
+            "building": {
+                "objects": ["block"],
+                "structure": "tower",
+                "goal": "num_objects"
+            },
+            "throwing": {
+                "what": ["dodgeball"],
+                "from": [{"object": "desk", "predicates": [{"predicate": "adjacent"}]}],
+                "goal": ["hit"],
+                "to": [{"object": "building"}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "lwStmxdD6dbFuxgQ05vB",
+                "index": 21,
+                "room": "few_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["dodgeball"],
+                "from": [{"object": "desk", "predicates": [{"predicate": "adjacent"}]}],
+                "goal": ["in", "on", "on"],
+                "to": [
+                    {"object": "hexagonal_bin"},
+                    {"object": "bed"},
+                    {"object": "chair", "predicates": [{"object": "room_center", "predicate": "on"}]}
+                ]
+            }
+        },
+        {
+            "metadata": {
+                "id": "me2bPEvz4glQ1Q8GSfm8",
+                "index": 22,
+                "room": "medium_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["dodgeball", "beachball", "basketball"],
+                "from": [{"object": "rug", "predicates": [{"predicate": "on"}]}],
+                "goal": ["in"],
+                "to": [
+                    {"object": "hexagonal_bin", "predicates": [{"object": "desk", "predicate": "adjacent"}]}
+                ]
+            }
+        },
+        {
+            "metadata": {
+                "id": "uhGe7SjH7liOuiTHkFZg",
+                "index": 23,
+                "room": "few_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["dodgeball"],
+                "goal": ["in"],
+                "to": [{"object": "hexagonal_bin"}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "50OkWutbBlKsEJPMGbKu",
+                "index": 24,
+                "room": "few_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["dodgeball"],
+                "from": [{"object": "rug", "predicates": [{"predicate": "on"}]}],
+                "goal": ["in"],
+                "to": [{"object": "hexagonal_bin", "predicates": [{"object": "chair", "predicate": "on"}]}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "5C0xygoyrz8PTdYR8xff",
+                "index": 27,
+                "room": "few_objects",
+                "notes": "Do we want to cover the whole lights on and off thing? also TODO: make the organizing 'what' and enum"
+            },
+            "organizing": [
+                {
+                    "what": ["dodgeball"],
+                    "to": [{"object": "hexagonal_bin"}]
+                },
+                {
+                    "what": ["cube_block"],
+                    "to": [{"object": "shelf", "predicates": [{"object": "west_wall", "predicate": "adjacent"}]}]
+                },
+                {
+                    "what": ["laptop", "book"],
+                    "to": [{"object": "shelf", "predicates": [{"object": "south_wall", "predicate": "adjacent"}]}]
+                },
+                {
+                    "what": ["key_chain", "cellphone"],
+                    "to": [{"object": "drawer"}]
+                },
+                {
+                    "what": ["main_light_switch", "desktop", "laptop"],
+                    "to": [{"object": "", "predicates": [{"predicate": "toggled_on", "negate": true}]}]
+                }
+            ]
+        },
+        {
+            "metadata": {
+                "id": "xKsIJRkAQ3ELL4W0K0wq",
+                "index": 28,
+                "room": "few_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["dodgeball"],
+                "goal": ["hit"],
+                "on": [{"object": "rug", "predicates": [{"object": "cube_block", "predicate": "touch", "negate": true}]}],
+                "to": [{"object": "bed"}, {"object": "west_wall"}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "vY50SvtI10c0YhXHIVv8",
+                "index": 29,
+                "room": "few_objects",
+                "notes": ""
+            },
+            "organizing": [
+                {
+                    "what": [""],
+                    "to": [{"object": "bed"}]
+                }
+            ]
+        },
+        {
+            "metadata": {
+                "id": "DfCWVG3I8HkoSioS37gi",
+                "index": 31,
+                "room": "few_objects",
+                "notes": "TODO: could switch the 'what' field to also be object-with-predicates, and then allow for the 'prepare the objects on the sidetable' bit"
+            },
+            "throwing": {
+                "what": ["alarm_clock", "cellphone", "mug", "key_chain", "cd", "book", "ball"],
+                "from": [{"object": "rug"}],
+                "goal": ["in"],
+                "to": [{"object": "hexagonal_bin", "predicates": [{"object": "desk", "predicate": "adjacent"}]}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "ShyRlIFgTWW6vqNrd3K5",
+                "index": 32,
+                "room": "many_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["golfball", "dodgeball"],
+                "goal": ["in", "hit"],
+                "to": [
+                    {"object": "hexagonal_bin", "predicates": [{"object": "room_corner", "predicate": "near"}]},
+                    {"object": "building", "predicates": [{"object": "desk", "predicate": "on"}]}
+                ]
+            },
+            "building": {
+                "objects": ["triangular_block", "cube_block", "cylindrical_block"],
+                "structure": "pyramid",
+                "goal": "structure",
+                "on": { "object": "desk" }
+            }
+        },
+        {
+            "metadata": {
+                "id": "G2chsLHjitbS4fASq4vq",
+                "index": 33,
+                "room": "many_objects",
+                "notes": ""
+            },
+            "organizing": [
+                {
+                    "what": [""],
+                    "to": [{"object": "top_drawer", "predicates": [{"predicate": "open", "negate": true}]}]
+                }
+            ]
+        },
+        {
+            "metadata": {
+                "id": "pOvjLn7nuSqcxgqhaNuv",
+                "index": 35,
+                "room": "few_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["dodgeball", "book"],
+                "goal": ["in"],
+                "on": [{"object": ""}],
+                "to": [{"object": "hexagonal_bin"}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "1aTng0m9240WEAU975WE",
+                "index": 36,
+                "room": "few_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["dodgeball"],
+                "from": [{
+                    "object": "desk",
+                    "predicates": [{"predicate": "adjacent"}]
+                }],
+                "goal": ["in"],
+                "to": [{
+                    "object": "hexagonal_bin",
+                    "predicates": [{"object": "bed", "predicate": "on"}]
+                }]
+            }
+        },
+        {
+            "metadata": {
+                "id": "9ntGYoDdUca5ZsjyHXdm",
+                "index": 37,
+                "room": "many_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["dodgeball"],
+                "from": [{
+                    "object": "wall",
+                    "predicates": [{"object": "hexagonal_bin", "predicate": "opposite"}]
+                }],
+                "goal": ["in"],
+                "to": [{"object": "hexagonal_bin"}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "F2XpXd2PeEcqSIqbg1Pm",
+                "index": 38,
+                "room": "medium_objects",
+                "notes": "TODO: decide if this is reasonable or if this should be ignored"
+            },
+            "throwing": {
+                "what": ["dodgeball"],
+                "goal": ["in"],
+                "to": [{"object": "hexagonal_bin"}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "1rYjOIFnlUodFt6LittX",
+                "index": 39,
+                "room": "many_objects",
+                "notes": "TODO: bounce a ball off the wall into the agent -- is this reasoanble?"
+            },
+            "throwing": {
+                "what": ["beachball", "golfball", "dodgeball"],
+                "goal": ["hit"],
+                "on": [{"object": "wall"}],
+                "to": [{"object": "agent"}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "VrZQFpIsfagKuUu63Lug",
+                "index": 40,
+                "room": "many_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["beachball"],
+                "goal": ["on"],
+                "on": [{"object": "curved_wooden_ramp", "predicates": [{"object": "rug", "predicate": "adjacent"}]}],
+                "to": [{"object": "rug"}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "Eqr08wgdjHiZUkX9dPEJ",
+                "index": 41,
+                "room": "many_objects",
+                "notes": "TODO: does doing what I did here make sense?"
+            },
+            "organizing": [{
+                "what": [""],
+                "from": {"object": "room_side"},
+                "to": [{"object": "room_side", "predicates": [{"object": "from", "predicate": "equal", "negate": true}]}]
+            }]
+        },
+        {
+            "metadata": {
+                "id": "6H0vL7KFk6vNRrhjGokK",
+                "index": 42,
+                "room": "few_objects",
+                "notes": "TODO: do we try to bake in the 'same position' thing here?"
+            },
+            "throwing": {
+                "what": ["dodgeball"],
+                "from": [{"object": "dodgeball", "predicates": [{"predicate": "adjacent"}]}],
+                "goal": ["in"],
+                "to": [{"object": "hexagonal_bin"}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "vDga0ZecqYMkFML6dsf9",
+                "index": 43,
+                "room": "medium_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["beachball", "basketball", "dodgeball"],
+                "on": [{"object": "wall"}],
+                "goal": ["on"],
+                "to": [{"object": "doggie_bed", "predicates": [{"object": "room_center", "predicate": "adjacent"}]}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "TSeBHnKzO96Vswy4B1rh",
+                "index": 45,
+                "room": "many_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["dodgeball", "golfball"],
+                "from": [{"object": "sliding_door", "predicates": [{"object": "desk", "predicate": "near"}]}],
+                "goal": ["hit"],
+                "to": [
+                    {"object": "teddy_bear", "predicates": [
+                        {"object": "floor", "predicate": "on"},
+                        {"object": "bed", "predicate": "equal_z_position"}
+                    ]},
+                    {"object": "teddy_bear", "predicates": [
+                        {"object": "bed", "predicate": "on"},
+                        {"object": "bed", "predicate": "equal_z_position"}
+                    ]}
+                ]
+            }
+        },
+        {
+            "metadata": {
+                "id": "xBnHQLQafnF1QeF5DskC",
+                "index": 46,
+                "room": "few_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["pink_dodgeball"],
+                "goal": ["on"],
+                "on": [{"object": "curved_wooden_ramp", "predicates": [{"object": "room_center", "predicate": "near"}]}],
+                "to": [{"object": "bed"}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "xrr4wYkEAFurS1arixWr",
+                "index": 47,
+                "room": "many_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["beachball"],
+                "from": [{"object": "rug", "predicates": [{"predicate": "on", "negate": true}]}],
+                "goal": ["on"],
+                "on": [{"object": "green_triangular_ramp"}],
+                "to": [{"object": "rug"}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "EB9bKJMBxNqVaRtrXDuO",
+                "index": 48,
+                "room": "medium_objects",
+                "notes": ""
+            },
+            "building": {
+                "objects": ["any"],
+                "goal": "structure",
+                "structure": "tower",
+                "order": ["any", "hexagonal_bin"],
+                "on": {"object": "room_center", "predicates": [{"predicate": "near"}]}
+            },
+            "throwing": {
+                "what": ["dodgeball", "basketball", "beachball"],
+                "goal": ["in", "on"],
+                "to": [{"object": "hexagonal_bin", "predicates": [{"object": "building", "predicate": "in"}]}]
+            },
+            "organizing": [
+                {
+                    "what": ["doggie_bed", "pillow", "teddy_bear"],
+                    "to": [
+                        {"object": "laptop", "predicates": [{"predicate": "on"}]},
+                        {"object": "desktop", "predicates": [{"predicate": "on"}]}
+                    ]
+                },
+                {
+                    "what": ["alarm_clock", "cellphone"],
+                    "to": [{"object": "drawer"}]
+                },
+                {
+                    "what": ["blinds"],
+                    "to": [{"object": "", "predicates": [{"predicate": "open"}]}]
+                }
+            ]
+        },
+        {
+            "metadata": {
+                "id": "5217Qbj8V5farCF3bBJT",
+                "index": 49,
+                "room": "many_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["dodgeball"],
+                "from": [{"object": "green_golfball", "predicates": [{"object": "door", "predicate": "near"}]}],
+                "goal": ["in"],
+                "to": [{"object": "hexagonal_bin"}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "1El1CmicSoKZKTLe8NpP",
+                "index": 50,
+                "room": "medium_objects",
+                "notes": ""
+            },
+            "organizing": [{
+                "what": [""],
+                "to": [{"object": "hexagonal_bin", "predicates": [{"object": "room_center", "predicate": "near"}]}]
+            }]
+        },
+        {
+            "metadata": {
+                "id": "OkKMZ7MxTSxfxQoPDZQK",
+                "index": 51,
+                "room": "few_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["dodgeball"],
+                "goal": ["in"],
+                "to": [{"object": "hexagonal_bin"}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "rRNy5QUGjCQzjIYuZvWJ",
+                "index": 52,
+                "room": "few_objects",
+                "notes": "TODO: do we account for the 'without moving the laptop/desktop/lamp' part here?"
+            },
+            "throwing": {
+                "what": ["cube_block"],
+                "from": [{"object": "rug", "predicates": [{"predicate": "on"}]}],
+                "goal": ["on"],
+                "to": [{"object": "desk"}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "hpLNbpSomVV4DZ5rNVJo",
+                "index": 53,
+                "room": "few_objects",
+                "notes": ""
+            },
+            "organizing": [
+                {
+                    "what": ["dodgeball"],
+                    "to": [{"object": "hexagonal_bin", "predicates": [{"object": "room_corner", "predicate": "near"}]}]
+                },
+                {
+                    "what": ["cube_block"],
+                    "to": [{"object": "shelf"}]
+                },
+                {
+                    "what": ["key_chain", "cellphone", "mug", "cd", "watch", "credit_card", "alarm_clock"],
+                    "to": [{"object": "drawer"}]
+                }
+            ]
+        },
+        {
+            "metadata": {
+                "id": "3APkFcoLdilq9XtRazoa",
+                "index": 54,
+                "room": "few_objects",
+                "notes": ""
+            },
+            "building": {
+                "objects": ["cube_block"],
+                "goal": "num_simultaneous_objects"
+            }
+        },
+        {
+            "metadata": {
+                "id": "gMqKBjOWDlhMU1tl10nI",
+                "index": 55,
+                "room": "few_objects",
+                "notes": "Do we account for the 'on the first throw thing' part here?"
+            },
+            "throwing": {
+                "what": ["game_object"],
+                "goal": ["in"],
+                "to": [{"object": "hexagonal_bin"}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "9Aiqaq13I7lUZsLlNEfW",
+                "index": 56,
+                "room": "few_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["dodgeball"],
+                "from": [{"object": "door", "predicates": [{"predicate": "adjacent"}]}],
+                "goal": ["in"],
+                "to": [{"object": "hexagonal_bin"}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "730QTwZ02OR88CPpsmSI",
+                "index": 57,
+                "room": "medium_objects",
+                "notes": ""
+            },
+            "organizing": [
+                {
+                    "what": ["book"],
+                    "to": [{"object": "desk_shelf",
+                         "predicates": [
+                             {"object": "pencil", "predicate": "on", "negate": true},
+                             {"object": "pen", "predicate": "on", "negate": true},
+                             {"object": "cd", "predicate": "on", "negate": true}
+                        ]
+                    }]
+                },
+                {
+                    "what": ["pencil", "pen", "cd"],
+                    "to": [{"object": "desk_shelf", "predicates": [ {"object": "book", "predicate": "on", "negate": true} ]
+                    }]
+                },
+                {
+                    "what": ["dodgeball", "basketball"],
+                    "to": [{"object": "hexagonal_bin"}]
+                },
+                {
+                    "what": ["beachball"],
+                    "to": [{"object": "rug"}]
+                },
+                {
+                    "what": ["key_chain", "cellphone", "credit_card"],
+                    "to": [{"object": "drawer"}]
+                },
+                {
+                    "what": ["watch"],
+                    "to": [{"object": "shelf"}]
+                }
+            ]
+        },
+        {
+            "metadata": {
+                "id": "JNLBQW5TcsbOY86oNd2A",
+                "index": 58,
+                "room": "medium_objects",
+                "notes": ""
+            },
+            "building": {
+                "objects": ["block"],
+                "goal": "structure",
+                "structure": "match_setup"
+            }
+        },
+        {
+            "metadata": {
+                "id": "YB9HWpd4rMWwS3P2mCVk",
+                "index": 59,
+                "room": "many_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["golfball", "dodgeball", "basketball"],
+                "goal": ["in"],
+                "to": [{"object": "hexagonal_bin", "predicates": [{"object": "door", "predicate": "near"}]}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "iEqK3y2TMsJ4UTeD7EaX",
+                "index": 61,
+                "room": "many_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["dodgeball"],
+                "from": [{"object": "pyramid_block", "predicates": [{"predicate": "adjacent"}]}],
+                "goal": ["in"],
+                "to": [{"object": "hexagonal_bin"}]
+            },
+            "building": {
+                "objects": ["cube_block"],
+                "structure": "tower",
+                "on": {"object": "flat_block", "predicates": [{"object": "rug", "predicate": "on"}]},
+                "goal": "num_objects"
+            }
+        },
+        {
+            "metadata": {
+                "id": "5IuRnM4sMvHnyLOcBIuC",
+                "index": 62,
+                "room": "medium_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["game_object"],
+                "from": [{"object": "desk", "predicates": [{"predicate": "adjacent"}]}],
+                "goal": ["on"],
+                "to": [{"object": "bed"}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "GF4TTr6H2CftJ4nrR8oj",
+                "index": 63,
+                "room": "medium_objects",
+                "notes": ""
+            },
+            "building": {
+                "objects": ["block", "game_object"],
+                "goal": "num_simultaneous_objects"
+            }
+        },
+        {
+            "metadata": {
+                "id": "PviHN8QezQVs6fynlANx",
+                "index": 64,
+                "room": "many_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["dodgeball"],
+                "from": [
+                    {"object": "hexagonal_bin", "predicates": [{"predicate": "adjacent"}]},
+                    {"object": "rug", "predicates": [{"predicate": "adjacent"}]},
+                    {"object": "wall", "predicates": [{"predicate": "adjacent"}]}
+                ],
+                "goal": ["in"],
+                "to": [{"object": "hexagonal_bin"}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "ZSRiFalssazyXG8Qui4j",
+                "index": 65,
+                "room": "many_objects",
+                "notes": ""
+            },
+            "organizing": [
+                {
+                    "what": ["ball"],
+                    "to": [{"object": "bed"}]
+                }
+            ]
+        },
+        {
+            "metadata": {
+                "id": "sarF2f4w4geYW16PILR2",
+                "index": 66,
+                "room": "medium_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["dodgeball"],
+                "from": [{"object": "doggie_bed", "predicates": [{"predicate": "on"}]}],
+                "goal": ["nearest"],
+                "to": [
+                    {"object": "cube_block", "predicates": [{"predicate": "same_color", "object": "cylindrical_block"}]},
+                    {"object": "cube_block", "predicates": [{"predicate": "same_color", "object": "tall_cylindrical_block"}]},
+                    {"object": "bridge_block", "predicates": [{"predicate": "same_color", "object": "cylindrical_block"}]},
+                    {"object": "bridge_block", "predicates": [{"predicate": "same_color", "object": "tall_cylindrical_block"}]}
+                ]
+            }
+        },
+        {
+            "metadata": {
+                "id": "vgtHV3viTuaAEBMr9m0t",
+                "index": 67,
+                "room": "medium_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["dodgeball", "basketball", "beachball"],
+                "from": [{"object": "rug", "predicates": [{"predicate": "on"}]}],
+                "goal": ["knock_over"],
+                "to": [
+                    {"object": "tall_cylindrical_block", "predicates": [{"object": "desk", "predicate": "near"}]},
+                    {"object": "bridge_block", "predicates": [{"object": "desk", "predicate": "near"}]},
+                    {"object": "flat_block", "predicates": [{"object": "desk", "predicate": "near"}]},
+                    {"object": "cube_block", "predicates": [{"object": "desk", "predicate": "near"}]},
+                    {"object": "cylindrical_block", "predicates": [{"object": "desk", "predicate": "near"}]}
+                ]
+            }
+        },
+        {
+            "metadata": {
+                "id": "I1OpGx1BtTByOehoxKDq",
+                "index": 69,
+                "room": "many_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["dodgeball"],
+                "on": [{"object": "curved_wooden_ramp", "predicates": [{"object": "hexagonal_bin",  "predicate": "adjacent"}]}],
+                "goal": ["in"],
+                "to": [{"object": "hexagonal_bin"}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "EeEZO5cBjEuKYTBYmfHX",
+                "index": 70,
+                "room": "many_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["triangle_block", "pyramid_block", "dodgeball", "golfball"],
+                "from": [{"object": "bed", "predicates": [{"predicate": "adjacent"}]}],
+                "goal": ["in"],
+                "to": [{"object": "hexagonal_bin", "predicates": [
+                    {"object": "desk", "predicate": "adjacent"},
+                    {"object": "curved_wooden_ramp", "predicate": "adjacent"}
+                ]}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "XexzCkW95vUcVYAFhSA9",
+                "index": 71,
+                "room": "many_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["dodgeball", "golfball"],
+                "from": [{"object": "triangular_ramp", "predicates": [{ "predicate": "adjacent"}, {"object": "desk", "predicate": "near"}]}],
+                "goal": ["hit", "under"],
+                "to": [
+                    {"object": "pillow", "predicates": [{"object": "bed", "predicate": "on"}]},
+                    {"object": "bridge_block", "predicates": [{"object": "floor", "predicate": "on"}]}
+                ]
+            }
+        },
+        {
+            "metadata": {
+                "id": "gPJmGRgPdHSlBI7IMc3z",
+                "index": 72,
+                "room": "many_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["dodgeball", "golfball", "beachball"],
+                "from": [{"object": "chair", "predicates": [{"predicate": "on"}, {"object": "desk", "predicate": "adjacent"}]}],
+                "goal": ["knock_over"],
+                "to": [{"object": "teddy_bear", "predicates": [{"object": "bed", "predicate": "on"}, {"predicate": "upright"}]}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "7r4cgxJHzLJooFaMG1Rd",
+                "index": 73,
+                "room": "many_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["dodgeball"],
+                "from": [{"object": "desk", "predicates": [{"predicate": "adjacent"}]}],
+                "goal": ["in"],
+                "to": [{"object": "hexagonal_bin", "predicates": [{"object": "room_center", "predicate": "near"}]}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "1HOTuIZpRqk2u1nZI1v1",
+                "index": 74,
+                "room": "many_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["dodgeball"],
+                "from": [{"object": "pillow", "predicates": [{"predicate": "adjacent"}, {"object": "hexagonal_bin", "predicate": "near"}]}],
+                "goal": ["in"],
+                "to": [{"object": "hexagonal_bin"}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "QyX7AlBzBW8hZHsJeDWI",
+                "index": 75,
+                "room": "few_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["ball"],
+                "from": [{"object": "hexagonal_bin", "predicates": [{"predicate": "adjacent"}]}],
+                "goal": ["in"],
+                "to": [{"object": "hexagonal_bin"}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "vfh1MTEQorWXKy8jOP1x",
+                "index": 76,
+                "room": "few_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["cube_block", "dodgeball"],
+                "from": [
+                    {"object": "rug", "predicates": [
+                        {"object": "pink", "predicate": "rug_color_under"},
+                        {"object": "yellow", "predicate": "rug_color_under"}
+                    ]},
+                    {"object": "rug", "predicates": [
+                        {"object": "yellow", "predicate": "rug_color_under"}
+                    ]}],
+                "goal": ["in", "knock_over"],
+                "to": [
+                    {"object": "hexagonal_bin"},
+                    {"object": "building", "predicates": [{"object": "hexagonal_bin", "predicate": "in"}]}
+                ]
+            }
+        },
+        {
+            "metadata": {
+                "id": "f2WUeVzu41E9Lmqmr2FJ",
+                "index": 77,
+                "room": "many_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["dodgeball"],
+                "goal": ["in"],
+                "to": [{"object": "hexagonal_bin"}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "Tcfpwc8v8HuKRyZr5Dyc",
+                "index": 78,
+                "room": "medium_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["dodgeball"],
+                "from": [{"object": "doggie_bed", "predicates": [{"predicate": "adjacent"}]}],
+                "goal": ["move"],
+                "to": [{"object": "beachball", "predicates": [{"object": "teddy_bear", "predicate": "upright"}]}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "FyGQn1qJCLTLU1hfQfZ2",
+                "index": 79,
+                "room": "many_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["golfball"],
+                "goal": ["in"],
+                "to": [{"object": "hexagonal_bin"}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "9C0wMm4lzrJ5JeP0irIu",
+                "index": 80,
+                "room": "few_objects",
+                "notes": ""
+            },
+            "organizing": [
+                {
+                    "what": ["pink_object", "blue_object", "brown_object", "pillow", "green_object", "tan_object"],
+                    "to": [{"object": "room_center"}],
+                    "condition": "order"
+                }
+            ]
+        },
+        {
+            "metadata": {
+                "id": "39PytL3fAMFkYXNoB5l6",
+                "index": 81,
+                "room": "many_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["dodgeball"],
+                "from": [{"object": "rug", "predicates": [{"predicate": "on"}]}],
+                "goal": ["in"],
+                "to": [{"object": "hexagonal_bin", "predicates": [{"object": "triangular_ramp", "predicate": "near"}]}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "WtZpe3LQFZiztmh7pBBC",
+                "index": 82,
+                "room": "many_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["ball"],
+                "goal": ["in"],
+                "to": [{"object": "hexagonal_bin"}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "79X7tsrbEIu5ffDGnY8q",
+                "index": 83,
+                "room": "many_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["dodgeball", "golfball"],
+                "from": [{"object": "bed", "predicates": [{"predicate": "adjacent"}]}],
+                "goal": ["in"],
+                "to": [{"object": "hexagonal_bin", "predicates": [
+                    {"predicate": "sideways"},
+                    {"object": "chair", "predicate": "between"}
+                ]}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "9dQSLmtxxIBy0Rsnc8uu",
+                "index": 85,
+                "room": "few_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["cube_block"],
+                "from": [{"object": "rug", "predicates": [{"predicate": "on"}, {"object": "pink", "predicate": "rug_color_under"}]}],
+                "goal": ["in"],
+                "to": [{"object": "hexagonal_bin"}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "6ZjBeRCvHxG05ORmhInj",
+                "index": 87,
+                "room": "few_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["cube_block", "dodgeball"],
+                "from": [{"object": "rug", "predicates": [{"predicate": "on"}]}],
+                "goal": ["in"],
+                "to": [{"object": "hexagonal_bin"}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "SQErBa5s5TPVxmm8R6ks",
+                "index": 88,
+                "room": "few_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["dodgeball"],
+                "from": [{"object": "rug", "predicates": [{"predicate": "adjacent"}]}],
+                "goal": ["in", "not_knock"],
+                "to": [{"object": "hexagonal_bin"}, {"object": "building", "predicates": [{"predicate": "adjacent", "object": "hexagonal_bin"}]}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "ktwB7wT09sh4ivNme3Dw",
+                "index": 89,
+                "room": "medium_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["ball"],
+                "from": [{"object": "rug", "predicates": [{"predicate": "on"}]}],
+                "goal": ["in"],
+                "to": [{"object": "hexagonal_bin", "predicates": [{"object": "desktop", "predicate": "near", "negate": true}]}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "xMUrxzK3fXjgitdzPKsm",
+                "index": 90,
+                "room": "many_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["dodgeball"],
+                "goal": ["on"],
+                "on": [{"object": "floor"}],
+                "to": [{"object": "doggie_bed"}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "R9nZAvDq7um7Sg49yf8T",
+                "index": 93,
+                "room": "many_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["dodgeball"],
+                "goal": ["in"],
+                "to": [{"object": "hexagonal_bin"}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "IvoZWi01FO2uiNpNHyci",
+                "index": 94,
+                "room": "many_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["dodgeball"],
+                "from": [{"object": "door", "predicates": [{"predicate": "adjacent"}]}],
+                "goal": ["in"],
+                "to": [{"object": "hexagonal_bin"}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "4WUtnD8W6PGVy0WBtVm4",
+                "index": 97,
+                "room": "medium_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["red_dodgeball"],
+                "from": [{"object": "rug", "predicates": [{"predicate": "on", "negate": true}]}],
+                "goal": ["on"],
+                "to": [{"object": "rug"}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "5lTRHBueXsaOu9yhvOQo",
+                "index": 98,
+                "room": "medium_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["dodgeball"],
+                "from": [{"object": "bed", "predicates": [{"predicate": "on"}, {"predicate": "adjacent"}]}],
+                "goal": ["in"],
+                "to": [{"object": "hexagonal_bin", "predicates": [{"object": "shelf", "predicate": "above", "negate": true}]}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "8cc9xnijzmS7uwGDaAoL",
+                "index": 99,
+                "room": "few_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["cube_block"],
+                "from": [{"object": "bed", "predicates": [{"predicate": "adjacent"}]}],
+                "goal": ["on"],
+                "to": [{"object": "shelf"}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "9kyHjMMQRK3eP9vlLpw0",
+                "index": 100,
+                "room": "medium_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["dodgeball"],
+                "from": [{"object": "desk", "predicates": [{"predicate": "adjacent"}]}],
+                "goal": ["in", "on"],
+                "to": [
+                    {"object": "hexagonal_bin", "predicates": [
+                        {"object": "bed", "predicate": "on"},
+                        {"object": "doggie_bed", "predicate": "equal_z_position"}
+                    ]},
+                    {"object": "doggie_bed", "predicates": [
+                        {"object": "floor", "predicate": "on"},
+                        {"object": "hexagonal_bin", "predicate": "equal_z_position"}
+                    ]}
+                ]
+            }
+        },
+        {
+            "metadata": {
+                "id": "T2dYV1nPh5cmt3NBELdS",
+                "index": 101,
+                "room": "few_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["dodgeball"],
+                "from": [
+                    {"object": "blue_cube_block", "predicates": [{"object": "desk", "predicate": "near"}]},
+                    {"object": "yellow_cube_block", "predicates": [{"object": "desk", "predicate": "near"}]}
+                ],
+                "goal": ["in"],
+                "to": [{"object": "hexagonal_bin", "predicates": [{"object": "bed", "predicate": "on"}]}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "NurIP8Ey70FomFLL0VSr",
+                "index": 103,
+                "room": "few_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["dodgeball"],
+                "goal": ["hit"],
+                "to": [{"object": "hexagonal_bin", "predicates": [{"predicate": "sideways"}, {"object": "bed", "predicate": "on"}]}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "bPMm01GV1jVMlw7DIH89",
+                "index": 104,
+                "room": "few_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["dodgeball"],
+                "from": [{"object": "rug", "predicates": [{"predicate": "adjacent"}]}],
+                "goal": ["in"],
+                "to": [{"object": "hexagonal_bin", "predicates": [{"object": "east_sliding_door", "predicate": "equal_x_position"}]}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "B02vfA7ZpP1xhDyqeYVd",
+                "index": 105,
+                "room": "few_objects",
+                "notes": "TODO: this is truly a none of the above -- it's a weird path creation game with blocks"
+            }
+        },
+        {
+            "metadata": {
+                "id": "tVL75ycOZHTAKgeqLs6H",
+                "index": 106,
+                "room": "few_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["dodgeball"],
+                "goal": ["in"],
+                "to": [{"object": "hexagonal_bin"}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "jYnmaydkg4c0KmGFfgp3",
+                "index": 108,
+                "room": "medium_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["ball"],
+                "from": [{"object": "doggie_bed", "predicates": [{"predicate": "near"}]}],
+                "goal": ["hit", "hit", "hit", "in"],
+                "to": [
+                        {"object": "cylindrical_block", "predicates": [{"object": "side_table", "predicate": "on"}]},
+                        {"object": "tall_cylindrical_block", "predicates": [{"object": "bed", "predicate": "on"}]},
+                        {"object": "pyramid_block", "predicates": [{"object": "tall_cylindrical_block", "predicate": "on"}]},
+                        {"object": "hexagonal_bin", "predicates": [{"object": "bed", "predicate": "on"}, {"object": "bed", "predicate": "equal_z_position"}]}
+                    ]
+            }
+        },
+        {
+            "metadata": {
+                "id": "HMosyugAD4iHS8V6ajD6",
+                "index": 109,
+                "room": "many_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["ball", "cube_block", "pillow"],
+                "goal": ["in", "on", "on"],
+                "to": [
+                    {"object": "hexagonal_bin"},
+                    {"object": "top_shelf"},
+                    {"object": "doggie_bed"}
+                ]
+            }
+        },
+        {
+            "metadata": {
+                "id": "wi9ubMsI5cDptid12cm2",
+                "index": 110,
+                "room": "few_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["dodgeball", "cube_block", "alarm_clock", "book"],
+                "from": [{"object": "chair", "predicates": [{"object": "agent", "predicate": "greater_x_position"}]}],
+                "goal": ["in"],
+                "to": [{"object": "hexagonal_bin", "predicates": [
+                    {"object": "south_west_corner", "predicate": "adjacent"},
+                    {"object": "south_west_corner", "predicate": "faces"}
+                ]}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "c4bea3VqKksZ7Rd5RdTO",
+                "index": 113,
+                "room": "few_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["ball"],
+                "goal": ["in"],
+                "on": [
+                    {"object": "curved_wooden_ramp", "predicates": [{"object": "cube_block", "predicate": "adjacent"}]},
+                    {"object": "cube_block", "predicates": [
+                        {"object": "cube_block", "predicate": "adjacent"},
+                        {"object": "cube_block", "predicate": "on"},
+                        {"object": "curved_wooden_ramp", "predicate": "adjacent"}
+                    ]},
+                    {"object": "cube_block", "predicates": [
+                        {"object": "cube_block", "predicate": "adjacent"},
+                        {"object": "cube_block", "predicate": "on"},
+                        {"object": "hexagonal_bin", "predicate": "adjacent"}
+                    ]}
+                ],
+                "to": [{"object": "hexagonal_bin", "predicates": [{"object": "cube_block", "predicate": "adjacent"}]}]
+            }
+        },
+        {
+            "metadata": {
+                "id": "3JgBMLuR3hhyXX7duXxU",
+                "index": 114,
+                "room": "medium_objects",
+                "notes": ""
+            },
+            "building": {
+                "objects": ["game_object"],
+                "goal": "num_objects",
+                "structure": "tower",
+                "on": {"object": "doggie_bed", "predicates": [{"object": "room_center", "predicate": "near"}]}
+            }
+        },
+        {
+            "metadata": {
+                "id": "ZMqZkrMMB0PcsCeLhQqE",
+                "index": 115,
+                "room": "medium_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["teddy_bear"],
+                "from": [{"object": "chair", "predicates": [{"object": "triangular_ramp",  "predicate": "near"}]}],
+                "goal": ["in", "hit"],
+                "to": [
+                    {"object": "hexagonal_bin", "predicates": [{"object": "triangular_ramp", "predicate": "behind"}]},
+                    {"object": "ball", "predicates": [{"object": "hexagonal_bin", "predicate": "near"}]}
+                ]
+            }
+        },
+        {
+            "metadata": {
+                "id": "moftPPoSfP3mG38GT9Vw",
+                "index": 116,
+                "room": "medium_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["basketball", "dodgeball"],
+                "goal": ["in"],
+                "to": [
+                    {"object": "hexagonal_bin", "predicates": [{"object": "bed", "predicate": "on"}]},
+                    {"object": "desk", "predicates": [{"object": "bed", "predicate": "on"}]}
+                ]
+            }
+        },
+        {
+            "metadata": {
+                "id": "IjyNuz4ApTldgPuoKPtB",
+                "index": 117,
+                "room": "medium_objects",
+                "notes": ""
+            },
+            "throwing": {
+                "what": ["red_dodgeball"],
+                "goal": ["in"],
+                "to": [
+                    {"object": "hexagonal_bin", "predicates": [{"object": "triangular_ramp", "predicate": "near"}]}
+                ]
+            }
+        },
+        {
+            "metadata": {
+                "id": "Q1jHN8NAIlds8F5SFBCJ",
+                "index": 118,
+                "room": "medium_objects",
+                "notes": ""
+            },
+            "organizing": [
+                {
+                    "what": ["game_object"],
+                    "to": [
+                        {"object": "game_object", "predicates": [{"predicate": "on"}]},
+                        {"object": "game_object", "predicates": [{"predicate": "in"}]},
+                        {"object": "game_object", "predicates": [{"predicate": "adjacent"}]}
+                    ],
+                    "condition": "same_color"
+                }
+            ]
+        }
+    ]
+}

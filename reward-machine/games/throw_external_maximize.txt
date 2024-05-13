@@ -1,0 +1,20 @@
+(define (game game-23) (:domain many-objects-room-v1)
+
+(:constraints (and
+    (forall (?b - (either dodgeball golfball))
+        (preference throwAttempt
+            (then
+                (once (agent_holds ?b))
+                (hold (and (not (agent_holds ?b)) (in_motion ?b)))
+                (once (not (in_motion ?b)))
+            )
+        )
+
+    )
+
+))
+
+(:scoring (external-forall-maximize
+    (count throwAttempt)
+))
+)

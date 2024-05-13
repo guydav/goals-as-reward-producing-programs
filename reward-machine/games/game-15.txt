@@ -1,0 +1,50 @@
+(define (game game-15) (:domain few-objects-room-v1)  ; 15
+(:setup (exists (?h - hexagonal_bin ?b - building) (and
+        (game-conserved (adjacent ?h bed))
+        (game-optional (on ?h ?b)) ; optional since building might cease to exist in game
+        (forall (?c - cube_block) (game-optional (in ?b ?c)))
+        (exists (?c1 ?c2 ?c3 ?c4 ?c5 ?c6 - cube_block) (game-optional (and ; specifying the pyramidal structure
+           (on ?h ?c1)
+           (on ?h ?c2)
+           (on ?h ?c3)
+           (on ?c1 ?c4)
+           (on ?c2 ?c5)
+           (on ?c4 ?c6)
+        )))
+    )
+))
+
+(:constraints (and
+    (preference blockInTowerKnockedByDodgeball (exists (?b - building ?c - cube_block
+        ?d - dodgeball ?h - hexagonal_bin)
+        (then
+            (once (and
+                (agent_holds ?d)
+                (on ?h ?b)
+                (in ?b ?c)
+            ))
+            (hold-while (and (not (agent_holds ?d)) (in_motion ?d))
+                (or
+                    (touch ?c ?d)
+                    (exists (?c2 - cube_block) (touch ?c2 ?c))
+                )
+                (in_motion ?c)
+            )
+            (once (not (in_motion ?c)))
+        )
+    ))
+    (preference throwAttempt
+        (exists (?d - dodgeball)
+            (then
+                (once (agent_holds ?d))
+                (hold (and (not (agent_holds ?d)) (in_motion ?d)))
+                (once (not (in_motion ?d)))
+            )
+        )
+    )
+))
+(:terminal
+    (>= (count-once-per-objects throwAttempt) 2)
+)
+(:scoring (count-once-per-objects blockInTowerKnockedByDodgeball)
+))

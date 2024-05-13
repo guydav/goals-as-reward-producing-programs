@@ -1,0 +1,18 @@
+(define (game game-23) (:domain few-objects-room-v1)
+
+(:constraints (and
+    (preference throwAdjacentToDoor
+        (exists (?d - ball)
+            (then
+                (once (and (agent_holds ?d) (adjacent agent door) (on floor bed)))
+                (hold (and (not (agent_holds ?d)) (in_motion ?d)))
+                (once (not (in_motion ?d)))
+            )
+        )
+    )
+
+))
+
+(:scoring (+
+    (count throwAdjacentToDoor)
+)))

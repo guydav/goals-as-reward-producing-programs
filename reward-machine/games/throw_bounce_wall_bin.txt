@@ -1,0 +1,18 @@
+(define (game game-23) (:domain many-objects-room-v1)
+
+(:constraints (and
+
+    (preference throwToWallToBin
+        (exists (?w - wall ?b - ball ?h - hexagonal_bin)
+            (then
+                (once (agent_holds ?b))
+                (hold-while (and (not (agent_holds ?b)) (in_motion ?b)) (touch ?w ?b))
+                (once  (and (in ?h ?b) (not (in_motion ?b))))
+            )
+        )
+    )
+))
+
+(:scoring (+
+    (* (count throwToWallToBin) 10)
+)))

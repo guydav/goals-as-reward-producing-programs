@@ -1,0 +1,49 @@
+[=]							| can be checked from object IDs
+
+[above]						| should be computable from just the x,y,z positions? Depends on whether "above" implies that an object is directly over top of another. If it does, we'll need bounding boxes
+
+[adjacent] 					| computable from x,y,z positions if it only implies distance below some threshold -- difficulty for large objects which might have an object technically adjacent to them be far away in absolute distance from their center. Might need to pass in each object's bounding box as well?
+
+[adjacent_side] 			| complicated! seems to take as an argument an object's "side" (which can be as complicated as 'left_front_corner'). this will probably require doing some ray-casting in unity to detect nearby objects, as it'd be difficult to compute in python
+
+[agent_holds]				| requires direct reporting from Unity, but should be straightforward
+
+[agent_crouches]			| requires direct reporting from Unity, but should be straightforward
+
+[between]					| another tough one. could maybe be computed from each object's bounding box? I'm not even sure how to compute this one easily in Unity...
+
+[broken]					| another Unity state?
+
+[equal_x_position]			| trivial to compute from x,y,z positions
+
+[equal_z_position]			| trivial to compute from x,y,z positions
+
+[faces]						| also tough. Most straightforward seems to be reporting a ray cast out from each object, but we'd need to define each object's intuitive "facing direction" (i.e. hard code that a chair "points" away from its back)
+
+[game_over]					| trivial
+
+[game_start]				| trivial
+
+[in] 						| a very common predicate -- seems easiest to compute using each object's bounding box. Maybe there's a Unity built-in function to compute this?
+
+[in_motion]					| Unity should be able to report x,y,z velocity as well, which makes computing this pretty easy
+
+[is_setup_object]			| trivial
+
+[object_orientation]		| takes arguments like "upright" and "sideways" -- also requires defining an intuitive heading for each object
+
+[on] 						| report a raycast down from each object?
+
+[open]						| requires direct reporting from Unity, but should be straightforward
+
+[opposite]					| seems to only be used for walls in our dataset. Given that limitation, we could compute it just from the IDs of the walls. More generally, we'd probably need to use the "intuitive facing" of each object and see if their raycasts mutually intersect
+
+[rug_color_under]			| need to report an object's color, and detect whether the object is "on" a rug
+
+[same_type]					| trivial
+
+[toggled_on]				| requires direct reporting from Unity, but should be straightforward
+
+[touch] 					| should be a Unity built-in?
+
+[type] 						| trivial

@@ -1,0 +1,67 @@
+Index,structure_start,structure,count
+0,then,(then (once (predicate ?x) ) (hold-while (and (not (predicate ?x) ) (predicate ?x) ) (predicate ?x ?x) ) (once (and (predicate ?x ?x) (not (predicate ?x) ) ) ) ) ),2
+1,then,(then (hold (and (not (predicate ?x ?x) ) (not (predicate ?x) ) ) ) (once (not (predicate ?x ?x) ) ) ) ),1
+2,then,(then (once (and (predicate ?x) (predicate ?x ?x) ) ) (hold (and (not (predicate ?x) ) (predicate ?x) ) ) (once (and (not (predicate ?x) ) (predicate ?x ?x) ) ) ) ),11
+3,then,(then (once (predicate ?x) ) (hold (and (not (predicate ?x) ) (predicate ?x) ) ) (once (not (predicate ?x) ) ) ) ),12
+4,then,(then (once (and (predicate ?x) (= (distance ?x ?x) 0) ) ) (hold (and (not (predicate ?x) ) (predicate ?x) ) ) (once (and (not (predicate ?x) ) (predicate ?x ?x) ) ) ) ),1
+5,then,(then (once (and (predicate ?x) (predicate ?x ?x) ) ) (hold (and (not (predicate ?x) ) (predicate ?x) ) ) (once (and (not (predicate ?x) ) (not (predicate ?x ?x) ) ) ) ) ),2
+6,then,(then (once (and (predicate ?x) (< (distance_side ?x ?x ?x) (distance_side ?x ?x ?x)) ) ) (hold-while (and (not (predicate ?x) ) (predicate ?x) ) (predicate ?x ?x) ) (once (and (not (predicate ?x) ) (< (distance_side ?x ?x ?x) (distance_side ?x ?x ?x)) ) ) ) ),1
+7,then,(then (once (and (predicate ?x) (or (predicate ?x ?x) (exists (?x ?x - object_type) (and (predicate ?x ?x) (predicate ?x ?x) (predicate ?x ?x) ) ) ) ) ) (hold (and (not (predicate ?x) ) (predicate ?x) ) ) (once (and (not (predicate ?x) ) (predicate ?x ?x) ) ) ) ),1
+8,then,(then (once (and (predicate ?x) (or (predicate ?x ?x) (exists (?x ?x - object_type) (and (predicate ?x ?x) (predicate ?x ?x) (predicate ?x ?x) ) ) ) ) ) (hold-while (and (not (predicate ?x) ) (predicate ?x) ) (predicate ?x ?x) ) (once (and (not (predicate ?x) ) (predicate ?x ?x) ) ) ) ),1
+9,then,(then (once (predicate ?x) ) (hold (and (not (predicate ?x) ) (predicate ?x) ) ) (once (and (not (predicate ?x) ) (predicate ?x ?x) ) ) ) ),4
+10,then,(then (once (and (predicate ?x) (predicate ?x ?x) (predicate ) ) ) (hold-while (and (not (predicate ?x) ) (predicate ?x) ) (predicate ?x ?x) ) (once (and (predicate ?x ?x) (not (predicate ?x) ) ) ) ) ),2
+11,then,(then (once (and (predicate ?x ?x) (predicate ?x) ) ) (hold (and (not (predicate ?x) ) (predicate ?x) ) ) (once (and (not (predicate ?x) ) (predicate ?x ?x) ) ) ) ),1
+12,then,(then (once (and (predicate ?x) (predicate ?x ?x) (predicate ?x ?x) (predicate ?x ?x) ) ) (hold-while (and (not (predicate ?x) ) (predicate ?x) ) (or (predicate ?x ?x) (exists (?x - object_type) (predicate ?x ?x) ) ) (predicate ?x) ) (once (not (predicate ?x) ) ) ) ),1
+13,then,(then (once (and (predicate ?x) (< (distance ?x ?x) 0) ) ) (hold (and (not (predicate ?x) ) (predicate ?x) ) ) (once (and (predicate ?x ?x) (not (predicate ?x) ) ) ) ) ),2
+14,then,(then (once (and (predicate ?x ?x) (predicate ?x) ) ) (hold (and (predicate ?x ?x) (not (predicate ?x) ) (predicate ?x) ) ) (once (and (predicate ?x ?x) (predicate ?x ?x) ) ) (hold (predicate ?x) ) (once (not (predicate ?x) ) ) ) ),1
+15,then,(then (once (and (predicate ?x ?x) (predicate ?x) ) ) (hold-while (and (not (predicate ?x) ) (predicate ?x ?x) (or (predicate ?x) (and (not (predicate ?x) ) (predicate ?x) ) ) ) (predicate ?x ?x) ) (hold (and (predicate ?x) (not (predicate ?x) ) ) ) (once (not (predicate ?x) ) ) ) ),1
+16,then,(then (once (and (predicate ?x) (predicate ?x ?x) ) ) (hold (and (not (predicate ?x) ) (predicate ?x) ) ) (once (and (not (predicate ?x) ) (predicate ?x ?x) (< (distance ?x ?x) 0) ) ) ) ),1
+17,then,(then (once (and (predicate ?x) (predicate ?x ?x) ) ) (hold (and (not (predicate ?x) ) (predicate ?x) ) ) (once (and (not (predicate ?x) ) (not (exists (?x - object_type) (predicate ?x ?x) ) ) (not (predicate ?x ?x) ) (not (exists (?x - object_type) (and (predicate ?x ?x) (< (distance ?x ?x) 0) ) ) ) ) ) ) ),1
+18,then,(then (once (and (predicate ?x) (predicate ?x ?x) (predicate ?x ?x) ) ) (hold (and (not (predicate ?x) ) (predicate ?x) ) ) (once (and (not (predicate ?x) ) (predicate ?x ?x) ) ) ) ),2
+19,then,(then (once (and (predicate ?x) (predicate ?x ?x) ) ) (hold (and (not (predicate ?x) ) (predicate ?x) ) ) (once (not (predicate ?x) ) ) ) ),1
+20,then,(then (once (and (predicate ?x) (not (predicate ?x ?x) ) ) ) (hold (and (not (predicate ?x) ) (predicate ?x) ) ) (once (and (predicate ?x ?x) (predicate ?x ?x) (predicate ?x ?x) ) ) ) ),1
+21,then,(then (once (and (predicate ?x) (not (predicate ?x ?x) ) ) ) (hold-while (and (not (predicate ?x) ) (predicate ?x) (not (exists (?x - object_type) (predicate ?x ?x) ) ) ) (predicate ?x ?x) ) (once (or (predicate ?x ?x) (predicate ?x ?x) ) ) ) ),1
+22,then,(then (once (predicate ?x ?x) ) (hold (and (predicate ?x) (predicate ?x ?x) ) ) (hold (and (not (predicate ?x) ) (predicate ?x) ) ) (once (and (not (predicate ?x) ) (predicate ?x ?x) ) ) ) ),1
+23,then,(then (once (and (predicate ?x) (predicate ?x ?x) (predicate ?x ?x) ) ) (hold-while (and (not (predicate ?x) ) (predicate ?x) ) (or (predicate ?x ?x) (exists (?x - object_type) (predicate ?x ?x) ) ) (predicate ?x) ) (once (not (predicate ?x) ) ) ) ),1
+24,then,(then (once (predicate ?x) ) (hold (and (not (predicate ?x) ) (predicate ?x) (not (exists (?x - object_type) (predicate ?x ?x) ) ) ) ) (once (and (not (predicate ?x) ) (predicate ?x ?x) ) ) ) ),2
+25,then,(then (once (predicate ?x) ) (hold-while (and (not (predicate ?x) ) (predicate ?x) ) (predicate ?x ?x) ) (once (and (not (predicate ?x) ) (predicate ?x ?x) ) ) ) ),2
+26,then,(then (once (predicate ?x) ) (hold (and (not (predicate ?x) ) (predicate ?x) ) ) (once (and (not (predicate ?x) ) (not (predicate ?x ?x) ) ) ) ) ),1
+27,then,(then (once (and (predicate ?x) (predicate ?x ?x) (predicate ?x ?x) (predicate ?x ?x) ) ) (hold (and (not (predicate ?x) ) (predicate ?x) ) ) (once (and (not (predicate ?x) ) (predicate ?x ?x) ) ) ) ),1
+28,then,(then (once (predicate ?x) ) (hold-while (and (not (predicate ?x) ) (predicate ?x) ) (predicate ?x ?x) ) (once (or (predicate ?x) (predicate ?x ?x) ) ) ) ),1
+29,then,(then (once (predicate ?x) ) (hold-while (and (not (predicate ?x) ) (predicate ?x) ) (predicate ?x ?x) ) (once (and (not (predicate ?x) ) (predicate ?x ?x) (predicate ?x ?x) ) ) ) ),1
+30,then,(then (once (and (not (predicate ?x) ) (not (predicate ?x) ) (not (predicate ?x ?x) ) (> (distance ?x ?x) (distance ?x ?x)) ) ) (hold (or (predicate ?x) (predicate ?x) ) ) (once (and (not (predicate ?x) ) (< (distance ?x ?x) (distance ?x ?x)) ) ) ) ),1
+31,then,(then (once (and (predicate ?x) (predicate ?x ?x) (predicate ?x ?x) (predicate ?x ?x) ) ) (hold-while (and (predicate ?x) (not (predicate ?x) ) ) (predicate ?x ?x) ) (once (predicate ?x) ) ) ),1
+32,then,(then (once (and (predicate ?x) (predicate ?x ?x) (predicate ?x ?x) ) ) (hold (and (predicate ?x) (not (predicate ?x) ) ) ) (once (not (predicate ?x) ) ) ) ),1
+33,then,(then (once (and (predicate ?x) (predicate ?x ?x) ) ) (hold-while (and (predicate ?x) (not (predicate ?x) ) ) (predicate ?x ?x) ) (once (and (not (predicate ?x) ) (predicate ?x ?x) ) ) ) ),1
+34,then,(then (once (and (predicate ?x) (predicate ?x ?x) ) ) (hold-while (and (predicate ?x) (not (predicate ?x) ) ) (predicate ?x ?x) ) (once (and (predicate ?x ?x) (not (predicate ?x) ) ) ) ) ),1
+35,then,(then (once (and (predicate ?x) (not (predicate ?x ?x) ) ) ) (hold-while (and (predicate ?x) (not (predicate ?x) ) ) (predicate ?x ?x) ) (once (and (not (predicate ?x) ) (predicate ?x ?x) (predicate ?x ?x) ) ) ) ),1
+36,then,(then (once (predicate ?x) ) (hold (and (predicate ?x) (not (predicate ?x) ) ) ) (once (and (not (predicate ?x) ) (or (predicate ?x ?x) (predicate ?x ?x) ) ) ) ) ),1
+37,then,(then (once (and (not (predicate ?x) ) (not (predicate ?x ?x) ) (not (predicate ?x ?x) ) (not (predicate ?x ?x) ) ) ) (hold (predicate ?x) ) (once (not (predicate ?x) ) ) ) ),1
+38,then,(then (once (and (predicate ?x ?x) (predicate ?x ?x) (predicate ?x) ) ) (hold (and (predicate ?x) (not (predicate ?x) ) ) ) (once (and (not (predicate ?x) ) (predicate ?x ?x) ) ) ) ),1
+39,then,(then (once (and (predicate ?x ?x) (predicate ?x ?x) (predicate ?x) ) ) (hold (and (predicate ?x) (not (predicate ?x) ) ) ) (once (not (predicate ?x) ) ) ) ),1
+40,then,(then (once (not (predicate ?x) ) ) (hold (or (predicate ?x) (predicate ?x) ) ) (once (and (not (predicate ?x) ) (predicate ?x ?x) ) ) ) ),1
+41,then,(then (once (and (predicate ?x) ) ) (hold (and (not (predicate ?x) ) (predicate ?x) ) ) (once (and (not (predicate ?x) ) (predicate ?x ?x) ) ) ) ),1
+42,then,(then (once (and (predicate ?x ?x) (predicate ?x) ) ) (hold (and (predicate ?x ?x) (predicate ?x) (not (predicate ?x) ) (not (exists (?x - object_type) (or (predicate ?x) (predicate ?x) ) ) ) ) ) (once (and (predicate ?x ?x) (predicate ?x ?x) (not (predicate ?x) ) ) ) ) ),1
+43,then,(then (once (predicate ?x) ) (hold (and (predicate ?x) (not (predicate ?x) ) ) ) (hold (predicate ?x ?x) ) (once (or (not (predicate ?x ?x) ) (predicate ) ) ) ) ),2
+44,then,(then (once (not (predicate ?x) ) ) (hold (predicate ?x) ) (once (not (predicate ?x) ) ) ) ),1
+45,then,(then (once (predicate ) ) (hold (not (predicate ?x) ) ) (hold (predicate ?x) ) (hold (and (predicate ?x) (not (predicate ?x) ) ) ) (once (and (not (predicate ?x) ) (predicate ?x ?x) ) ) (hold (not (predicate ?x) ) ) ) ),1
+46,then,(then (once (predicate ) ) (hold (not (exists (?x - object_type) (and (predicate ?x ?x) (predicate ?x) ) ) ) ) (once (predicate ?x) ) ) ),1
+47,then,(then (once (and (predicate ?x ?x) (predicate ?x) (not (predicate ?x) ) ) ) (hold-while (and (not (predicate ?x) ) (predicate ?x ?x) (or (predicate ?x) (and (not (predicate ?x) ) (predicate ?x) ) ) ) (predicate ?x ?x) ) (hold (and (predicate ?x) (not (predicate ?x) ) ) ) (once (not (predicate ?x) ) ) ) ),2
+48,then,(then (once (and (predicate ?x) (predicate ?x ?x) (not (exists (?x - object_type) (predicate ?x ?x) ) ) ) ) (hold (and (not (predicate ?x) ) (predicate ?x) ) ) (once (and (not (predicate ?x) ) (predicate ?x ?x) ) ) ) ),1
+49,then,(then (once (and (predicate ?x) (not (predicate ?x ?x) ) ) ) (hold (and (predicate ?x) (not (predicate ?x) ) ) ) (hold (predicate ?x ?x) ) (once (or (not (predicate ?x ?x) ) (predicate ) ) ) ) ),1
+50,always,(always (not (predicate ?x) ) ) ),1
+51,at-end,(at-end (predicate ?x ?x) ) ),10
+52,at-end,(at-end (and (predicate ?x ?x) (predicate ?x ?x) ) ) ),3
+53,at-end,(at-end (and (predicate ?x ?x) (not (exists (?x - object_type) (and (not (predicate ?x ?x) ) (predicate ?x ?x) ) ) ) ) ) ),1
+54,at-end,(at-end (and (predicate ?x ?x) (not (exists (?x - object_type) (predicate ?x ?x) ) ) (not (exists (?x - object_type) (and (not (predicate ?x ?x) ) (predicate ?x ?x) ) ) ) ) ) ),1
+55,at-end,(at-end (and (predicate ?x ?x) (predicate ?x ?x) (predicate ?x ?x) (predicate ?x ?x) ) ) ),1
+56,at-end,(at-end (and (predicate ?x ?x ?x) ) ) ),1
+57,at-end,(at-end (and (predicate ?x ?x) ) ) ),2
+58,at-end,(at-end (and (not (predicate ?x) ) ) ) ),1
+59,at-end,(at-end (and (not (predicate ?x ?x) ) (predicate ?x ?x) ) ) ),1
+60,at-end,(at-end (and (predicate ?x ?x) (not (predicate ?x) ) ) ) ),1
+61,at-end,(at-end (predicate ?x) ) ),1
+62,at-end,(at-end (and (predicate ?x ?x) (predicate ?x ?x) (predicate ?x ?x) ) ) ),1
+63,at-end,(at-end (and (predicate ?x ?x) (not (exists (?x - object_type) (predicate ?x ?x) ) ) ) ) ),2
+64,at-end,(at-end (and (predicate ?x) (not (predicate ?x) ) (forall (?x ?x - object_type) (or (not (predicate ?x ?x) ) (not (predicate ?x ?x) ) (not (predicate ?x ?x) ) (exists (?x ?x - object_type) (and (predicate ?x ?x) (predicate ?x ?x) (predicate ?x ?x) (predicate ?x ?x) (predicate ?x ?x) ) ) ) ) ) ) ),1
+65,at-end,(at-end (and (predicate ?x) (predicate ?x ?x) (predicate ?x ?x) ) ) ),1

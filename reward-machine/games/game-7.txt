@@ -1,0 +1,37 @@
+(define (game game-11) (:domain many-objects-room-v1)  ; 11
+(:constraints (and
+    (forall (?b - building) (and
+        (preference baseBlockInTowerAtEnd (exists (?l - block)
+            (at-end (and
+                (in ?b ?l)
+                (on floor ?l)
+            ))
+        ))
+        (preference blockOnBlockInTowerAtEnd (exists (?l - block)
+            (at-end
+                (and
+                    (in ?b ?l)
+                    (not (exists (?o - game_object) (and (not (same_type ?o block)) (touch ?o ?l))))
+                    (not (on floor ?l))
+                )
+            )
+        ))
+        (preference pyramidBlockAtopTowerAtEnd (exists (?p - pyramid_block)
+            (at-end
+                (and
+                    (in ?b ?p)
+                    (not (exists (?l - block) (on ?p ?l)))
+                    (not (exists (?o - game_object) (and (not (same_type ?o block)) (touch ?o ?p))))
+                )
+            )
+        ))
+    ))
+))
+(:scoring (external-forall-maximize (*
+    (count-once pyramidBlockAtopTowerAtEnd)
+    (count-once baseBlockInTowerAtEnd)
+    (+
+        (count-once baseBlockInTowerAtEnd)
+        (count-once-per-objects blockOnBlockInTowerAtEnd)
+    )
+))))

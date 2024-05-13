@@ -1,0 +1,373 @@
+# First attempt at modeling EBNF modeling my custom DSL
+
+@@grammar :: GameDSL
+@@parseinfo :: True
+@@eol_comments :: /;([^\n]*?)$/
+
+start = '(define' game_def domain_def setup_def constraints_def terminal_def scoring_def ')' $;
+game_def = '(game' game_name:id ')';
+domain_def = '(:domain' domain_name:id ')';
+setup_def = '(:setup' setup ')' | ();
+constraints_def = '(:constraints' preferences ')';
+terminal_def = '(:terminal' terminal ')' | ();
+scoring_def = '(:scoring' scoring ')';
+
+# Generic definitions useful across sections
+
+id = /[a-z0-9][a-z0-9\-]+/;
+name = /[A-Za-z][A-Za-z0-9_]*/;
+number_pattern = /-?\d*\.?\d+/;
+
+variable = /\?[a-w][a-z0-9]*/;
+color_variable = /\?x[0-9]*/;
+orientation_variable = /\?y[0-9]*/;
+side_variable = /\?z[0-9]*/;
+
+variable_list = '(' {variables+:(variable_type_def | color_variable_type_def | orientation_variable_type_def | side_variable_type_def)}+ ')';
+
+variable_type_def = {var_names+:variable}+ '-' var_type:type_definition;
+color_variable_type_def = {var_names+:color_variable}+ '-' var_type:color_type_definition;
+orientation_variable_type_def = {var_names+:orientation_variable}+ '-' var_type:orientation_type_definition;
+side_variable_type_def = {var_names+:side_variable}+ '-' var_type:side_type_definition;
+
+type_definition = type:(object_type | either_types);
+color_type_definition = type:(color_type | either_color_types);
+orientation_type_definition = type:(orientation_type | either_orientation_types);
+side_type_definition = type:(side_type | either_side_types);
+
+either_types = '(either' {type_names+:object_type}+ ')';
+either_color_types = '(either' {type_names+:color}+ ')';
+either_orientation_types = '(either' {type_names+:orientation}+ ')';
+either_side_types = '(either' {type_names+:side}+ ')';
+
+object_type = terminal:name;  # we don't hardcode all the types, but do set a prior over them in the sampler
+object_name = terminal:('agent' | 'bed' | 'desk' | 'door' | 'floor' | 'main_light_switch' | 'mirror' | 'room_center' | 'rug' | 'side_table' | 'bottom_drawer' | 'bottom_shelf' | 'east_sliding_door' | 'east_wall' | 'north_wall' | 'south_wall' | 'top_drawer' | 'top_shelf' | 'west_sliding_door' | 'west_wall');
+color_type = terminal:'color';
+color = terminal:('blue' | 'brown' | 'gray' | 'green' | 'orange' | 'pink' | 'purple' | 'red' | 'tan' | 'white' | 'yellow');
+orientation_type = terminal:'orientation';
+orientation = terminal:('diagonal' | 'sideways' | 'upright' | 'upside_down');
+side_type = terminal:'side';
+side = terminal:('back' | 'front' | 'left' | 'right');
+
+# number_value = number:(positive_number | negative_number);
+# positive_number = terminal:number_pattern;
+# negative_number = '-' number:positive_number;
+
+comparison_arg_number_value = terminal:number_pattern;
+time_number_value = terminal:number_pattern;
+score_number_value = terminal:number_pattern;
+pref_count_number_value = terminal:number_pattern;
+scoring_number_value = terminal:number_pattern;
+
+
+function_comparison = comp:(two_arg_comparison | multiple_args_equal_comparison);
+two_arg_comparison = '(' comp_op:binary_comp_no_equal arg_1:comparison_arg arg_2:comparison_arg ')';
+multiple_args_equal_comparison = '(=' {equal_comp_args+:comparison_arg}+ ')';
+
+predicate_or_function_term = term:(object_name | variable);
+predicate_or_function_color_term = term:(color | color_variable);
+# predicate_or_function_location_term = term:(location | variable);
+predicate_or_function_orientation_term = term:(orientation | orientation_variable);
+predicate_or_function_side_term = term:(side | side_variable);
+predicate_or_function_type_term = term:(object_type | variable);
+
+
+comparison_arg = arg:(function_eval | comparison_arg_number_value);
+binary_comp = '<=' | '<' | '=' | '>=' | '>';
+binary_comp_no_equal = '<=' | '<' | '>=' | '>';
+function_eval = func:(function_building_size |
+    function_distance |
+    function_distance_side_3 |
+    function_distance_side_4 |
+    function_x_position
+    )
+    ;
+function_building_size = '(building_size' arg_1:predicate_or_function_term ')';
+function_distance = '(distance' arg_1:predicate_or_function_term arg_2:predicate_or_function_term ')';
+function_distance_side_3 = '(distance_side' arg_1:predicate_or_function_term arg_2:predicate_or_function_side_term arg_3:predicate_or_function_term ')';
+function_distance_side_4 = '(distance_side' arg_1:predicate_or_function_term arg_2:predicate_or_function_side_term arg_3:predicate_or_function_term arg_4:predicate_or_function_side_term ')';
+function_x_position = '(x_position' arg_1:predicate_or_function_term ')';
+
+# function_distance = '(distance' arg_1:predicate_or_function_location_term arg_2:predicate_or_function_term ')';
+# function_distance_side_3 = '(distance_side' arg_1:predicate_or_function_location_term arg_2:predicate_or_function_side_term arg_3:predicate_or_function_term ')';
+# function_distance_side_4 = '(distance_side' arg_1:predicate_or_function_location_term arg_2:predicate_or_function_side_term arg_3:predicate_or_function_term arg_4:predicate_or_function_side_term ')';
+# function_term = term:(type_name | variable);   #  used to allow numbers as well -- unsure why at this point: function_term = term:(number | type_name | variable);
+
+predicate = pred:(predicate_above |
+    predicate_adjacent |
+    predicate_adjacent_side_3 |
+    predicate_adjacent_side_4 |
+    predicate_agent_crouches |
+    predicate_agent_holds |
+    predicate_between |
+    predicate_broken |
+    predicate_equal_x_position |
+    predicate_equal_z_position |
+    predicate_faces |
+    predicate_game_over |
+    predicate_game_start |
+    predicate_in |
+    predicate_in_motion |
+    predicate_is_setup_object |
+    predicate_near |
+    predicate_object_orientation |
+    predicate_on |
+    predicate_open |
+    predicate_opposite |
+    predicate_rug_color_under |
+    predicate_same_color |
+    predicate_same_object |
+    predicate_same_type |
+    predicate_toggled_on |
+    predicate_touch
+    )
+    ;
+
+predicate_above = '(above' arg_1:predicate_or_function_term arg_2:predicate_or_function_term ')';
+predicate_adjacent = '(adjacent' arg_1:predicate_or_function_term arg_2:predicate_or_function_term ')';
+predicate_adjacent_side_3 = '(adjacent_side' arg_1:predicate_or_function_term arg_2:predicate_or_function_side_term arg_3:predicate_or_function_term ')';
+predicate_adjacent_side_4 = '(adjacent_side' arg_1:predicate_or_function_term arg_2:predicate_or_function_side_term arg_3:predicate_or_function_term arg_4:predicate_or_function_side_term ')';
+predicate_agent_crouches = '(agent_crouches' no_args:{} ')';  # hack to make sure it parses an expression
+predicate_agent_holds = '(agent_holds' arg_1:predicate_or_function_term ')';
+predicate_between = '(between' arg_1:predicate_or_function_term arg_2:predicate_or_function_term arg_3:predicate_or_function_term ')';
+predicate_broken = '(broken' arg_1:predicate_or_function_term ')';
+predicate_equal_x_position = '(equal_x_position' arg_1:predicate_or_function_term arg_2:predicate_or_function_term ')';
+predicate_equal_z_position = '(equal_z_position' arg_1:predicate_or_function_term arg_2:predicate_or_function_term ')';
+predicate_faces = '(faces' arg_1:predicate_or_function_term arg_2:predicate_or_function_term ')';
+predicate_game_over = '(game_over' no_args:{} ')';  # hack to make sure it parses an expression
+predicate_game_start = '(game_start' no_args:{} ')';  # hack to make sure it parses an expression
+predicate_in = '(in' arg_1:predicate_or_function_term arg_2:predicate_or_function_term ')';
+predicate_in_motion = '(in_motion' arg_1:predicate_or_function_term ')';
+predicate_is_setup_object = '(is_setup_object' arg_1:predicate_or_function_term ')';
+predicate_near = '(near' arg_1:predicate_or_function_term arg_2:predicate_or_function_term ')';
+predicate_object_orientation = '(object_orientation' arg_1:predicate_or_function_term arg_2:predicate_or_function_orientation_term ')';
+predicate_on = '(on' arg_1:predicate_or_function_term arg_2:predicate_or_function_term ')';
+predicate_open = '(open' arg_1:predicate_or_function_term ')';
+predicate_opposite = '(opposite' arg_1:predicate_or_function_term arg_2:predicate_or_function_term ')';
+predicate_rug_color_under = '(rug_color_under' arg_1:predicate_or_function_term arg_2:predicate_or_function_color_term ')';
+predicate_same_color = '(same_color' arg_1:predicate_or_function_term arg_2:(predicate_or_function_color_term | predicate_or_function_term) ')';
+predicate_same_object = '(same_object' arg_1:predicate_or_function_term arg_2:predicate_or_function_term ')';
+predicate_same_type = '(same_type' arg_1:predicate_or_function_term arg_2:predicate_or_function_type_term ')';
+predicate_toggled_on = '(toggled_on' arg_1:predicate_or_function_term ')';
+predicate_touch = '(touch' arg_1:predicate_or_function_term arg_2:predicate_or_function_term ')';
+
+# predicate_adjacent = '(adjacent' arg_1:predicate_or_function_location_term arg_2:predicate_or_function_term ')';
+# predicate_adjacent_side_3 = '(adjacent_side' arg_1:predicate_or_function_location_term arg_2:predicate_or_function_side_term arg_3:predicate_or_function_term ')';
+# predicate_adjacent_side_4 = '(adjacent_side' arg_1:predicate_or_function_location_term arg_2:predicate_or_function_side_term arg_3:predicate_or_function_term arg_4:predicate_or_function_side_term ')';
+# predicate_equal_x_position = '(equal_x_position' arg_1:predicate_or_function_location_term arg_2:predicate_or_function_term ')';
+# predicate_equal_z_position = '(equal_z_position' arg_1:predicate_or_function_location_term arg_2:predicate_or_function_term ')';
+
+# Game Setup
+
+setup = setup:(setup_and |
+    setup_or |
+    setup_not |
+    setup_exists |
+    setup_forall |
+    setup_statement
+    )
+    ;
+
+setup_and = '(and' {and_args+:setup}+ ')';  # TODO: do we want to enforce more than one?
+setup_or = '(or' {or_args+:setup}+ ')';  # TODO: do we want to enforce more than one?
+setup_not = '(not' not_args:setup ')';
+setup_exists = '(exists' exists_vars:variable_list exists_args:setup ')';
+setup_forall = '(forall' forall_vars:variable_list forall_args:setup ')';
+
+setup_statement = statement:(setup_game_conserved | setup_game_optional);
+
+setup_game_conserved = '(game-conserved' conserved_pred:super_predicate ')';
+setup_game_optional = '(game-optional' optional_pred:super_predicate ')';
+
+super_predicate = pred:(
+    super_predicate_and |
+    super_predicate_or |
+    super_predicate_not |
+    super_predicate_exists |
+    super_predicate_forall |
+    function_comparison |
+    predicate
+    )
+    ;
+
+super_predicate_and = '(and' {and_args+:super_predicate}+ ')'; # TODO: do we want to enforce more than one?
+super_predicate_or = '(or' {or_args+:super_predicate}+ ')';  # TODO: do we want to enforce more than one?
+super_predicate_not = '(not' not_args:super_predicate ')';
+super_predicate_exists = '(exists' exists_vars:variable_list exists_args:super_predicate ')';
+super_predicate_forall = '(forall' forall_vars:variable_list forall_args:super_predicate ')';
+
+# Constraints/Preferences
+preferences =
+    '(and' {preferences+:pref_def}+ ')' | # TODO: do we want to enforce more than one?
+    preferences:pref_def
+    ;
+
+pref_def = definition:(preference | pref_forall);
+
+preference = '(preference' pref_name:preference_name pref_body:pref_body ')';
+preference_name = name;
+pref_forall = '(forall' forall_vars:variable_list forall_pref:pref_forall_prefs ')';
+
+pref_forall_prefs = '(and' {preferences+:preference}+ ')' |  # to allow multiple preferences in a forall
+    {preferences:preference};
+
+pref_body = body:(
+    pref_body_exists |
+    then |
+    at_end
+    );
+# pref_body_forall |
+
+pref_body_exists = '(exists' exists_vars:variable_list exists_args:(then | at_end) ')';
+# pref_body_forall = '(forall' forall_vars:variable_list forall_args:pref_body ')';
+at_end = '(at-end' at_end_pred:super_predicate')';
+always = '(always' always_pred:super_predicate')';
+then = '(then' {then_funcs+:seq_func}+ ')';
+
+seq_func = seq_func:(
+    once |
+    once_measure |
+    hold |
+    while_hold # |
+    );
+
+# any |
+# hold_for |
+# hold_to_end |
+# forall_seq
+
+# any = '(any)';
+once = '(once ' once_pred:super_predicate ')';
+once_measure = '(once-measure' once_measure_pred:super_predicate measurement:function_eval ')';
+hold = '(hold' hold_pred:super_predicate ')';
+while_hold = '(hold-while' hold_pred:super_predicate {while_preds+:super_predicate}+ ')';
+# hold_for = '(hold-for' num_to_hold:number hold_pred:super_predicate ')';
+# hold_to_end = '(hold-to-end' hold_pred:super_predicate ')';
+# forall_seq = '(forall-sequence' forall_seq_vars:variable_list forall_seq_then:then ')';
+
+# super_predicate =
+#     super_predicate_and |
+#     super_predicate_or |
+#     super_predicate_not |
+#     super_predicate_exists |
+#     super_predicate_forall |
+#     predicate |
+#     function_comparison
+#     ;
+
+# super_predicate_and = '(and' {and_args:super_predicate}+ ')';  # TODO: do we want to enforce more than one?
+# super_predicate_or = '(or' {or_args:super_predicate}+ ')';  # TODO: do we want to enforce more than one?
+# super_predicate_not = '(not' not_args:super_predicate ')';
+# super_predicate_exists = '(exists' exists_vars:variable_list exists_pred:super_predicate ')';
+# super_predicate_forall = '(forall' forall_vars:variable_list forall_pred:super_predicate ')';
+
+# Terminal conditions
+
+terminal = terminal:(
+    terminal_and |
+    terminal_or |
+    terminal_not |
+    terminal_comp
+    );
+
+terminal_and = '(and' {and_args+:terminal}+ ')'; # TODO: do we want to enforce more than one?
+terminal_or = '(or' {or_args+:terminal}+ ')'; # TODO: do we want to enforce more than one?
+terminal_not = '(not' not_args:terminal ')';
+terminal_comp = comp:(terminal_time_comp | terminal_score_comp | terminal_pref_count_comp);
+
+terminal_time_comp = '(' op:binary_comp expr_1:total_time expr_2:time_number_value ')';
+terminal_score_comp = '(' op:binary_comp expr_1:total_score expr_2:score_number_value ')';
+terminal_pref_count_comp = '(' op:binary_comp expr_1:scoring_expr_or_number expr_2:pref_count_number_value ')';
+
+
+# alternatively, if we don't want scoring to be able to refer to '(total-score)''
+# we recreate the definition from above, and add '(total-score)' as a separate literal option
+# terminal_expr = expr:(scoring_expr_or_number | total_time | total_score);
+
+total_time = '(total-time)';
+total_score = '(total-score)' ;
+
+scoring_expr = expr:(
+    scoring_external_maximize |
+    scoring_external_minimize |
+    scoring_multi_expr |
+    scoring_binary_expr |
+    scoring_neg_expr |
+    # scoring_and |
+    # scoring_or |
+    # scoring_not |
+    preference_eval |
+    scoring_comparison
+    );
+    # function_eval  # allowing an arbitrary function evaluation as part of scoring -- why do we want this?
+
+scoring_expr_or_number = expr:(scoring_expr | scoring_number_value);
+
+scoring_external_maximize = '(external-forall-maximize' scoring_expr:scoring_expr ')';
+scoring_external_minimize = '(external-forall-minimize' scoring_expr:scoring_expr ')';
+
+scoring_multi_expr = '(' op:multi_op {expr+:scoring_expr_or_number}+ ')';  # TODO: do we want to enforce more than one?
+scoring_binary_expr = '(' op:binary_op expr_1:scoring_expr_or_number expr_2:scoring_expr_or_number ')';
+scoring_neg_expr = '(-' expr:scoring_expr_or_number ')';
+
+# scoring_and = '(and' {and_args:scoring_expr}+ ')'; # TODO: do we want to enforce more than one?
+# scoring_or = '(or' {or_args:scoring_expr}+ ')'; # TODO: do we want to enforce more than one?
+# scoring_not = '(not' not_args:scoring_expr ')';
+
+multi_op = '+' | '*';
+binary_op = '-' | '/';
+
+scoring_comparison = comp:(
+    scoring_comp |
+    scoring_equals_comp);
+
+scoring_comp = '(' op:binary_comp_no_equal expr_1:scoring_expr_or_number expr_2:scoring_expr_or_number ')';
+scoring_equals_comp = '(=' {expr+:scoring_expr_or_number}+ ')';
+
+
+preference_eval = count_method:(
+    count |
+    count_overlapping |
+    count_once |
+    count_once_per_objects |
+    # count_longest |
+    # count_shortest |
+    # count_total |
+    # count_increasing_measure |
+    count_unique_positions |
+    count_same_positions |
+    # count_maximal_once |
+    # count_maximal_once_per_objects |
+    # count_maximal_nonoverlapping |
+    # count_maximal_overlapping |
+    count_once_per_external_objects |
+    count_measure
+    );
+
+count = '(count' name_and_types:pref_name_and_types ')';
+count_overlapping = '(count-overlapping' name_and_types:pref_name_and_types ')';
+count_once = '(count-once' name_and_types:pref_name_and_types ')';
+count_once_per_objects = '(count-once-per-objects' name_and_types:pref_name_and_types ')';
+# TODO: comment out the following four, rebuild everything
+# count_longest = '(count-longest' name_and_types:pref_name_and_types ')';
+# count_shortest = '(count-shortest' name_and_types:pref_name_and_types ')';
+# count_total = '(count-total' name_and_types:pref_name_and_types ')';
+# count_increasing_measure = '(count-increasing-measure' name_and_types:pref_name_and_types ')';
+count_unique_positions = '(count-unique-positions' name_and_types:pref_name_and_types ')';
+count_same_positions = '(count-same-positions' name_and_types:pref_name_and_types ')';
+# count_maximal_once = '(count-maximal-once' name_and_types:pref_name_and_types ')';
+# count_maximal_once_per_objects = '(count-maximal-once-per-objects' name_and_types:pref_name_and_types ')';
+# count_maximal_nonoverlapping = '(count-maximal-nonoverlapping' name_and_types:pref_name_and_types ')';
+# count_maximal_overlapping = '(count-maximal-overlapping' name_and_types:pref_name_and_types ')';
+count_once_per_external_objects = '(count-once-per-external-objects' name_and_types:pref_name_and_types ')';
+count_measure = '(count-measure' name_and_types:pref_name_and_types ')';
+
+pref_name_and_types = pref_name:preference_name {object_types+:pref_object_type}*;
+
+pref_object_type = ':' type_name:(color | object_name | object_type);
+
+# Scoring
+scoring = scoring_expr;
+
+# scoring_maximize = 'maximize' expr:scoring_expr;
+# scoring_minimize = 'minimize' expr:scoring_expr;

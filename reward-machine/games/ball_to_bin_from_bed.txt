@@ -1,0 +1,22 @@
+(define (game game-83) (:domain many-objects-room-v1)  ; 83
+(:setup (and
+    (exists (?h - hexagonal_bin ?c1 ?c2 - chair) (game-conserved (and
+        (object_orientation ?h sideways)
+        (between ?c1 ?h ?c2)
+    )))
+))
+(:constraints (and
+    (forall (?b - (either dodgeball golfball))
+        (preference ballToBinFromBed (exists (?h - hexagonal_bin)
+            (then
+                (once (and (agent_holds ?b) (adjacent bed agent)))
+                (hold (and (in_motion ?b) (not (agent_holds ?b))))
+                (once (and (not (in_motion ?b)) (in ?h ?b)))
+            )
+        ))
+    )
+))
+(:scoring (+
+    (count-once-per-objects ballToBinFromBed:dodgeball)
+    (* (= (count-once-per-objects ballToBinFromBed:dodgeball) 3) (count-once-per-objects ballToBinFromBed:golfball))
+)))

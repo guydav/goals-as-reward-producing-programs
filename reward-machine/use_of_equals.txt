@@ -1,0 +1,25 @@
+NUMERICAL EQUIVALENCE (2 ARGUMENTS)
+(= (distance agent ?h) 1))
+(= (distance ?w1 ?b) (distance ?w2 ?b))
+(= (building_size ?b) 6))
+
+NUMERICAL EQUIVALENCE (MANY ARGUMENTS)
+(= (distance desk ?b1) (distance desk ?b2) (distance desk ?b3) (distance desk ?b4))
+
+NUMERICAL EQUIVALENCE (SCORING)
+(* 30 (= (count-nonoverlapping ballThrownFromBehindBlock:blue_cube_block) 2)) # here the output needs to be cast back to an int
+
+OBJECT IDENTITY EQUIVALENCE
+(forall (?g - game_object) (game-optional (or (= ?h ?g) (> (distance ?h ?g) 1))))
+(not (= ?l ?l2))
+
+COLOR EQUIVALENCE
+(= (color ?b) (color ?tb))
+(= (color ?o) pink)
+(= (color ?b) ?c) # interesting because here the variable is a color
+
+TYPE EQUIVALENCE
+(= (type ?o4) pillow)
+
+Z-POSITION EQUIVALENCE # doesn't technically use (= ), but it was considered
+(equal_z_position ?h ?d)

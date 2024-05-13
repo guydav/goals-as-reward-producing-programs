@@ -1,0 +1,682 @@
+[
+    {
+        "key": [
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "Setup: place a doggie bed near the rug and ensure that it remains there for the entire duration of the game.\n\nGameplay: place objects on the doggie bed so that they are not moving by the end of the game.\n\nScoring: you get 1 point for each object that is not moving and is on the bed at the end of the game."
+    },
+    {
+        "key": [
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+        ],
+        "text": "Setup: place every block on the rug and ensure that they remain there for the entire duration of the game.\n\nGameplay: pick up and throw cube blocks.\n\nScoring: your score is the number of different cube blocks you have thrown by the end of the game."
+    },
+    {
+        "key": [
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "Gameplay: place credit cards or CDs inside a hexagonal bin\n\nScoring: your score will be zero regardless of the number of credit cards or CDs placed in the bin"
+    },
+    {
+        "key": [
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+        ],
+        "text": "Gameplay: ensure objects are not moving and are near the rug\n\nTerminal: the game ends after 3 minutes\n\nScoring: you get 1 point for each object that is not moving and is near the rug at the end of the game"
+    },
+    {
+        "key": [
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "Gameplay: throw a dodgeball\n\nScoring: your score is the number of times you've successfully thrown and stopped a dodgeball"
+    },
+    {
+        "key": [
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+        ],
+        "text": "Setup: place every green bridge block on the rug and ensure that they remain there for the entire duration of the game.\n\nGameplay: stack a cube block and a flat block on top of another block of the same type as the cube block.\n\nScoring: you get 6 points for each set of blocks arranged according to the game's conditions at the end of the game."
+    },
+    {
+        "key": [
+            1,
+            1,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "Gameplay: throw a dodgeball so that it lands and comes to rest inside a hexagonal bin\n\nScoring: you get 1 point for each successful throw where the dodgeball stops moving inside the bin and is resting on it"
+    },
+    {
+        "key": [
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+        ],
+        "text": "Gameplay: throw cube blocks\n\nScoring: you get 1 point for each different cube block you have thrown by the end of the game"
+    },
+    {
+        "key": [
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+        ],
+        "text": "Setup: During game setup, place every dodgeball near the desk at least once.\n\nGameplay: Hold a dodgeball and throw it so that it touches the south wall without holding a teddy bear during the throw.\n\nTerminal: The game ends after 60 seconds.\n\nScoring: Your score is the number of successful throws where the dodgeball touched the south wall and then stopped moving."
+    },
+    {
+        "key": [
+            1,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "Setup: Place every dodgeball near the desk at least once during the game.\n\nGameplay: Hold a dodgeball and throw it.\n\nScoring: Your score is equal to the number of times you've thrown a dodgeball and it has come to a stop."
+    },
+    {
+        "key": [
+            1,
+            1,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+        ],
+        "text": "Gameplay: pick up cube blocks and either throw them so they land on the rug or release and pick them up again without holding them for a period of time until they stop moving.\n\nScoring: your score is the sum of the number of times you threw a cube block onto the rug plus three times the number of times you released and picked up a cube block again until it stopped moving."
+    },
+    {
+        "key": [
+            1,
+            0,
+            2,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+        ],
+        "text": "Setup: place a hexagonal bin near the north wall and ensure that it remains there for the entire duration of the game.\n\nGameplay: throw golfballs into the hexagonal bin and stack three cube blocks on top of another block, ensuring one cube block is the same type as the block it's on.\n\nScoring: your score is the number of times you've successfully stacked the blocks as described, minus four times the number of successful golfball throws into the bin."
+    },
+    {
+        "key": [
+            1,
+            1,
+            2,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+        ],
+        "text": "Gameplay: ensure objects are near the rug and not moving by the end of the game, and throw golfballs so that they touch the rug and then come to a stop without being held.\n\nScoring: your score is the total number of objects near the rug and not moving, plus the number of times you've successfully thrown a golfball that touched the rug and then stopped."
+    },
+    {
+        "key": [
+            1,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "Setup: place a hexagonal bin near the rug and ensure it stays there throughout the game.\n\nGameplay: place chairs on top of desks and throw basketballs so that they come to rest on the hexagonal bin.\n\nScoring: your score is the number of chairs placed on desks plus 40 times the number of basketballs resting on the hexagonal bin at the end of the game."
+    },
+    {
+        "key": [
+            1,
+            0,
+            2,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "Setup: place a hexagonal bin near the door and ensure that it remains there for the entire duration of the game.\n\nGameplay: throw white golf balls and place credit cards or CDs into the hexagonal bin.\n\nScoring: your score is the total number of white golf balls thrown plus 40 times the number of credit cards or CDs placed in the hexagonal bin by the end of the game."
+    },
+    {
+        "key": [
+            1,
+            1,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+        ],
+        "text": "Gameplay: throw dodgeballs so that they land either inside a hexagonal bin or on a doggie bed\n\nScoring: your score is the total number of successful throws that result in the dodgeball stopping inside the bin or on the bed"
+    },
+    {
+        "key": [
+            1,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "Setup: place a hexagonal bin near the rug and ensure it stays there throughout the game.\n\nGameplay: position a chair on top of a desk and place a teddy bear on top of a desk without angling it diagonally.\n\nScoring: at the end of the game, you earn 80 points for each chair on a desk and 1 point for each teddy bear properly placed on a desk."
+    },
+    {
+        "key": [
+            1,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1
+        ],
+        "text": "Setup: place every blue cube block on the rug and ensure they stay there throughout the game.\n\nGameplay: arrange objects so that they are not moving and are near the north wall, and stack a yellow cube block of the same type as a blue cube block between two other cube blocks.\n\nScoring: at the end of the game, you earn 5 points for each object near the north wall that isn't moving, and 1 point for each stack with a yellow cube block sandwiched between two other cube blocks. Add these points together for your final score."
+    },
+    {
+        "key": [
+            1,
+            1,
+            2,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0
+        ],
+        "text": "Gameplay: throw cube blocks and place credit cards or CDs inside a hexagonal bin\n\nScoring: your score is the number of credit cards or CDs in the hexagonal bin minus the number of cube blocks thrown"
+    },
+    {
+        "key": [
+            1,
+            1,
+            2,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "Gameplay: throw dodgeballs so that they either rest on a desk or land inside and on top of a hexagonal bin.\n\nScoring: you score 1 point for each dodgeball that rests on the desk and 20 points for each dodgeball that lands inside and on top of the hexagonal bin."
+    },
+    {
+        "key": [
+            1,
+            1,
+            3,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0
+        ],
+        "text": "Gameplay: throw dodgeballs with the goal of getting them to stop inside a hexagonal bin, and place credit cards or CDs into the bin as well.\n\nScoring: your score is calculated by multiplying 40 by the number of successful dodgeball throws into the bin and then by the number of credit cards or CDs in the bin, and adding the number of dodgeball throws that stopped moving regardless of where they landed."
+    },
+    {
+        "key": [
+            1,
+            1,
+            3,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "Gameplay: throw dodgeballs aiming for them to land and stop moving on a side table, on the bed, or on a hexagonal bin.\n\nScoring: your score is the total number of successful throws where the dodgeball lands and stops on the side table, bed, or hexagonal bin."
+    },
+    {
+        "key": [
+            1,
+            1,
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            3,
+            0,
+            0
+        ],
+        "text": "Gameplay: Stack blocks in specific configurations by the end of the game. For Preference 1, place one cube block on top of another, then add a tall rectangular block and another cube block on the same base cube block. For Preference 2, stack a cube block on top of a tall rectangular block, which is on top of another cube block, and then place another cube block on top of the tall rectangular block, ensuring the bottom cube block is the same type as the tall rectangular block. For Preference 3, place a tall rectangular block on top of a cube block, which is on top of another cube block, with the bottom cube block being the same type as another cube block.\n\nScoring: Your score is calculated by multiplying the number of times Preference 1 and Preference 2 have been satisfied together and then adding the number of times Preference 3 has been satisfied."
+    },
+    {
+        "key": [
+            1,
+            1,
+            3,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "Gameplay: Move chairs so that they end up on top of desks. Release chairs to make them move and then come to a stop.\n\nTerminal: The game ends when the total score is 10 or more.\n\nScoring: Your score is the sum of the number of times you released a chair and it stopped moving, plus four times the product of the number of chairs on desktops that are moving without being held and the number of chairs on top of desks at the end of the game."
+    },
+    {
+        "key": [
+            1,
+            0,
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+        ],
+        "text": "Setup: Place a hexagonal bin near the rug and ensure it stays there throughout the game.\n\nGameplay: Throw dodgeballs and tan cylindrical blocks towards the hexagonal bin, aiming to land the dodgeballs on top of the bin and the cylindrical blocks inside the bin.\n\nScoring: Your score is the sum of the number of successful dodgeball landings on top of the bin, six times the number of successful dodgeball landings on top of the bin, and the number of successful cylindrical block landings inside the bin."
+    },
+    {
+        "key": [
+            1,
+            1,
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "Gameplay: throw golfballs to rest on a hexagonal bin, and throw basketballs or white golfballs to land on the top drawer. Additionally, throw basketballs to rest on a hexagonal bin.\n\nScoring: your score is the sum of the number of successful golfball throws onto the hexagonal bin plus 40 times the product of the number of successful throws of basketballs or white golfballs onto the top drawer, the number of successful golfball throws onto the hexagonal bin, and the number of successful basketball throws onto the hexagonal bin."
+    },
+    {
+        "key": [
+            1,
+            1,
+            3,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "Gameplay: throw golfballs and dodgeballs aiming to land them on and in a hexagonal bin\n\nScoring: your score is the total number of successful throws where a golfball rests on the bin, a dodgeball is on and inside the bin, and a dodgeball is on the bin"
+    },
+    {
+        "key": [
+            1,
+            1,
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2
+        ],
+        "text": "Gameplay: Ensure objects are not moving and are positioned close to either the rug or the door, or are broken by the end of the game.\n\nScoring: Your score is calculated by adding 0.7 times the product of the number of times objects are close to the rug, close to the door, and broken to the number of times objects are broken."
+    },
+    {
+        "key": [
+            1,
+            1,
+            3,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+        ],
+        "text": "Gameplay: pick up a green triangle block, set it down for a period, then pick it up again until it stops moving. Throw a dodgeball until it comes to rest on a desk. Throw a basketball until it stops moving and is resting on a hexagonal bin.\n\nScoring: your score is the sum of the number of times you successfully complete each of the three actions with the green triangle block, dodgeball, and basketball."
+    },
+    {
+        "key": [
+            1,
+            1,
+            3,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0
+        ],
+        "text": "Gameplay: Stack a bridge block on a blue cube block with another block on top, throw red dodgeballs, and stack two cube blocks on a flat gray block that is on another cube block of the same type.\n\nScoring: At the end of the game, you earn 4 points for each stack of two cube blocks on a flat gray block that is on another cube block of the same type, 1 point for each stack involving a bridge block on a blue cube block with another block on top, and 1 point for each red dodgeball thrown."
+    },
+    {
+        "key": [
+            1,
+            0,
+            4,
+            0,
+            1,
+            1,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0
+        ],
+        "text": "Setup: Place a hexagonal bin near the rug and ensure it remains there for the entire duration of the game.\n\nGameplay: \n- Place a chair on top of a desk.\n- Throw golfballs onto the desk.\n- Throw dodgeballs into and on top of the hexagonal bin.\n- Stack one cube block and two other blocks on top of a fourth block, ensuring one of the cube blocks is the same type as the block it is on.\n\nScoring: At the end of the game, your score is the sum of the number of times you've satisfied the conditions of placing a chair on the desk, throwing golfballs onto the desk, throwing dodgeballs into the bin, and correctly stacking the blocks. Each successful action counts as 1 point towards your score."
+    },
+    {
+        "key": [
+            1,
+            1,
+            4,
+            0,
+            0,
+            0,
+            3,
+            0,
+            0,
+            0,
+            1,
+            0
+        ],
+        "text": "Gameplay: throw balls into a hexagonal bin and place credit cards, CDs, or pencils into the top drawer\n\nScoring: your score is the number of times a credit card or a CD is in the hexagonal bin at the end of the game, minus three times the product of the number of successful ball throws into the bin, the instances where neither a credit card nor a CD is in the bin, and the instances where a credit card, a CD, or a pencil is in the top drawer."
+    },
+    {
+        "key": [
+            1,
+            0,
+            4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            3,
+            0,
+            0,
+            0
+        ],
+        "text": "Setup: place a hexagonal bin near the top shelf and ensure it remains there throughout the game.\n\nGameplay: interact with different blocks and a dodgeball by picking up, not holding for a period, and then picking up again or throwing them, ensuring they eventually come to rest.\n\nScoring: your final score is calculated by multiplying the number of times you've satisfied the conditions of picking up a cube block, not holding it for a period, throwing it, and it coming to rest (Preference 4) with the number of times you've picked up a green triangle block, not held it for a period, picked it up again, and it has come to rest (Preference 1), and with the number of times you've picked up a cube block, thrown it, and it has come to rest (Preference 3). Multiply this product by 3 and then add the number of times you've thrown a dodgeball and it has come to rest on a hexagonal bin (Preference 2). This sum is your final score."
+    },
+    {
+        "key": [
+            1,
+            1,
+            4,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "Gameplay: throw dodgeballs so that they come to rest either on a doggie bed, in a hexagonal bin, or anywhere else after being thrown.\n\nScoring: your score is the total number of successful throws, including those that land on a doggie bed, in a hexagonal bin, or anywhere else after being thrown."
+    },
+    {
+        "key": [
+            1,
+            0,
+            4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            3
+        ],
+        "text": "Setup: place a hexagonal bin near the door and ensure that it remains there for the entire duration of the game.\n\nGameplay: position objects so that by the end of the game, they are not moving and are located near the top shelf, near the floor, or near the north wall. Additionally, hold and throw dodgeballs so that they land and stop moving on the hexagonal bin.\n\nScoring: your score is the sum of the number of times each of the following conditions is met: an object is near the top shelf, an object is near the floor, an object is near the north wall, and a dodgeball is on the hexagonal bin."
+    },
+    {
+        "key": [
+            1,
+            1,
+            4,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0,
+            1,
+            0,
+            0
+        ],
+        "text": "Gameplay: Place a chair on top of a desk, ensure a pen or CD is inside a hexagonal bin, throw a dodgeball so it rests on the bed, and stack two cube blocks on top of a tall rectangular block that is on another cube block, ensuring the tall rectangular block is the same type as one of the cube blocks.\n\nScoring: Your score is calculated by adding twice the product of the number of times a chair is on a desk and a pen or CD is in a bin, the number of times a dodgeball is resting on the bed, and the number of times the block stacking is achieved."
+    },
+    {
+        "key": [
+            1,
+            0,
+            4,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+        ],
+        "text": "Setup: place a hexagonal bin near the door and ensure that it remains there for the duration of the game.\n\nGameplay: throw dodgeballs so that they stop moving either on top of the hexagonal bin or elsewhere, and ensure that objects are not moving and are near the rug by the end of the game.\n\nScoring: your score is the total number of times you have satisfied the conditions of stopping a dodgeball on top of the hexagonal bin, stopping a dodgeball after throwing it, and having objects not moving and near the rug at the end of the game."
+    },
+    {
+        "key": [
+            1,
+            1,
+            4,
+            0,
+            2,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+        ],
+        "text": "Gameplay: throw dodgeballs so they come to rest on and inside a hexagonal bin, and move cube blocks without holding them until they stop moving. Ensure that by the end of the game, a yellow cube block and another cube block are on a block adjacent to a cylindrical block.\n\nScoring: your score is the sum of the number of times you've satisfied each of the following: throwing a dodgeball into a hexagonal bin, moving a cube block without holding it until it stops, having a yellow cube block and another cube block on a block next to a cylindrical block, and having a dodgeball stop moving while inside and on top of a hexagonal bin."
+    },
+    {
+        "key": [
+            1,
+            1,
+            4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "Gameplay: throw golfballs, basketballs, and dodgeballs aiming for them to land on a hexagonal bin or the top drawer\n\nScoring: your score is the sum of the number of successful golfball throws onto a hexagonal bin plus 40 times the product of the number of successful throws of basketballs or white golfballs onto the top drawer, basketballs onto a hexagonal bin, and dodgeballs onto a hexagonal bin."
+    },
+    {
+        "key": [
+            1,
+            0,
+            4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "Setup: place a hexagonal bin near the rug and ensure it stays there throughout the game.\n\nGameplay: throw golfballs, basketballs, and dodgeballs aiming for them to land and stop on a hexagonal bin or the top drawer.\n\nScoring: your score is the sum of the number of successful golfball throws onto the hexagonal bin plus 40 times the product of the number of successful throws for each of the following: basketballs or white golfballs onto the top drawer, basketballs onto the hexagonal bin, and dodgeballs onto the hexagonal bin."
+    }
+]

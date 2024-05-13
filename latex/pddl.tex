@@ -1,0 +1,47 @@
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{myorange}{rgb}{1.0,0.5,0.3}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\definecolor{myblue}{rgb}{0.05,0.19,0.57}
+\definecolor{mygrey}{rgb}{0.4,0.4,0.4}
+\definecolor{myred}{rgb}{0.9,0.2,0.15}
+
+\lstdefinelanguage{pddl}
+{
+  sensitive=false,    % not case-sensitive
+  morecomment=[l]{;}, % line comment
+  alsoletter={:,-},   % consider extra characters
+  morekeywords={
+    define,domain,problem,not,and,or,when,forall,exists,either,
+    :domain,:extends,:requirements,:types,:objects,:constants,
+    :predicates,:action,:parameters,:precondition,:effect,:functions,
+    :fluents,:primary-effect,:side-effect,:init,:goal,assign
+    :strips,:adl,:equality,:typing,:conditional-effects, :metric, minimize,
+    :negative-preconditions,:disjunctive-preconditions,
+    :existential-preconditions,:universal-preconditions
+  },
+  keywords=[2]{object}, % Objects
+  keywords=[3]{}, % Predicates
+  keywords=[4]{assignMenus, assignMC, assignSC}, % Actions
+  keywords=[5]{} % Functions
+}
+
+\lstset
+{
+  language={pddl},
+  basicstyle=\small\ttfamily, % Global Code Style
+  captionpos=b, % Position of the Caption (t for top, b for bottom)
+  extendedchars=true, % Allows 256 instead of 128 ASCII characters
+  tabsize=2, % number of spaces indented when discovering a tab
+  columns=fixed,
+  keepspaces=true,
+  showstringspaces=false,
+  breaklines=true,
+  numberstyle=\tiny\ttfamily, % style of the line numbers
+  commentstyle=\color{mygrey}, % style of comments
+  keywordstyle=\color{mygreen}, % style of keywords
+  keywordstyle=[2]\color{mymauve},
+  keywordstyle=[3]\color{myorange},
+  keywordstyle=[4]\color{myblue},
+  keywordstyle=[5]\color{myred},
+  stringstyle=\color{blue}, % style of strings
+}

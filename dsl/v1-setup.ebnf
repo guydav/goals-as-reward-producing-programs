@@ -1,0 +1,70 @@
+# First pass on the setup DSL from the first ten subjects
+
+# Top level expression - the entire setup is a conjunction of one or more expressions
+setup = expr ("; ", expr)*;
+
+# Expression types
+expr = exists | forall | valid | logical_expr;
+boolean_expr = logical_expr | distance_expr;
+object_expr = nearest | farthest;
+valid = "VALID(", quantifier, ")";
+
+## Do I actually need these? Or can I assume that exists = any and forall = all?
+quantifier = any | all;
+any = "ANY(", object_type, ")";
+all = "ALL(", object_type, ")";
+
+## Do we have special object types for the room / floor / walls?
+## do we want to support object categories? such as balls, blocks,
+object_type = ...  # populated from all object types in the environment
+
+# Quantifiers
+object_expr = object_type | nearest | farthest | center | side;
+## Do I need any additional boolean functions?
+## Do I ever need these with more than two arguments?
+exists = "EXISTS(", object_expr, ", ", object_expr, ", ", boolean_expr, ")";
+forall = "FORALL(", object_expr, ", ", object_expr, ", ", boolean_expr, ")";
+
+# object of the second type nearest an/the object of the first type
+neareast = "NEAREST(", object_or_identifier, ", ", object_type, ")";
+# object of the second type farthest from an/the object of the first type
+farthest = "FARTHEST(", object_or_identifier, ", ", object_type, ")";
+
+# object_or_identifier = object_type | identifier;
+# identifier = [A-Za-z]+ [A-Za-z0-9_]*;  # a valid variable name
+
+# Logical expressions
+logical_expr = and | or | not;
+and = "(", boolean_expr, " AND ", boolean_expr, ")";
+or = "(", boolean_expr, " OR ", boolean_expr, ")";
+not = "NOT(", boolean_expr, ")";
+
+# Distance rules
+distance_expr = on | adjacent | distance;
+# distance is treated as a functor -- I'm imaginging this as something that returns a function
+# f(a, b) that determines if a, b satisfy the distance relation provided by the arguments
+distance = "DISTANCE(", relation, ", ", positive_literal")";
+distance_arg = center | side | object_or_identifier;
+relation = "<" | "=" | ">";  # I don't think we really need !=, <=, or > =
+positive_literal = integer, [".", integer]
+integer = [0-9]+  # assuming this specifies the same as regexp does
+## Does it make more sense to think of adjacency in terms of the existence of two sides
+## of the objects such that the sides are adjacent?
+## But I cannot specify functions with arguments with EBNF
+## So what do I do if we want to specify a particular side?
+adjacent = "ADJACENT";
+
+## on could be a special case of being some distance from the top
+## but I don't think it makes much sense?
+# signifies the second argument is on the first argument
+on = "ON";
+
+# Orientation types
+center = "CENTER(", object_type, ")";
+side = top | bottom | left | right | front | back;
+top = "TOP(", object_type, ")";
+bottom = "BOTTOM(", object_type, ")";
+left = "LEFT(", object_type, ")";
+right = "RIGHT(", object_type, ")";
+front = "FRONT(", object_type, ")";
+back = "BACK(", object_type, ")";

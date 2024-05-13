@@ -1,0 +1,29 @@
+(define (game game-54) (:domain many-objects-room-v1)  ; 54
+
+(:constraints (and
+    (forall (?b - building)
+        (preference blockPlacedInBuilding (exists (?l - cube_block)
+            (then
+                (once (agent_holds ?l))
+                (hold (and (in_motion ?l) (not (agent_holds ?l))))
+                (hold (in ?b ?l))
+                (once (or (not (in ?b ?l)) (game_over)))
+            )
+        ))
+    )
+    (forall (?l - cube_block)
+        (preference blockPickedUp
+            (then
+                (once (not (agent_holds ?l)))
+                (hold (agent_holds ?l))
+                (once (not (agent_holds ?l)))
+            )
+        )
+    )
+))
+(:terminal
+    (>= (external-forall-maximize (count blockPickedUp)) 3)
+)
+(:scoring (external-forall-maximize
+    (count-overlapping blockPlacedInBuilding)
+)))

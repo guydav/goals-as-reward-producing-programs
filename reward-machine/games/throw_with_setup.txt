@@ -1,0 +1,19 @@
+(define (game game-22) (:domain many-objects-room-v1)  ; 22
+(:setup (and
+    (exists (?h - hexagonal_bin) (game-conserved (on bed ?h)))
+    (forall (?b - ball) (game-optional (on desk ?b)))
+))
+(:constraints (and
+    (preference throwToBin
+        (exists (?b - ball ?h - hexagonal_bin)
+            (then
+                (once (agent_holds ?b))
+                (hold (and (not (agent_holds ?b)) (in_motion ?b)))
+                (once  (and (in ?h ?b) (not (in_motion ?b))))
+            )
+        )
+    )
+))
+(:scoring (+
+    (* (count throwToBin) 1)
+)))

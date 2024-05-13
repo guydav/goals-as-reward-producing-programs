@@ -1,0 +1,17 @@
+(define (game building-test) (:domain medium-objects-room-v1)
+(:constraints (and
+    (forall (?b - building)
+        (preference blockInBuildingTouchingWallAtEnd (exists (?w - wall ?l - block)
+            (at-end
+                (and
+                    (in ?b ?l)
+                    (touch ?w ?b)
+                )
+            )
+        ))
+    )
+))
+(:scoring (+
+    (* (count blockInBuildingTouchingWallAtEnd) 2)
+))
+)

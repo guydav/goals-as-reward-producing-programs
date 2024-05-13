@@ -1,0 +1,38 @@
+{
+    "9": {
+        "stage_1": "-----Preference 1-----\n    The variables required by this preference are:\n    -?b of type dodgeball\n\n    This preference is satisfied when:\n    - first, there is a state where the agent is holding ?b\n    - next, there is a sequence of one or more states where (it's not the case that the agent is holding ?b) and (?b is in motion)\n    - finally, there is a state where it's not the case that ?b is in motion",
+        "stage_2": "The preferences of the game are:\n\n-----Preference 1-----\nThis preference is satisfied when:\n-first, the agent holds a dodgeball\n-next, the agent throws the dodgeball\n-finally, the dodgeball stops moving"
+    },
+    "19": {
+        "stage_1": "-----Preference 1-----\n    The variables required by this preference are:\n    -?b of type ball\n    -?h of type hexagonal_bin\n\n    This preference is satisfied when:\n    - first, there is a state where (agent is on rug) and (the agent is holding ?b)\n    - next, there is a sequence of one or more states where (it's not the case that the agent is holding ?b) and (?b is in motion)\n    - finally, there is a state where (it's not the case that ?b is in motion) and (?b is inside of ?h)",
+        "stage_2": "The preferences of the game are:\n\n-----Preference 1-----\nThis preference is satisfied when:\n-first, the agent is standing on the rug and holding a ball\n-next, the agent throws the ball\n-finally, the ball stops moving and is inside a hexagonal bin"
+    },
+    "32": {
+        "stage_1": "-----Preference 1-----\n    The variables required by this preference are:\n    -?d of type dodgeball\n\n    This preference is satisfied when:\n    - first, there is a state where (the agent is holding ?d) and (desk is adjacent to agent)\n    - next, there is a sequence of one or more states where (it's not the case that the agent is holding ?d) and (?d is in motion)\n    - finally, there is a state where (it's not the case that ?d is in motion) and (?d is on bed)",
+        "stage_2": "The preferences of the game are:\n\n-----Preference 1-----\nThis preference is satisfied when:\n-first, the agent holds a dodgeball while standing next to a desk\n-next, the agent throws the dodgeball\n-finally, the dodgeball stops moving and is on the bed"
+    },
+    "53": {
+        "stage_1": "-----Preference 1-----\n    The variables required by this preference are:\n    -?g of type game_object\n\n    This preference is satisfied when:\n    - in the final game state, (?g is inside of top_drawer) and (it's not the case that top_drawer is open)",
+        "stage_2": "The preferences of the game are:\n\n-----Preference 1-----\nThis preference is satisfied when:\n-at the end of the game, a game object is inside the top drawer and the top drawer is closed"
+    },
+    "97": {
+        "stage_1": "-----Preference 1-----\n    The variables required by this preference are:\n    -?s of type shelf\n    -?w of type watch\n\n    This preference is satisfied when:\n    - in the final game state, ?w is on ?s",
+        "stage_2": "The preferences of the game are:\n\n-----Preference 1-----\nThis preference is satisfied when:\n-at the end of the game, a watch is on a shelf"
+    },
+    "98": {
+        "stage_1": "-----Preference 1-----\n    The variables required by this preference are:\n    -?l of type block\n\n    This preference is satisfied when:\n    - first, there is a state where it is the first state in the game\n    - next, there is a sequence of one or more states where it's not the case that there exists an object ?b of type building, such that (?l is inside of ?b) and (?b is used in the setup)\n    - finally, there is a state where the agent is holding ?l",
+        "stage_2": "The preferences of the game are:\n\n-----Preference 1-----\nThis preference is satisfied when:\n-first, the game begins\n-next, throughout the game, the block is not part of a building that is used in the setup\n-finally, the agent picks up the block"
+    },
+    "100": {
+        "stage_1": "-----Preference 1-----\n    The variables required by this preference are:\n    -?b1 and ?b2 of type building\n\n    This preference is satisfied when:\n    - in the final game state, (?b1 is used in the setup); (it's not the case that ?b2 is used in the setup); and (for any object ?l1 of type block and object ?l2 of type block, (it's not the case that ?l1 is inside of ?b1); (it's not the case that ?l2 is inside of ?b1); (it's not the case that ?l2 is on ?l1); or (there exists objects ?l3 and ?l4 of type block, such that (?l3 is inside of ?b2), (?l4 is inside of ?b2), (?l4 is on ?l3), (?l1 is of the same type as ?l3), and (?l2 is of the same type as ?l4)))",
+        "stage_2": "The preferences of the game are:\n\n-----Preference 1-----\nThis preference is satisfied when:\n-at the end of the game, one building is part of the setup while the other is not\n-and for any two blocks, neither is inside the building that is part of the setup\n-if one block is not on top of the other, then there must be two other blocks of the same types inside the building that is not part of the setup, with one of these blocks on top of the other"
+    },
+    "126": {
+        "stage_1": "-----Preference 1-----\n    The variables required by this preference are:\n    -?b of type ball\n    -?h of type hexagonal_bin\n\n    This preference is satisfied when:\n    - first, there is a state where (?h is adjacent to agent) and (the agent is holding ?b)\n    - next, there is a sequence of one or more states where (?b is in motion) and (it's not the case that the agent is holding ?b)\n    - finally, there is a state where (it's not the case that ?b is in motion) and (?b is inside of ?h)",
+        "stage_2": "The preferences of the game are:\n\n-----Preference 1-----\nThis preference is satisfied when:\n-first, the agent is next to a hexagonal bin and is holding a ball\n-next, the agent throws the ball\n-finally, the ball stops moving and is inside the hexagonal bin"
+    },
+    "139": {
+        "stage_1": "-----Preference 1-----\n    The variables required by this preference are:\n    -?o of type pillow\n\n    This preference is satisfied when:\n    - first, there is a state where (the agent is holding ?o)\n    - next, there is a sequence of one or more states where (?o is in motion) and (it's not the case that the agent is holding ?o)\n    - finally, there is a state where (it's not the case that ?o is in motion); (room_center is near ?o); and (there exists objects ?o1, ?o2, and ?o3 of type game_object, such that (?o1 is the same color as pink), (room_center is near ?o1), (?o2 is the same color as blue), (room_center is near ?o2), (?o3 is the same color as brown), and (room_center is near ?o3))",
+        "stage_2": "The preferences of the game are:\n\n-----Preference 1-----\nThis preference is satisfied when:\n-first, the agent picks up a pillow\n-next, the agent throws the pillow and it is no longer being held by the agent\n-finally, the pillow stops moving near the center of the room, and there are three other objects near the center of the room as well: one that is pink, one that is blue, and one that is brown"
+    }
+}

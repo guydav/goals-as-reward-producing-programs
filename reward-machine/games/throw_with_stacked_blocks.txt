@@ -1,0 +1,42 @@
+(define (game game-23) (:domain few-objects-room-v1)
+
+(:constraints (and
+    (preference throwWithStackedBlocksVerI
+        (exists (?d - ball ?b - block ?h - hexagonal_bin)
+            (then
+                (once (agent_holds ?d))
+                (hold (and (not (agent_holds ?d)) (in_motion ?d)))
+                (hold (not (in_motion ?d)))
+                (once (on ?h ?b))
+            )
+        )
+    )
+
+    (preference throwWithStackedBlocksVerII
+        (exists (?d - ball ?b - block ?h - hexagonal_bin)
+            (then
+                (once (and (agent_holds ?d) (on ?h ?b)))
+                (hold (and (not (agent_holds ?d)) (in_motion ?d)))
+                (once (not (in_motion ?d)))
+            )
+        )
+    )
+
+    (preference throwWithStackedBlocksVerIII
+        (exists (?d - ball ?b - block ?h - hexagonal_bin)
+            (then
+                (once (agent_holds ?d))
+                (hold (and (not (agent_holds ?d)) (in_motion ?d) (on ?h ?b)))
+                (once (not (in_motion ?d)))
+            )
+        )
+    )
+
+))
+
+(:scoring (+
+    (count throwWithStackedBlocksVerI)
+    (count throwWithStackedBlocksVerII)
+    (count throwWithStackedBlocksVerIII)
+
+)))

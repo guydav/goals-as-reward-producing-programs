@@ -1,0 +1,512 @@
+[
+    {
+        "key": [
+            1,
+            0,
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            1,
+            0,
+            0
+        ],
+        "text": "Setup: place every red pyramid block on the rug and ensure that they remain there for the duration of the game.\n\nGameplay: hold and throw cube blocks, place yellow cube blocks inside buildings, and stack blocks with a yellow cube block on top of a matching block type.\n\nScoring: your score is calculated by adding 80 times the product of the number of successful throws (Preference 1) and the number of correctly stacked blocks (Preference 3) to the number of yellow cube blocks placed inside buildings (Preference 2)."
+    },
+    {
+        "key": [
+            1,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "Setup: Place a hexagonal bin near the rug and ensure it stays there throughout the game.\n\nGameplay: Throw dodgeballs so that they either land on a doggie bed or in the hexagonal bin.\n\nScoring: Your score is the total number of successful throws that result in a dodgeball either stopping on a doggie bed or landing in the hexagonal bin."
+    },
+    {
+        "key": [
+            1,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0
+        ],
+        "text": "Setup: place a hexagonal bin near the rug and ensure that it remains there for the entire duration of the game.\n\nGameplay: throw dodgeballs into the hexagonal bin and arrange two cube blocks and a blue cube block on a bridge block of the same type.\n\nScoring: your score is the number of times you've arranged the blocks on the bridge block minus four times the number of dodgeballs successfully thrown into the bin."
+    },
+    {
+        "key": [
+            1,
+            0,
+            2,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+        ],
+        "text": "Setup: place a hexagonal bin near the rug and ensure it stays there throughout the game.\n\nGameplay: throw dodgeballs aiming to either land them on the desk or inside the hexagonal bin.\n\nScoring: your score is the total number of successful throws that result in the dodgeball either resting on the desk or inside the hexagonal bin."
+    },
+    {
+        "key": [
+            1,
+            1,
+            2,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+        ],
+        "text": "Gameplay: throw dodgeballs with the goal of landing them inside a doggie bed\n\nScoring: your score is the number of successful throws minus three times the number of throws that landed inside the doggie bed"
+    },
+    {
+        "key": [
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "Gameplay: throw a dodgeball so that it comes to rest on a hexagonal bin\n\nScoring: you get 1 point for each successful throw where the dodgeball stops on the hexagonal bin"
+    },
+    {
+        "key": [
+            1,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0
+        ],
+        "text": "Setup: place a hexagonal bin near the north wall and ensure that it remains there for the duration of the game.\n\nGameplay: throw basketballs and dodgeballs into the hexagonal bin.\n\nScoring: your score is the total number of dodgeballs in the bin plus one-tenth the total number of basketballs in the bin."
+    },
+    {
+        "key": [
+            1,
+            0,
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+        ],
+        "text": "Setup: place a hexagonal bin near the door and ensure that it remains there for the entire duration of the game.\n\nGameplay: throw golfballs and dodgeballs aiming to land them on top of or inside the hexagonal bin.\n\nScoring: your score is the total number of successful throws, with each successful throw being one where a golfball stops on top of the bin, a dodgeball stops inside the bin, or a dodgeball stops on top of the bin."
+    },
+    {
+        "key": [
+            1,
+            1,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0
+        ],
+        "text": "Gameplay: throw dodgeballs so that they land inside either a hexagonal bin or a doggie bed\n\nScoring: your score is the total number of successful throws where dodgeballs come to rest inside the hexagonal bin or the doggie bed"
+    },
+    {
+        "key": [
+            1,
+            1,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "Gameplay: throw dodgeballs so that they land and stop moving either on a doggie bed or on a hexagonal bin.\n\nScoring: your score is the total number of successful throws where dodgeballs come to rest on either the doggie bed or the hexagonal bin."
+    },
+    {
+        "key": [
+            1,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "Setup: place a hexagonal bin near the rug and ensure that it remains there for the entire duration of the game.\n\nGameplay: throw a dodgeball so that it hits the top shelf and then comes to rest on the hexagonal bin.\n\nScoring: you get 1 point for each successful throw where the dodgeball hits the top shelf and lands in the hexagonal bin."
+    },
+    {
+        "key": [
+            1,
+            1,
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+        ],
+        "text": "Gameplay: throw dodgeballs aiming to land them inside a hexagonal bin, on top of a hexagonal bin, or on a doggie bed.\n\nScoring: your score is the sum of the number of successful throws for each of the three target locations (inside the bin, on top of the bin, and on the doggie bed)."
+    },
+    {
+        "key": [
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "Gameplay: make a chair that is on a desk move without holding it\n\nTerminal: the game ends when your score is 30 or more\n\nScoring: you get 1 point each time a chair on a desk is in motion at the end of the game"
+    },
+    {
+        "key": [
+            1,
+            0,
+            2,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "Setup: place a hexagonal bin near the door and ensure that it remains there for the duration of the game.\n\nGameplay: throw balls so that they come to rest inside and on top of the hexagonal bin.\n\nScoring: your score is the total number of successful throws into the bin plus an additional five points for each successful throw made with a dodgeball."
+    },
+    {
+        "key": [
+            1,
+            1,
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+        ],
+        "text": "Gameplay: Place objects near the rug, ensure dodgeballs are on the rug, and throw dodgeballs to land on top of a hexagonal bin.\n\nScoring: Your score is calculated by adding the number of successful throws landing dodgeballs on the hexagonal bin to 70 times the product of the number of dodgeballs on the rug and the number of objects near the rug at the end of the game."
+    },
+    {
+        "key": [
+            1,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+        ],
+        "text": "Setup: place a hexagonal bin near the rug and ensure it stays there throughout the game.\n\nGameplay: throw dodgeballs aiming to land them inside the hexagonal bin or on a doggie bed.\n\nScoring: your score is the combined total of dodgeballs that have landed inside the bin and on the doggie bed by the end of the game."
+    },
+    {
+        "key": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "Gameplay: throw dodgeballs so that they land inside and on top of a hexagonal bin\n\nScoring: you get 1 point for each successful throw that results in a dodgeball stopping inside and on top of the bin"
+    },
+    {
+        "key": [
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+        ],
+        "text": "Setup: place a hexagonal bin near the rug and ensure that it remains there for the entire duration of the game.\n\nGameplay: throw dodgeballs into the hexagonal bin.\n\nScoring: you get 1 point for each dodgeball that stops moving inside the bin."
+    },
+    {
+        "key": [
+            1,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "Gameplay: throw dodgeballs so that they come to rest on the top shelf\n\nTerminal: the game ends after 30 seconds\n\nScoring: your score is the number of dodgeballs that have been successfully thrown onto the top shelf"
+    },
+    {
+        "key": [
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+        ],
+        "text": "Gameplay: throw dodgeballs into a hexagonal bin\n\nScoring: you get 1 point for each dodgeball that lands and stops inside the bin"
+    },
+    {
+        "key": [
+            1,
+            0,
+            2,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+        ],
+        "text": "Setup: Place a hexagonal bin near the east wall and ensure it stays there throughout the game.\n\nGameplay: Throw dodgeballs with the goal of getting them to stop inside the hexagonal bin.\n\nScoring: Your score is the total number of throws made plus 70% of the number of throws that resulted in dodgeballs stopping inside the hexagonal bin."
+    },
+    {
+        "key": [
+            1,
+            0,
+            2,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "Setup: Place a hexagonal bin near the door and ensure it stays there throughout the game.\n\nGameplay: Throw dodgeballs so that they touch the rug during their flight and come to rest on the hexagonal bin.\n\nScoring: Your score is the total number of throws made plus five times the number of throws where the dodgeball came to rest on the hexagonal bin after touching the rug."
+    },
+    {
+        "key": [
+            1,
+            0,
+            2,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "Setup: place a hexagonal bin near the rug and ensure it stays there throughout the game.\n\nGameplay: throw dodgeballs aiming to either land them on a desk or to touch the rug mid-flight and then land on top of the hexagonal bin.\n\nScoring: your score is the sum of the number of successful throws that land on the desk plus 70 times the number of successful throws that touch the rug and land on the hexagonal bin."
+    },
+    {
+        "key": [
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+        ],
+        "text": "Gameplay: stack three blocks on top of a tall rectangular block, ensuring two of the stacked blocks are the same type as the tall rectangular block.\n\nScoring: your score is 1.4 times the number of times you successfully create such a stack by the end of the game."
+    },
+    {
+        "key": [
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "Setup: place a hexagonal bin next to the rug and ensure that it remains there for the entire duration of the game.\n\nGameplay: put cellphones or CDs into the hexagonal bin.\n\nScoring: your score is double the number of cellphones and CDs you've successfully placed in the bin by the end of the game."
+    },
+    {
+        "key": [
+            1,
+            0,
+            4,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+        ],
+        "text": "Setup: Place a hexagonal bin near the rug and ensure it stays there throughout the game.\n\nGameplay: Throw dodgeballs aiming to land them inside the hexagonal bin, on the bed, on the desk, or on top of the hexagonal bin.\n\nScoring: Your score is the sum of the number of successful throws that meet the conditions of Preferences 1, 2, 3, and 4."
+    },
+    {
+        "key": [
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "Setup: place a hexagonal bin near the rug and ensure that it remains there for the entire duration of the game.\n\nGameplay: throw dodgeballs aiming to have them rest on the hexagonal bin.\n\nScoring: you get 1 point for each dodgeball that stops moving and is resting on the hexagonal bin."
+    },
+    {
+        "key": [
+            1,
+            1,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0
+        ],
+        "text": "Gameplay: pick up cube blocks and either throw them or set them down and pick them up again, ensuring they come to rest and are not in motion.\n\nScoring: you earn 1 point for each cube block thrown and 15 points for each cube block that you set down, picked up again, and left stationary."
+    },
+    {
+        "key": [
+            1,
+            0,
+            3,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0
+        ],
+        "text": "Setup: place a hexagonal bin near the rug and ensure it stays there throughout the game.\n\nGameplay: throw dodgeballs aiming for them to land inside a doggie bed or inside the hexagonal bin.\n\nScoring: your score is the sum of the number of successful throws that land inside the doggie bed, inside the hexagonal bin, and the total number of throws made."
+    },
+    {
+        "key": [
+            1,
+            1,
+            2,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "Gameplay: throw dodgeballs so that they either come to rest on and inside a doggie bed or simply stop moving.\n\nScoring: your score is the number of times you've made a dodgeball stop moving minus three times the number of times a dodgeball has come to rest on and inside a doggie bed."
+    }
+]

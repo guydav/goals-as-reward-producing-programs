@@ -1,0 +1,16 @@
+(define (game building-test) (:domain many-objects-room-v1)
+(:constraints (and
+    (forall (?b - building)
+        (preference blockInBuildingAtEnd (exists (?l - block)
+            (at-end
+                (and
+                    (in ?b ?l)
+                )
+            )
+        ))
+    )
+))
+(:scoring (+
+    (* (count blockInBuildingAtEnd) 1)
+))
+)

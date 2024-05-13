@@ -1,0 +1,17 @@
+(define (game game-17) (:domain many-objects-room-v1)  ; 17/18
+
+(:constraints (and
+    (preference castleBuilt (exists (?b - bridge_block ?f - flat_block ?t - tall_cylindrical_block ?c - cube_block ?p - pyramid_block)
+        (at-end
+            (and
+                (on ?b ?f)
+                (on ?f ?t)
+                (on ?t ?c)
+                (on ?c ?p)
+            )
+        )
+    ))
+))
+(:scoring (+
+    (* 10 (count-once-per-objects castleBuilt))
+)))

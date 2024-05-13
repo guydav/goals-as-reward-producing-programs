@@ -1,0 +1,52 @@
+(define (game game-27) (:domain few-objects-room-v1)  ; 27
+(:setup (and
+    (forall (?d - (either dodgeball cube_block)) (game-optional (not (exists (?s - shelf) (on ?s ?d)))))
+    (game-optional (toggled_on main_light_switch))
+    (forall (?d - desktop) (game-optional (toggled_on ?d)))
+))
+(:constraints (and
+    (preference dodgeballsInPlace
+        (exists (?d - dodgeball ?h - hexagonal_bin)
+            (at-end (in ?h ?d))
+        )
+    )
+    (preference blocksInPlace
+        (exists (?c - cube_block ?s - shelf)
+            (at-end (and
+                (adjacent ?s west_wall)
+                (on ?s ?c)
+            ))
+        )
+    )
+    (preference laptopAndBookInPlace
+        (exists (?o - (either laptop book) ?s - shelf)
+            (at-end (and
+                ; (adjacent ?s south_wall)
+                (on ?s ?o)
+            ))
+        )
+    )
+    (preference smallItemsInPlace
+        (exists (?o - (either cellphone key_chain) ?d - drawer)
+            (at-end (and
+                (in ?d ?o)
+            ))
+        )
+    )
+    (preference itemsTurnedOff
+        (exists (?o - (either main_light_switch desktop laptop))
+            (at-end (and
+                (not (toggled_on ?o))
+            ))
+        )
+    )
+))
+(:scoring (+
+    (* 5 (+
+        (count-once-per-objects dodgeballsInPlace)
+        (count-once-per-objects blocksInPlace)
+        (count-once-per-objects laptopAndBookInPlace)
+        (count-once-per-objects smallItemsInPlace)
+    ))
+    (* 3 (count-once-per-objects itemsTurnedOff))
+)))

@@ -1,0 +1,512 @@
+[
+    {
+        "key": [
+            1,
+            1,
+            2,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "To set up the game, place a hexagonal bin near a triangular ramp. The game involves throwing balls so that they touch the triangular ramp and land in the hexagonal bin. Additionally, the hexagonal bin must be tipped over without the player touching or holding it. The game ends once the bin has been tipped over at least once. The player's score is determined by the number of times a ball has successfully been thrown to touch the ramp and land in the bin."
+    },
+    {
+        "key": [
+            1,
+            1,
+            2,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "To set up the game, place a hexagonal bin next to the bed and ensure it stays there throughout the game. Make sure that no teddy bears or pillows are on the bed at any point during the game. The game involves throwing balls into the bin while standing next to a desk. You receive 10 points for each dodgeball, 20 points for each basketball, and 30 points for each beachball that lands in the bin. However, any ball that does not land in the bin will deduct a point from your total score."
+    },
+    {
+        "key": [
+            1,
+            1,
+            2,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "To set up the game, place a hexagonal bin either on the bed or next to a wall. The game involves throwing dodgeballs into the bin. If you throw the dodgeball and it lands in the bin without touching the floor, you satisfy Preference 1. If the dodgeball touches the floor at any point during its flight but still lands in the bin, you satisfy Preference 2. Your score at the end of the game is calculated by adding the number of times you satisfied Preference 2 to three times the number of times you satisfied Preference 1."
+    },
+    {
+        "key": [
+            1,
+            1,
+            2,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "To play this game, throw teddy bears. The game ends after you've thrown a teddy bear at least 10 times. Your score at the end of the game is the number of times you've successfully thrown a teddy bear onto a pillow."
+    },
+    {
+        "key": [
+            1,
+            1,
+            2,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "To play this game, stand on a rug and throw balls. The game ends after you've made at least 10 throw attempts. Your score at the end of the game is the number of times you successfully threw a ball into a hexagonal bin."
+    },
+    {
+        "key": [
+            1,
+            1,
+            2,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "To play this game, stack blocks in a specific order: a flat block on a bridge block, a tall cylindrical block on the flat block, a cube block on the tall cylindrical block, and a pyramid block on the cube block. At the end of the game, your score is 10 times the number of different blocks used in this stacking order."
+    },
+    {
+        "key": [
+            1,
+            1,
+            2,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "To set up the game, place a chair near the center of the room, ensuring it's not facing the desk or the bed. The game involves throwing a dodgeball from next to a desk to different locations. If the dodgeball lands inside a hexagonal bin, you earn 5 points. If it lands on a bed or the chair set up for the game, you earn 1 point. However, if the dodgeball lands anywhere else, you lose a point. The game ends when your total score reaches 10 or more."
+    },
+    {
+        "key": [
+            1,
+            1,
+            2,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "To play this game, place objects that are not pillows on the bed. At the end of the game, your score is equal to the number of non-pillow objects on the bed."
+    },
+    {
+        "key": [
+            1,
+            1,
+            2,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "To set up the game, ensure that the top drawer is empty. The objective of the game is to place different objects inside the top drawer and close it. The game ends when you decide to stop, and your score is determined by the number of different objects you successfully placed in the drawer and closed it."
+    },
+    {
+        "key": [
+            1,
+            1,
+            2,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "To set up the game, place all dodgeballs on the desk and put a hexagonal bin on the bed, ensuring it remains there throughout the game. The game involves throwing dodgeballs, ideally aiming to land them in the hexagonal bin. The game concludes after you've thrown a dodgeball at least 5 times. Your final score is determined by the number of times you successfully landed a dodgeball in the hexagonal bin."
+    },
+    {
+        "key": [
+            1,
+            1,
+            2,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "To play this game, hold a ball and throw it so that it touches a wall during its flight. After the ball has stopped moving, either catch it or touch it. Your score at the end of the game is the number of times you've successfully completed this action."
+    },
+    {
+        "key": [
+            1,
+            1,
+            2,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "To set up the game, place a curved wooden ramp next to a rug. The objective of the game is to throw a beachball in such a way that it touches the ramp during its flight and lands on a specific color on the rug. At the end of the game, your score is calculated based on the color of the objects you used to satisfy this condition: you get 1 point for pink objects, 2 points for yellow objects, 3 points for orange or green objects, and 4 points for purple objects. However, you lose a point for every white object used."
+    },
+    {
+        "key": [
+            1,
+            1,
+            2,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "To set up the game, place a doggie bed in the center of the room. The game involves throwing balls onto the doggie bed. There are two ways to score points: by throwing the ball directly onto the bed without it touching any walls (Preference 1), or by bouncing the ball off a wall before it lands on the bed (Preference 2). The type of ball used also affects the score: for direct throws, a basketball earns 1 point, a beachball earns 2 points, and a dodgeball earns 3 points. For throws that bounce off a wall, a basketball earns 2 points, a beachball earns 3 points, and a dodgeball earns 4 points."
+    },
+    {
+        "key": [
+            1,
+            1,
+            2,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "To set up the game, place a curved wooden ramp in the center of the room. The game involves throwing a pink dodgeball at the ramp. The goal is to have the dodgeball land on the bed after touching the ramp during its flight. However, if the dodgeball touches you after its flight without you catching it, it counts against your score. The game's score is calculated by adding the number of successful throws that land on the bed and subtracting the number of times the dodgeball touches you without being caught."
+    },
+    {
+        "key": [
+            1,
+            1,
+            2,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "To set up the game, place a green golf ball near the door and ensure it remains there for the duration of the game. During the game, every dodgeball should be brought near the green golf ball at least once. The game involves holding a dodgeball while standing next to the green golf ball and the door, then throwing the dodgeball. The game ends either when a dodgeball has been thrown more than once, or when at least three different objects have been thrown. Points are scored when the thrown dodgeball lands in a hexagonal bin and stops moving, with each different object used in this way earning the player 10 points."
+    },
+    {
+        "key": [
+            1,
+            1,
+            2,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "To set up the game, place a hexagonal bin near the center of the room. The objective of the game is to pick up and move different objects into the bin. Your score at the end of the game is determined by the number of different objects you successfully moved into the bin."
+    },
+    {
+        "key": [
+            1,
+            1,
+            2,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "To play this game, pick up a dodgeball and throw it into a hexagonal bin. The game ends when you decide to stop, and your score is the number of times you successfully throw a dodgeball into the bin."
+    },
+    {
+        "key": [
+            1,
+            1,
+            2,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "To play this game, pick up a cube block, place it inside a building, and then either remove it or let the game end. The game ends after you've picked up and released a cube block at least three times. Your score at the end of the game is determined by the highest number of times you've placed and then removed a cube block from any given building."
+    },
+    {
+        "key": [
+            1,
+            1,
+            2,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "To set up the game, ensure that no blocks are on any shelves and that there is a building containing exactly six objects. All blocks must either be inside this building or be the same type as another block that is inside the building, but not the same exact block. This setup should be maintained throughout the game.\n\nThe game involves three main actions. First, you must pick up a block that is not inside any building used in the setup. Second, you must hold a block while another block, which is inside a building not used in the setup, is in motion and touches the block you are holding. Then, you must let the first block move without holding it until it stops. Finally, by the end of the game, a building used in the setup should be empty, and another building not used in the setup should contain two stacked blocks of the same type as the blocks that are not inside the first building.\n\nYour score at the end of the game is calculated as follows: you earn 5 points for each different object used to pick up a block; you earn 100 points if you successfully empty a building and stack two blocks in another building; however, you lose 10 points each time you let a block move while holding another block."
+    },
+    {
+        "key": [
+            1,
+            1,
+            2,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "To set up the game, place a flat block on the rug and all pyramid blocks on the floor. Arrange a hexagonal bin, a blue pyramid block, a red pyramid block, and a yellow pyramid block in such a way that the red block is closer to the bin than the yellow block, and the blue block is further from the bin than the red block. \n\nThe game involves two main actions: \n\n1. Standing next to a pyramid block, pick up a dodgeball and throw it into the hexagonal bin. \n2. Construct a building using a flat block and a cube block. \n\nYour score at the end of the game is calculated based on these actions. You receive 10 points for each successful throw made while standing next to a yellow pyramid block, 25 points for each successful throw made while standing next to a red pyramid block, and 50 points for each successful throw made while standing next to a blue pyramid block. Additionally, you receive 10 points for each different object used in the construction of the building. Please note, there are syntax errors in the scoring system which may affect the final score calculation."
+    },
+    {
+        "key": [
+            1,
+            1,
+            2,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "To play this game, stand next to a desk and move objects onto the bed without holding them. If you move a chair, laptop, or doggie bed onto the bed, it satisfies Preference 1. If you move any other object onto the bed, it satisfies Preference 2. If you move any object and it does not land on the bed, it satisfies Preference 3. At the end of the game, your score is calculated by adding the number of times you satisfied Preference 2, adding five times the number of times you satisfied Preference 1, and subtracting five times the number of times you satisfied Preference 3."
+    },
+    {
+        "key": [
+            1,
+            1,
+            2,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "To play this game, place different balls on the bed. At the end of the game, your score is equal to the number of different balls you successfully placed on the bed."
+    },
+    {
+        "key": [
+            1,
+            1,
+            2,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "To set up the game, place a curved wooden ramp next to a hexagonal bin. The objective of the game is to throw a dodgeball in such a way that it touches the ramp during its flight and ends up inside the hexagonal bin. Your score at the end of the game is equal to the number of successful throws you made."
+    },
+    {
+        "key": [
+            1,
+            1,
+            2,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "To set up the game, place a golf ball, dodgeball, triangle block, or pyramid block near the side table. Make sure no chair is adjacent to the front of the desk at any point during the game. Also, place a curved wooden ramp in front of the desk and a hexagonal bin behind the ramp, ensuring they stay in these positions throughout the game.\n\nTo play the game, stand next to the bed and throw either a golf ball, dodgeball, triangle block, or pyramid block into the hexagonal bin or at a desktop or laptop. If you throw a golf ball and it touches the curved wooden ramp before landing in the hexagonal bin, you satisfy an additional preference.\n\nAt the end of the game, your score is calculated based on the objects you successfully threw into the bin: 1 point for each triangle block, 2 points for each pyramid block or dodgeball, and 3 points for each golf ball. You get an extra 6 points each time a golf ball touches the ramp before landing in the bin. However, you lose a point each time an object hits a desktop or laptop."
+    },
+    {
+        "key": [
+            1,
+            1,
+            2,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "To play this game, stand next to a hexagonal bin and throw balls. The game ends after you've made at least 5 throw attempts or successfully thrown a ball into the bin at least once. Your score at the end of the game is 5 times the number of balls you successfully threw into the bin."
+    },
+    {
+        "key": [
+            1,
+            1,
+            2,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "To set up the game, place a hexagonal bin on a desk next to a wall. The game involves standing on a rug and throwing either dodgeballs or blocks into the bin. Your score at the end of the game is calculated by adding the number of successful throws made with a dodgeball to twice the number of successful throws made with a block."
+    },
+    {
+        "key": [
+            1,
+            1,
+            2,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "To play this game, throw balls with the aim of getting them inside a hexagonal bin. The game ends either when you've scored 6 or more points, or after you've made 15 throw attempts. Your score is the number of times you successfully got a ball into the bin."
+    },
+    {
+        "key": [
+            1,
+            1,
+            2,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "To play this game, you need to perform three different actions. First, hold a ball and throw it so that it lands and stops inside a hexagonal bin. Second, hold a cube block and move it so that it ends up on the top shelf. Third, hold a pillow and move it so that it ends up on a doggie bed. Your score at the end of the game is the total number of times you've successfully completed each of these actions with different objects."
+    },
+    {
+        "key": [
+            1,
+            1,
+            2,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "To set up the game, place a chair, a hexagonal bin, a teddy bear, and a triangular ramp in the room. The teddy bear should be placed on the chair at least once during the game. The triangular ramp should be near the center of the room, with the chair in front of and adjacent to it. The chair should be positioned between the hexagonal bin and the ramp. Any ball in the game should be kept near the hexagonal bin at all times. \n\nThe game involves throwing the teddy bear from the chair into the hexagonal bin or towards a ball. The game ends when you decide to stop playing. Your score is calculated by adding 5 points for each time the teddy bear lands in the hexagonal bin to the total number of times the teddy bear touches a ball."
+    },
+    {
+        "key": [
+            1,
+            1,
+            2,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ],
+        "text": "To set up the game, place a hexagonal bin and a triangular ramp near each other, but not directly adjacent. The game involves throwing a red dodgeball into the hexagonal bin. The game ends after you've thrown the dodgeball 10 times, or if you've managed to throw the dodgeball into the bin without it touching the floor or just throwing it into the bin at least once. Your score at the end of the game is calculated based on the following: you get 5 points if you've thrown the dodgeball into the bin at least once; you get 3 points if you've thrown the dodgeball into the bin without it touching the floor at least once, but there is an error in the scoring conditions; and you get 2 points if you've thrown the dodgeball into the bin without it touching the floor at least once and you've thrown the dodgeball less than 5 times in total."
+    }
+]

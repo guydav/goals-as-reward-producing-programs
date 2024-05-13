@@ -1,0 +1,57 @@
+(define (game block-test) (:domain many-objects-room-v1)
+(:constraints (and
+        (preference blockOnBlock
+            (exists (?b1 ?b2 - block)
+                (then
+                    (once (agent_holds ?b1))
+                    (hold (or (in_motion ?b1) (on ?b2 ?b1)))
+                    (hold (on ?b2 ?b1))
+                    (once (or (in_motion ?b1) (in_motion ?b2)))
+                )
+            )
+        )
+        (preference blockNextToOrOnDesk
+            (exists (?b - block)
+                (at-end (or
+                    (on top_shelf ?b)
+                    (on floor agent)
+                ))
+            )
+        )
+        (preference blockNextToAgent
+            (exists (?b - block ?c - chair)
+                (at-end (not (or
+                    (agent_holds ?b)
+                    (in_motion ?c)
+                )))
+            )
+        )
+        (preference objectInDrawer
+            (exists (?g - game_object)
+                (at-end (or
+                    (in top_drawer ?g)
+                    (open top_drawer)
+                ))
+            )
+        )
+        (preference objectInMotion
+            (exists (?g - game_object)
+                (at-end (or
+                    (agent_holds ?g)
+                    (in_motion ?g)
+                ))
+            )
+        )
+        (preference agentMultipleAdjacent
+            (exists (?s - sliding_door ?b - ball)
+                (at-end (and
+                    (adjacent agent ?s)
+                    (adjacent agent desk)
+                    (agent_holds ?b)
+                ))
+            )
+        )
+))
+(:scoring (+
+    (* (count blockOnBlock) 1)
+)))

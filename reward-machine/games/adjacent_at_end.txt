@@ -1,0 +1,45 @@
+(define (game game-17) (:domain many-objects-room-v1)  ; 17/18
+
+(:constraints (and
+    (preference objectsAdjacent
+        (exists (?g - ball ?g2 - ball)
+            (at-end
+                (adjacent ?g ?g2)
+            )
+        )
+    )
+
+    (preference objectsBetween
+        (exists (?g - dodgeball ?g2 - dodgeball ?g3 - dodgeball)
+            (at-end
+                (between ?g ?g2 ?g3)
+            )
+        )
+    )
+
+    (preference chairFaces
+        (exists (?c - teddy_bear ?g - game_object)
+            (at-end
+                (faces ?c ?g)
+            )
+        )
+    )
+
+    (preference objectsAdjacentBUG
+        (exists (?g - ball ?g2 - ball)
+            (at-end
+                (and (adjacent ?g ?g2) (not (adjacent ?g2 ?g)))
+            )
+        )
+    )
+
+    (preference objectOnFloor
+        (exists (?g - game_object)
+            (at-end
+                (on floor ?g)
+            )
+        )
+    )
+))
+(:scoring (count-once-per-objects objectsAdjacent)
+))
