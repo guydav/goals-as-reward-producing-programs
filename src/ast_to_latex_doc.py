@@ -160,7 +160,7 @@ Inside the \dsl{setup-statement} tags we find \dsl{super-predicate} elements, wh
 Function comparisons usually consist of a comparison operator and two arguments, which can either be the evaluation of a function or a number.
 The one exception is the case where the comparison operator is the equality operator (=), in which case any number of arguments can be provided.
 Finally, the \dsl{predicate} element expands to a predicate acting on one or more objects or variables.
-For a full list of the predicates we found ourselves using so far, see \fullref{sec:predicates}.
+For a full list of the predicates we found ourselves using so far, see \autoref{sec:predicates}.
         """,
     },
     PREFERENCES_SECTION_KEY: {
@@ -178,14 +178,14 @@ Inside an \dsl{at-end} we find a \dsl{super-predicate}, which like in the setup 
 The second option is specified using the \dsl{then} syntax, which defines a series of temporal conditions that should hold over a sequence of states.
 Under a \dsl{then} operator, we find two or more sequence functions (\dsl{seq-func}), which define the specific conditions that must hold and how many states we expect them to hold for.
 We assume that there are no unaccounted states between the states accounted for by the different operators -- in other words, the \dsl{then} operators expects to find a sequence of contiguous states that satisfy the different sequence functions.
-The operators under a \dsl{then} operator map onto linear temporal logic (LTL) operators, see \fullref{sec:LTL} for the mapping and examples.
+The operators under a \dsl{then} operator map onto linear temporal logic (LTL) operators, see \autoref{sec:LTL} for the mapping and examples.
 
 The \dsl{once} operator specifies a predicate that must hold for a single world state.
 If a \dsl{once} operators appears as the first operator of a \dsl{then} definition, and a sequence of states $S_a, S_{a+1}, \cdots, S_b$ satisfy the \dsl{then} operator, it could be the case that the predicate is satisfied before this sequence of states (e.g. by $S_{a-1}, S_{a-2}$, and so forth).
 However, only the final such state, $S_a$, is required for the preference to be satisfied.
 The same could be true at the end of the sequence: if a \dsl{then} operator ends with a \dsl{once} term, there could be other states after the final state ($S_{b+1}, S_{b+2}$, etc.) that satisfy the predicate in the \dsl{once} operator, but only one is required.
 The \dsl{once-measure} operator is a slight variation of the \dsl{once} operator, which in addition to a predicate, takes in a function evaluation, and measures the value of the function evaluated at the state that satisfies the preference.
-This function value can then be used in the scoring definition, see \fullref{sec:scoring}.
+This function value can then be used in the scoring definition, see \autoref{sec:scoring}.
 
 A second type of operator that exists is the \dsl{hold} operator.
 It specifies that a predicate must hold true in every state between the one in which the previous operator is satisfied, and until one in which the next operator is satisfied.
@@ -199,16 +199,16 @@ For example, in the minimal definition below:
     (once (pred_c))
 )
 \end{lstlisting}
-To find a sequence of states $S_a, S_{a+1}, \cdots, S_b$ that satisfy this \dsl{then} operator, the following conditions must hold true: (1) pred_a is true at state $S_a$, (2) pred_b is true in all states $S_{a+1}, S_{a+2}, \cdots, S_{b-2}, S_{b-1}$, and (3) pred_c is true in state $S_b$.
-There is no minimal number of states that the hold predicate must hold for.
+To find a sequence of states $S_a, S_{a+1}, \cdots, S_b$ that satisfy this \dsl{then} operator, the following conditions must hold true: (1) pred\_a is true at state $S_a$, (2) pred\_b is true in all states $S_{a+1}, S_{a+2}, \cdots, S_{b-2}, S_{b-1}$, and (3) pred\_c is true in state $S_b$.
+The hold predicate must hold for one or more states.
 
 The last operator is \dsl{hold-while}, which offers a variation of the \dsl{hold} operator.
 A \dsl{hold-while} receives at least two predicates.
 The first acts the same as predicate in a \dsl{hold} operator.
 The second (and third, and any subsequent ones), must hold true for at least state while the first predicate holds, and must occur in the order specified.
-In the example above, if we substitute \lstinline{(hold (pred_b))} for \lstinline{(hold-while (pred_b) (pred_d) (pred_e))}, we now expect that in addition to ped_b being true in all states $S_{a+1}, S_{a+2}, \cdots, S_{b-2}, S_{b-1}$, that there is some state $S_d, d \in [a+1, b-1]$ where pred_d holds, and another state, $S_e, e \in [d+1, b-1]$ where pred_e holds.
+In the example above, if we substitute \lstinline{(hold (pred_b))} for \lstinline{(hold-while (pred_b) (pred_d) (pred_e))}, we now expect that in addition to pred\_b being true in all states $S_{a+1}, S_{a+2}, \cdots, S_{b-2}, S_{b-1}$, that there is some state $S_d, d \in [a+1, b-1]$ where pred\_d holds, and another state, $S_e, e \in [d+1, b-1]$ where pred\_e holds.
         """,  # .format(unused_color=UNUSED_RULE_OR_ELEMENT_COLOR) # Any syntax elements that are defined (because at some point a game needed them) but are currently unused (in the interactive games) will appear in {{ \color{{{unused_color}}} {unused_color} }}.
-        POST_NOTES_KEY: r"""For the full specification of the \dsl{super-predicate} element, see \fullref{sec:setup} above.
+        POST_NOTES_KEY: r"""For the full specification of the \dsl{super-predicate} element, see \autoref{sec:setup} above.
         """,
     },
     TERMINAL_SECTION_KEY: {
@@ -217,10 +217,10 @@ Conditions explicitly specified in this section terminate the game.
 If none are specified, a game is assumed to terminate whenever the player chooses to end the game.
 
 The terminal conditions expand from the \dsl{terminal} element, which can expand to logical conditions on nested \dsl{terminal} elements, or to a terminal comparison.
-The terminal comparison (\dsl{terminal-comp}) expands to one of three different types of copmarisons: \dsl{terminal_time_comp}, a comparison between the total time spent in the game (\lstinline{(total-time)}) and a time number token, \dsl{terminal-score-comp}, a comparison between the total score (\lstinline{(total-score)}) and a score number token, or \dsl{terminal-pref-count-comp}, a comparison between a scoring expression (\dsl{scoring-expr}, see below) and a preference count number token.
+The terminal comparison (\dsl{terminal-comp}) expands to one of three different types of copmarisons: \dsl{terminal-time-comp}, a comparison between the total time spent in the game (\lstinline{(total-time)}) and a time number token, \dsl{terminal-score-comp}, a comparison between the total score (\lstinline{(total-score)}) and a score number token, or \dsl{terminal-pref-count-comp}, a comparison between a scoring expression (\dsl{scoring-expr}, see below) and a preference count number token.
 In most cases, the scoring expression is a preference counting operation.
         """,
-        POST_NOTES_KEY: r"""For the full specification of the \dsl{scoring-expr} element, see \fullref{sec:scoring} below.
+        POST_NOTES_KEY: r"""For the full specification of the \dsl{scoring-expr} element, see \autoref{sec:scoring} below.
         """,
     },
     SCORING_SECTION_KEY: {
@@ -240,7 +240,7 @@ Various preference evaluation modes can expand the \dsl{preference-eval} rule, s
         Functions operate over a specified number of arguments, which can be variables or object names, and return a number.""",
     },
     TYPES_SECTION_KEY: {
-        PRE_NOTES_KEY: r"""The types are currently not defined as part of the grammar, other than the small list of \dsl{object-name} tokens that can be directly referred to, and are marked with an asterisk below.
+        PRE_NOTES_KEY: r"""The types are currently not defined as part of the grammar, other than the small list of \dsl{object-name} tokens that can be directly referred to, and are marked with an asterisk below, and the sides, colors, and orientations, which are separated from object types.
         The following enumerates all expansions of the various \dsl{type} rules:
         """  # .format(undescribed_color=UNDESCRIBED_ELEMENT_COLOR) # Any types we forgot to provide a description for will appear in {{\color{{{undescribed_color}}}{undescribed_color} }}.
     }
@@ -503,7 +503,10 @@ SHARED_BLOCKS = {
 
     VARIABLE_LIST: (r"""<variable-list> ::= (<variable-def>$^+$) "#" One or more variables definitions, enclosed by parentheses.
 
-<variable-def> ::= <variable-type-def> | <color-variable-type-def> | <orientation-variable-type-def> | <side-variable-type-def> "#" Colors, sides, and orientations are special types as they are not interchangable with objects.
+<variable-def> ::= <variable-type-def>
+    \alt <color-variable-type-def> |
+    \alt <orientation-variable-type-def>
+    \alt <side-variable-type-def> "#" Colors, sides, and orientations are special types as they are not interchangable with objects.
 
 <variable-type-def> ::= <variable>$^+$ - <type-def> "#" Each variable is defined by a variable (see next) and a type (see after).
 
@@ -547,7 +550,7 @@ SHARED_BLOCKS = {
 
 <orientation-type> ::= 'orientation'
 
-<orientation> ::= 'diagonal' | 'sideways' | 'upright' | 'upside_down'
+<orientation> ::= 'diagonal' | 'sideways' | 'upright' | 'upside\_down'
 
 <side-type> ::= 'side'
 
@@ -569,7 +572,7 @@ SHARED_BLOCKS = {
 
 <predicate-or-function-type-term> ::= <object-type> | <variable>
 
-<object_name> ::= 'agent' | 'bed' | 'desk' | 'door' | 'floor' | 'main_light_switch' | 'mirror' | 'room_center' | 'rug' | 'side_table' | 'bottom_drawer' | 'bottom_shelf' | 'east_sliding_door' | 'east_wall' | 'north_wall' | 'south_wall' | 'top_drawer' | 'top_shelf' | 'west_sliding_door' | 'west_wall'
+<object_name> ::= 'agent' | 'bed' | 'desk' | 'door' | 'floor' | 'main\_light\_switch' | 'mirror' | 'room_center' | 'rug' | 'side\_table' | 'bottom\_drawer' | 'bottom\_shelf' | 'east\_sliding\_door' | 'east\_wall' | 'north\_wall' | 'south\_wall' | 'top\_drawer' | 'top\_shelf' | 'west\_sliding\_door' | 'west\_wall'
 """,
 ('predicate', 'predicate_or_function_term', 'predicate_or_function_color_term', 'predicate_or_function_orientation_term', 'predicate_or_function_side_term', 'predicate_or_function_type_term', 'object_name', re.compile('predicate_[A-Za-z_]+'))),
 }
@@ -579,8 +582,8 @@ SETUP_BLOCKS = (
     (r"""<setup> ::= (and <setup> <setup>$^+$) "#" A setup can be expanded to a conjunction, a disjunction, a quantification, or a setup statement (see below).
     \alt (or <setup> <setup>$^+$)
     \alt (not <setup>)
-    \alt (exists (<typed list(variable)>) <setup>)
-    \alt (forall (<typed list(variable)>) <setup>)
+    \alt (exists (<variable-list>) <setup>)
+    \alt (forall (<variable-list>) <setup>)
     \alt <setup-statement>""", ('setup', 'setup_and', 'setup_or', 'setup_not', 'setup_exists', 'setup_forall', 'setup_statement')),
 
     (r"""<setup-statement> ::= "#" A setup statement specifies that a predicate is either optional during gameplay or must be preserved during gameplay.
@@ -591,8 +594,8 @@ SETUP_BLOCKS = (
     \alt (and <super-predicate>$^+$)
     \alt (or <super-predicate>$^+$)
     \alt (not <super-predicate>
-    \alt (exists (<typed list(variable)>) <super-predicate>)
-    \alt (forall (<typed list(variable)>) <super-predicate>)
+    \alt (<variable-list>) <super-predicate>)
+    \alt (<variable-list>) <super-predicate>)
     \alt <f-comp>
     \alt <predicate>""", ('super_predicate', 'super_predicate_and', 'super_predicate_or', 'super_predicate_not', 'super_predicate_forall', 'super_predicate_exists')),
 )
