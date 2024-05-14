@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.1.30)  15 NOV 2022 22:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.1.30)  14 MAY 2024 09:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/guydavidson/projects/game-generation-modeling/latex/updated_dsl_doc.tex
-(/Users/guydavidson/projects/game-generation-modeling/latex/updated_dsl_doc.tex
+**/Users/guydavidson/projects/game-generation-modeling/latex/template.tex
+(/Users/guydavidson/projects/game-generation-modeling/latex/template.tex
 LaTeX2e <2020-10-01> patch level 4
 L3 programming layer <2021-02-18> (/usr/local/texlive/2021/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2020/04/10 v1.4m Standard LaTeX document class
@@ -437,11 +437,11 @@ Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 \@float@every@listing=\toks30
 \c@listing=\count319
 )
-runsystem(mkdir -p _minted-updated_dsl_doc)...disabled (restricted).
+runsystem(mkdir -p _minted-template)...disabled (restricted).
 
 
 
-/Users/guydavidson/projects/game-generation-modeling/latex/updated_dsl_doc.tex:15: Package minted Error: You must invoke LaTeX with the -shell-escape flag.
+/Users/guydavidson/projects/game-generation-modeling/latex/template.tex:15: Package minted Error: You must invoke LaTeX with the -shell-escape flag.
 
 See the minted package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -824,11 +824,11 @@ Package csquotes Info: ... configuration file loaded successfully.
  (/usr/local/texlive/2021/texmf-dist/tex/latex/csquotes/csquotes.cfg
 File: csquotes.cfg
 ))
-runsystem(which pygmentize && touch updated_dsl_doc.aex)...disabled (restricted).
+runsystem(which pygmentize && touch template.aex)...disabled (restricted).
 
 
 
-/Users/guydavidson/projects/game-generation-modeling/latex/updated_dsl_doc.tex:124: Package minted Error: You must have `pygmentize' installed to use this package.
+/Users/guydavidson/projects/game-generation-modeling/latex/template.tex:124: Package minted Error: You must have `pygmentize' installed to use this package.
 
 See the minted package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -846,8 +846,9 @@ Package csquotes Info: Redefining alias 'default' -> 'american'.
 File: l3backend-pdftex.def 2021-03-18 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count365
 \l__pdf_internal_box=\box104
-) (/Users/guydavidson/projects/game-generation-modeling/latex/updated_dsl_doc.aux)
-\openout1 = `updated_dsl_doc.aux'.
+)
+No file template.aux.
+\openout1 = `template.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 124.
 LaTeX Font Info:    ... okay on input line 124.
@@ -868,7 +869,7 @@ LaTeX Font Info:    ... okay on input line 124.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 124.
 LaTeX Font Info:    ... okay on input line 124.
 Package hyperref Info: Link coloring OFF on input line 124.
- (/usr/local/texlive/2021/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/local/texlive/2021/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
  (/usr/local/texlive/2021/texmf-dist/tex/latex/refcount/refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
@@ -881,7 +882,7 @@ LaTeX Info: Redefining \ref on input line 124.
 LaTeX Info: Redefining \pageref on input line 124.
 LaTeX Info: Redefining \nameref on input line 124.
 \@outlinefile=\write6
-\openout6 = `updated_dsl_doc.out'.
+\openout6 = `template.out'.
 
  (/usr/local/texlive/2021/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -960,118 +961,49 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 LaTeX Warning: No \author given.
 
 
-LaTeX Warning: Hyper reference `sec:predicates' on page 1 undefined on input line 162.
+LaTeX Warning: Hyper reference `sec:constraints' on page 1 undefined on input line 132.
 
 
-LaTeX Warning: Reference `sec:predicates' on page 1 undefined on input line 162.
+LaTeX Warning: Reference `sec:constraints' on page 1 undefined on input line 132.
 
 
-LaTeX Warning: Reference `sec:predicates' on page 1 undefined on input line 162.
+LaTeX Warning: Reference `sec:constraints' on page 1 undefined on input line 132.
 
-LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 166.
-(/usr/local/texlive/2021/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 166.
- [1
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 150.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\langle' on input line 150.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 150.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 150.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\rangle' on input line 150.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 150.
+
+[1
 
 
 
 
 {/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 
-LaTeX Warning: Hyper reference `sec:LTL' on page 2 undefined on input line 232.
-
-
-LaTeX Warning: Reference `sec:LTL' on page 2 undefined on input line 232.
-
-
-LaTeX Warning: Reference `sec:LTL' on page 2 undefined on input line 232.
-
-[2]
-
-LaTeX Warning: Hyper reference `sec:scoring' on page 3 undefined on input line 240.
-
-
-LaTeX Warning: Reference `sec:scoring' on page 3 undefined on input line 240.
-
-
-LaTeX Warning: Reference `sec:scoring' on page 3 undefined on input line 240.
-
-[3]
-
-LaTeX Warning: Hyper reference `sec:setup' on page 4 undefined on input line 296.
-
-
-LaTeX Warning: Reference `sec:setup' on page 4 undefined on input line 296.
-
-
-LaTeX Warning: Reference `sec:setup' on page 4 undefined on input line 296.
-
-
-LaTeX Warning: Hyper reference `sec:scoring' on page 4 undefined on input line 306.
-
-
-LaTeX Warning: Reference `sec:scoring' on page 4 undefined on input line 306.
-
-
-LaTeX Warning: Reference `sec:scoring' on page 4 undefined on input line 306.
-
-
-LaTeX Warning: Hyper reference `sec:scoring' on page 4 undefined on input line 322.
-
-
-LaTeX Warning: Reference `sec:scoring' on page 4 undefined on input line 322.
-
-
-LaTeX Warning: Reference `sec:scoring' on page 4 undefined on input line 322.
-
-[4]
-Overfull \hbox (1.72978pt too wide) in paragraph at lines 390--391
-[]\OT1/cmr/m/n/10 : [] [] The op-tional type name spec-i-fi-ca-tion for the above syn-tax. For ex-am-ple, pref-name:dodgeball
- []
-
-[5] [6] [7]
-
-LaTeX Warning: Hyper reference `sec:constraints' on page 8 undefined on input line 559.
-
-
-LaTeX Warning: Reference `sec:constraints' on page 8 undefined on input line 559.
-
-
-LaTeX Warning: Reference `sec:constraints' on page 8 undefined on input line 559.
-
-[8]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 577.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\langle' on input line 577.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 577.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 577.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\rangle' on input line 577.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 577.
-
-
 Package caption Warning: Unused \captionsetup[sub] on input line 28.
 See the caption package documentation for explanation.
 
-[9] (/Users/guydavidson/projects/game-generation-modeling/latex/updated_dsl_doc.aux)
+[2] (/Users/guydavidson/projects/game-generation-modeling/latex/template.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -1079,26 +1011,26 @@ LaTeX Warning: There were undefined references.
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
 
-Package rerunfilecheck Warning: File `updated_dsl_doc.out' has changed.
+Package rerunfilecheck Warning: File `template.out' has changed.
 (rerunfilecheck)                Rerun to get outlines right
 (rerunfilecheck)                or use package `bookmark'.
 
-Package rerunfilecheck Info: Checksums for `updated_dsl_doc.out':
+Package rerunfilecheck Info: Checksums for `template.out':
 (rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  95DCC31AD3EEB7FD42F066D32D5DA44F;1803.
+(rerunfilecheck)             After:  F8C8E6C17D530E3EFEC9748586825124;695.
  )
 Here is how much of TeX's memory you used:
- 34988 strings out of 478994
- 665841 string characters out of 5858184
- 1633985 words of memory out of 5000000
- 51700 multiletter control sequences out of 15000+600000
- 414369 words of font info for 70 fonts, out of 8000000 for 9000
+ 34683 strings out of 478994
+ 661270 string characters out of 5858184
+ 1107720 words of memory out of 5000000
+ 51550 multiletter control sequences out of 15000+600000
+ 414033 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 87i,8n,131p,698b,1929s stack positions out of 5000i,500n,10000p,200000b,80000s
- </Users/guydavidson/Library/texlive/2021/texmf-var/fonts/pk/ljfour/public/cm-mf-extra-bold/cmttb10.540pk>{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on /Users/guydavidson/projects/game-generation-modeling/latex/updated_dsl_doc.pdf (9 pages, 238044 bytes).
+ 87i,8n,131p,690b,1897s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on /Users/guydavidson/projects/game-generation-modeling/latex/template.pdf (2 pages, 168531 bytes).
 PDF statistics:
- 352 PDF objects out of 1000 (max. 8388607)
- 292 compressed objects within 3 object streams
- 170 named destinations out of 1000 (max. 500000)
+ 109 PDF objects out of 1000 (max. 8388607)
+ 88 compressed objects within 1 object stream
+ 22 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)

@@ -127,6 +127,7 @@ points]}}}
 {{BODY}}
 
 \section{Modal Definitions in Linear Temporal Logic}
+\label{sec:LTL}
 \subsection{Linear Temporal Logic definitions}
 We offer a mapping between the temporal sequence functions defined in \fullref{sec:constraints} and linear temporal logic (LTL) operators.
 As we were creating this DSL, we found that the syntax of the \dsl{then} operator felt more convenient than directly writing down LTL, but we hope the mapping helps reason about how we see our temporal operators functioning.
@@ -165,7 +166,7 @@ For example, a sequence such as the following, which signifies a throw attempt:
     (once (not (in_motion ?b)))
 )
 \end{lstlisting}
-Can be translated to LTL using $\psi:=$ (agent_holds ?b), $\varphi:=$ (in_motion ?b) as:
+Can be translated to LTL using $\psi:=$ (agent\_holds ?b), $\varphi:=$ (in\_motion ?b) as:
 
 $\psi X (\neg \psi \wedge \varphi) U (\neg \varphi) X \top $
 

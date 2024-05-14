@@ -158,14 +158,14 @@ Inside the \dsl{setup-statement} tags we find \dsl{super-predicate} elements, wh
 Function comparisons usually consist of a comparison operator and two arguments, which can either be the evaluation of a function or a number.
 The one exception is the case where the comparison operator is the equality operator (=), in which case any number of arguments can be provided.
 Finally, the \dsl{predicate} element expands to a predicate acting on one or more objects or variables.
-For a full list of the predicates we found ourselves using so far, see \fullref{sec:predicates}.
+For a full list of the predicates we found ourselves using so far, see \autoref{sec:predicates}.
 
 \begin{grammar}
 <setup> ::= (and <setup> <setup>$^+$) "#" A setup can be expanded to a conjunction, a disjunction, a quantification, or a setup statement (see below).
     \alt (or <setup> <setup>$^+$)
     \alt (not <setup>)
-    \alt (exists (<typed list(variable)>) <setup>)
-    \alt (forall (<typed list(variable)>) <setup>)
+    \alt (exists (<variable-list>) <setup>)
+    \alt (forall (<variable-list>) <setup>)
     \alt <setup-statement>
 
 <setup-statement> ::= "#" A setup statement specifies that a predicate is either optional during gameplay or must be preserved during gameplay.
@@ -176,8 +176,8 @@ For a full list of the predicates we found ourselves using so far, see \fullref{
     \alt (and <super-predicate>$^+$)
     \alt (or <super-predicate>$^+$)
     \alt (not <super-predicate>
-    \alt (exists (<typed list(variable)>) <super-predicate>)
-    \alt (forall (<typed list(variable)>) <super-predicate>)
+    \alt (<variable-list>) <super-predicate>)
+    \alt (<variable-list>) <super-predicate>)
     \alt <f-comp>
     \alt <predicate>
 
@@ -199,7 +199,10 @@ For a full list of the predicates we found ourselves using so far, see \fullref{
 
 <variable-list> ::= (<variable-def>$^+$) "#" One or more variables definitions, enclosed by parentheses.
 
-<variable-def> ::= <variable-type-def> | <color-variable-type-def> | <orientation-variable-type-def> | <side-variable-type-def> "#" Colors, sides, and orientations are special types as they are not interchangable with objects.
+<variable-def> ::= <variable-type-def>
+    \alt <color-variable-type-def> |
+    \alt <orientation-variable-type-def>
+    \alt <side-variable-type-def> "#" Colors, sides, and orientations are special types as they are not interchangable with objects.
 
 <variable-type-def> ::= <variable>$^+$ - <type-def> "#" Each variable is defined by a variable (see next) and a type (see after).
 
@@ -243,7 +246,7 @@ For a full list of the predicates we found ourselves using so far, see \fullref{
 
 <orientation-type> ::= 'orientation'
 
-<orientation> ::= 'diagonal' | 'sideways' | 'upright' | 'upside_down'
+<orientation> ::= 'diagonal' | 'sideways' | 'upright' | 'upside\_down'
 
 <side-type> ::= 'side'
 
@@ -261,7 +264,7 @@ For a full list of the predicates we found ourselves using so far, see \fullref{
 
 <predicate-or-function-type-term> ::= <object-type> | <variable>
 
-<object_name> ::= 'agent' | 'bed' | 'desk' | 'door' | 'floor' | 'main_light_switch' | 'mirror' | 'room_center' | 'rug' | 'side_table' | 'bottom_drawer' | 'bottom_shelf' | 'east_sliding_door' | 'east_wall' | 'north_wall' | 'south_wall' | 'top_drawer' | 'top_shelf' | 'west_sliding_door' | 'west_wall'
+<object_name> ::= 'agent' | 'bed' | 'desk' | 'door' | 'floor' | 'main\_light\_switch' | 'mirror' | 'room_center' | 'rug' | 'side\_table' | 'bottom\_drawer' | 'bottom\_shelf' | 'east\_sliding\_door' | 'east\_wall' | 'north\_wall' | 'south\_wall' | 'top\_drawer' | 'top\_shelf' | 'west\_sliding\_door' | 'west\_wall'
 
 
 
@@ -284,14 +287,14 @@ Inside an \dsl{at-end} we find a \dsl{super-predicate}, which like in the setup 
 The second option is specified using the \dsl{then} syntax, which defines a series of temporal conditions that should hold over a sequence of states.
 Under a \dsl{then} operator, we find two or more sequence functions (\dsl{seq-func}), which define the specific conditions that must hold and how many states we expect them to hold for.
 We assume that there are no unaccounted states between the states accounted for by the different operators -- in other words, the \dsl{then} operators expects to find a sequence of contiguous states that satisfy the different sequence functions.
-The operators under a \dsl{then} operator map onto linear temporal logic (LTL) operators, see \fullref{sec:LTL} for the mapping and examples.
+The operators under a \dsl{then} operator map onto linear temporal logic (LTL) operators, see \autoref{sec:LTL} for the mapping and examples.
 
 The \dsl{once} operator specifies a predicate that must hold for a single world state.
 If a \dsl{once} operators appears as the first operator of a \dsl{then} definition, and a sequence of states $S_a, S_{a+1}, \cdots, S_b$ satisfy the \dsl{then} operator, it could be the case that the predicate is satisfied before this sequence of states (e.g. by $S_{a-1}, S_{a-2}$, and so forth).
 However, only the final such state, $S_a$, is required for the preference to be satisfied.
 The same could be true at the end of the sequence: if a \dsl{then} operator ends with a \dsl{once} term, there could be other states after the final state ($S_{b+1}, S_{b+2}$, etc.) that satisfy the predicate in the \dsl{once} operator, but only one is required.
 The \dsl{once-measure} operator is a slight variation of the \dsl{once} operator, which in addition to a predicate, takes in a function evaluation, and measures the value of the function evaluated at the state that satisfies the preference.
-This function value can then be used in the scoring definition, see \fullref{sec:scoring}.
+This function value can then be used in the scoring definition, see \autoref{sec:scoring}.
 
 A second type of operator that exists is the \dsl{hold} operator.
 It specifies that a predicate must hold true in every state between the one in which the previous operator is satisfied, and until one in which the next operator is satisfied.
@@ -305,14 +308,14 @@ For example, in the minimal definition below:
     (once (pred_c))
 )
 \end{lstlisting}
-To find a sequence of states $S_a, S_{a+1}, \cdots, S_b$ that satisfy this \dsl{then} operator, the following conditions must hold true: (1) pred_a is true at state $S_a$, (2) pred_b is true in all states $S_{a+1}, S_{a+2}, \cdots, S_{b-2}, S_{b-1}$, and (3) pred_c is true in state $S_b$.
-There is no minimal number of states that the hold predicate must hold for.
+To find a sequence of states $S_a, S_{a+1}, \cdots, S_b$ that satisfy this \dsl{then} operator, the following conditions must hold true: (1) pred\_a is true at state $S_a$, (2) pred\_b is true in all states $S_{a+1}, S_{a+2}, \cdots, S_{b-2}, S_{b-1}$, and (3) pred\_c is true in state $S_b$.
+The hold predicate must hold for one or more states.
 
 The last operator is \dsl{hold-while}, which offers a variation of the \dsl{hold} operator.
 A \dsl{hold-while} receives at least two predicates.
 The first acts the same as predicate in a \dsl{hold} operator.
 The second (and third, and any subsequent ones), must hold true for at least state while the first predicate holds, and must occur in the order specified.
-In the example above, if we substitute \lstinline{(hold (pred_b))} for \lstinline{(hold-while (pred_b) (pred_d) (pred_e))}, we now expect that in addition to ped_b being true in all states $S_{a+1}, S_{a+2}, \cdots, S_{b-2}, S_{b-1}$, that there is some state $S_d, d \in [a+1, b-1]$ where pred_d holds, and another state, $S_e, e \in [d+1, b-1]$ where pred_e holds.
+In the example above, if we substitute \lstinline{(hold (pred_b))} for \lstinline{(hold-while (pred_b) (pred_d) (pred_e))}, we now expect that in addition to pred\_b being true in all states $S_{a+1}, S_{a+2}, \cdots, S_{b-2}, S_{b-1}$, that there is some state $S_d, d \in [a+1, b-1]$ where pred\_d holds, and another state, $S_e, e \in [d+1, b-1]$ where pred\_e holds.
 
 \begin{grammar}
 <constraints> ::= <pref-def> | (and <pref-def>$^+$)  "#" One or more preferences.
@@ -347,7 +350,7 @@ In the example above, if we substitute \lstinline{(hold (pred_b))} for \lstinlin
 
 
 \end{grammar}
-For the full specification of the \dsl{super-predicate} element, see \fullref{sec:setup} above.
+For the full specification of the \dsl{super-predicate} element, see \autoref{sec:setup} above.
 
 
 
@@ -357,7 +360,7 @@ Conditions explicitly specified in this section terminate the game.
 If none are specified, a game is assumed to terminate whenever the player chooses to end the game.
 
 The terminal conditions expand from the \dsl{terminal} element, which can expand to logical conditions on nested \dsl{terminal} elements, or to a terminal comparison.
-The terminal comparison (\dsl{terminal-comp}) expands to one of three different types of copmarisons: \dsl{terminal_time_comp}, a comparison between the total time spent in the game (\lstinline{(total-time)}) and a time number token, \dsl{terminal-score-comp}, a comparison between the total score (\lstinline{(total-score)}) and a score number token, or \dsl{terminal-pref-count-comp}, a comparison between a scoring expression (\dsl{scoring-expr}, see below) and a preference count number token.
+The terminal comparison (\dsl{terminal-comp}) expands to one of three different types of copmarisons: \dsl{terminal-time-comp}, a comparison between the total time spent in the game (\lstinline{(total-time)}) and a time number token, \dsl{terminal-score-comp}, a comparison between the total score (\lstinline{(total-score)}) and a score number token, or \dsl{terminal-pref-count-comp}, a comparison between a scoring expression (\dsl{scoring-expr}, see below) and a preference count number token.
 In most cases, the scoring expression is a preference counting operation.
 
 \begin{grammar}
@@ -390,7 +393,7 @@ In most cases, the scoring expression is a preference counting operation.
 
 
 \end{grammar}
-For the full specification of the \dsl{scoring-expr} element, see \fullref{sec:scoring} below.
+For the full specification of the \dsl{scoring-expr} element, see \autoref{sec:scoring} below.
 
 
 
@@ -478,7 +481,7 @@ The following section describes the predicates we define.
 
 \begin{lstlisting}
 (above <arg1> <arg2>) [5 references] ; Is the first object above the second object?
-(adjacent <arg1> <arg2>) [78 references] ; Are the two objects adjacent? [will probably be implemented as distance below some threshold]
+(adjacent <arg1> <arg2>) [84 references] ; Are the two objects adjacent? [will probably be implemented as distance below some threshold]
 (adjacent_side <3 or 4 arguments>) [15 references] ; Are the two objects adjacent on the sides specified? Specifying a side for the second object is optional, allowing to specify <obj1> <side1> <obj2> or <obj1> <side1> <obj2> <side2>
 (agent_crouches ) [2 references] ; Is the agent crouching?
 (agent_holds <arg1>) [327 references] ; Is the agent holding the object?
@@ -490,10 +493,11 @@ The following section describes the predicates we define.
 (game_over ) [4 references] ; Is this the last state of gameplay?
 (game_start ) [3 references] ; Is this the first state of gameplay?
 (in <arg1> <arg2>) [121 references] ; Is the second argument inside the first argument? [a containment check of some sort, for balls in bins, for example]
-(in_motion <arg1>) [315 references] ; Is the object in motion?
+(in_motion <arg1>) [312 references] ; Is the object in motion?
 (is_setup_object <arg1>) [13 references] ; Is this the object of the same type referenced in the setup?
+(near <arg1> <arg2>) [63 references] ; Is the second object near the first object? [implemented as distance below some threshold]
 (object_orientation <arg1> <arg2>) [14 references] ; Is the first argument, an object, in the orientation specified by the second argument? Used to check if an object is upright or upside down
-(on <arg1> <arg2>) [168 references] ; Is the second object on the first one?
+(on <arg1> <arg2>) [165 references] ; Is the second object on the first one?
 (open <arg1>) [3 references] ; Is the object open? Only valid for objects that can be opened, such as drawers.
 (opposite <arg1> <arg2>) [4 references] ; So far used only with walls, or sides of the room, to specify two walls opposite each other in conjunction with other predicates involving these walls
 (rug_color_under <arg1> <arg2>) [11 references] ; Is the color of the rug under the object (first argument) the color specified by the second argument?
@@ -511,7 +515,7 @@ he following section describes the functions we define.
         Functions operate over a specified number of arguments, which can be variables or object names, and return a number.
 \begin{lstlisting}
 (building_size <arg1>) [2 references] ; Takes in an argument of type building, and returns how many objects comprise the building (as an integer).
-(distance <arg1> <arg2>) [114 references] ; Takes in two arguments of type object, and returns the distance between the two objects (as a floating point number).
+(distance <arg1> <arg2>) [50 references] ; Takes in two arguments of type object, and returns the distance between the two objects (as a floating point number).
 (distance_side <arg1> <arg2> <arg3>) [6 references] ; Similarly to the adjacent_side predicate, but applied to distance. Takes in three or four arguments, either <obj1> <side1> <obj2> or <obj1> <side1> <obj2> <side2>, and returns the distance between the first object on the side specified to the second object (optionally to its specified side).
 (x_position <arg1>) [4 references] ; Takes in an argument of type object, and returns the x position of the object (as a floating point number).
 \end{lstlisting}
@@ -519,12 +523,12 @@ he following section describes the functions we define.
 
 
 \subsection{Types} \label{sec:types}
-The types are currently not defined as part of the grammar, other than the small list of \dsl{object-name} tokens that can be directly referred to, and are marked with an asterisk below.
+The types are currently not defined as part of the grammar, other than the small list of \dsl{object-name} tokens that can be directly referred to, and are marked with an asterisk below, and the sides, colors, and orientations, which are separated from object types.
         The following enumerates all expansions of the various \dsl{type} rules:
 
 \begin{lstlisting}
 game_object [33 references] ; Parent type of all objects
-agent* [90 references] ; The agent
+agent* [100 references] ; The agent
 building [20 references] ; Not a real game object, but rather, a way to refer to structures the agent builds
 ---------- (* \textbf{Blocks} *) ----------
 block [28 references] ; Parent type of all block types:
@@ -587,10 +591,10 @@ yellow [14 references]
 ---------- (* \textbf{Furniture} *) ----------
 bed* [51 references]
 blinds [2 references] ; The blinds on the windows
-desk* [40 references]
+desk* [45 references]
 desktop [6 references]
 main_light_switch* [3 references] ; The main light switch on the wall
-side_table* [4 references] ; The side table/nightstand next to the bed
+side_table* [6 references] ; The side table/nightstand next to the bed
 shelf_desk [2 references] ; The shelves under the desk
 ---------- (* \textbf{Large moveable/interactable objects} *) ----------
 book [11 references]
@@ -606,21 +610,21 @@ upside_down [1 reference]
 ---------- (* \textbf{Ramps} *) ----------
 ramp [0 references] ; Parent type of all ramp types:
 curved_wooden_ramp [17 references]
-triangular_ramp [10 references]
+triangular_ramp [11 references]
 triangular_ramp_green [1 reference]
 triangular_ramp_tan [0 references]
 ---------- (* \textbf{Receptacles} *) ----------
-doggie_bed [26 references]
-hexagonal_bin [123 references]
+doggie_bed [27 references]
+hexagonal_bin [122 references]
 drawer [5 references] ; Either drawer in the side table
 bottom_drawer* [0 references] ; The bottom of the two drawers in the nightstand near the bed.
 top_drawer* [6 references] ; The top of the two drawers in the nightstand near the bed.
 ---------- (* \textbf{Room features} *) ----------
-door* [9 references] ; The door out of the room
+door* [15 references] ; The door out of the room
 floor* [26 references]
 mirror* [0 references]
 poster* [0 references]
-room_center* [0 references]
+room_center* [33 references]
 rug* [37 references]
 shelf [10 references]
 bottom_shelf* [1 reference]
@@ -655,6 +659,7 @@ right [2 references]
 
 
 \section{Modal Definitions in Linear Temporal Logic}
+\label{sec:LTL}
 \subsection{Linear Temporal Logic definitions}
 We offer a mapping between the temporal sequence functions defined in \fullref{sec:constraints} and linear temporal logic (LTL) operators.
 As we were creating this DSL, we found that the syntax of the \dsl{then} operator felt more convenient than directly writing down LTL, but we hope the mapping helps reason about how we see our temporal operators functioning.
@@ -693,7 +698,7 @@ For example, a sequence such as the following, which signifies a throw attempt:
     (once (not (in_motion ?b)))
 )
 \end{lstlisting}
-Can be translated to LTL using $\psi:=$ (agent_holds ?b), $\varphi:=$ (in_motion ?b) as:
+Can be translated to LTL using $\psi:=$ (agent\_holds ?b), $\varphi:=$ (in\_motion ?b) as:
 
 $\psi X (\neg \psi \wedge \varphi) U (\neg \varphi) X \top $
 
