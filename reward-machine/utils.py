@@ -16,7 +16,7 @@ from ast_parser import extract_variables
 from config import ALL_OBJECT_TYPES, COLORS, ORIENTATIONS, SIDES, NAMED_OBJECTS, OBJECTS_BY_ROOM_AND_TYPE, SPECIFIC_NAMED_OBJECTS_BY_ROOM, \
     PseudoObject, FEW_OBJECTS_ROOM, MEDIUM_OBJECTS_ROOM, MANY_OBJECTS_ROOM
 
-PROJECT_NAME = 'game-generation-modeling'
+PROJECT_NAME = 'goals-as-reward-producing-programs'
 
 
 DOMAIN_REMAPPING = {
