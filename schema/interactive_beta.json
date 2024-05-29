@@ -217,7 +217,7 @@
         },
         {
             "metadata": {
-                "id": "yWOhJSjWiuzNkkHzhft",
+                "id": "yWwOhJSjWiuzNkkHzhft",
                 "index": 16,
                 "room": "few_objects",
                 "notes": "To what extent do we want to specify setup as part of the schema?"
@@ -240,7 +240,7 @@
         },
         {
             "metadata": {
-                "id": "PJ2WCWCLedT8sDLrvn49",
+                "id": "GLPtcvJUaHkUYK7iEPRq",
                 "index": 17,
                 "room": "medium_objects",
                 "notes": "The complex construction game -- specific order of blocks + scoring by color of each"
