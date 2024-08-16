@@ -140,7 +140,7 @@ def main(args: argparse.Namespace):
     if len(original_game_counts) == 1:
         logger.debug(f'All original games have {original_game_counts.index[0] - 1} regrowths')  # type: ignore
     else:
-        raise ValueError('Some original games have different numbers of regrowths: {original_game_counts}')
+        raise ValueError(f'Some original games have different numbers of regrowths: {original_game_counts}')
 
     feature_columns = get_feature_columns(fitness_df, args.feature_score_threshold, args.ngram_scores_to_remove, args.full_ngram_score_only)
 
@@ -253,6 +253,9 @@ def main(args: argparse.Namespace):
 
     output_data = dict(cv=cv, train_tensor=train_tensor, test_tensor=test_tensor, results=results, feature_columns=feature_columns)
     utils.save_data(output_data, folder=args.output_folder, name=args.output_name, relative_path=args.output_relative_path)
+    train_score_dict = _make_score_dict(cv, train_tensor, print_prefix='train real')
+    cv.best_estimator_.score_dict = train_score_dict  # type: ignore
+    utils.save_model_and_feature_columns(cv, feature_columns, name=f'{model_name}_held_out', relative_path=args.output_relative_path, extra_data=dict(score_dict=train_score_dict))
 
     if not args.no_save_full_model:
         extra_data = {}
@@ -265,23 +268,7 @@ def main(args: argparse.Namespace):
             print('Retrained model on full dataset results:')
             print(utils.evaluate_trained_model(cv.best_estimator_, full_tensor, utils.default_multiple_scoring))  # type: ignore
 
-            full_tensor_scores = cv.best_estimator_.transform(full_tensor).detach()  # type: ignore
-            real_game_scores = full_tensor_scores[:, 0]
-
-            score_mean = real_game_scores.mean()
-            score_std = real_game_scores.std()
-            score_min = real_game_scores.min()
-            score_median = torch.median(real_game_scores)
-            score_max = real_game_scores.max()
-
-            print(f'Real game scores: {score_mean:.4f} ± {score_std:.4f}, min = {score_min:.4f}, median = {score_median:.4f}, max = {score_max:.4f}')
-
-            negatives_scores = full_tensor_scores[:, 1:].ravel()
-            negative_score_quantiles = torch.quantile(negatives_scores, torch.linspace(0, 1, 11))
-            print(negative_score_quantiles)
-            print(torch.quantile(negatives_scores, 0.2))
-
-            score_dict = dict(mean=score_mean, std=score_std, min=score_min, median=score_median, max=score_max, negative_score_quantiles=negative_score_quantiles.tolist())
+            score_dict = _make_score_dict(cv, full_tensor)
             extra_data['score_dict'] = score_dict
             cv.best_estimator_.score_dict = score_dict  # type: ignore
 
@@ -309,6 +296,26 @@ def main(args: argparse.Namespace):
 
         logger.debug('Saving full model')
         utils.save_model_and_feature_columns(cv, feature_columns, name=model_name, relative_path=args.output_relative_path, extra_data=extra_data)
+
+
+def _make_score_dict(cv_model, tensor, print_prefix: str = 'real'):
+    full_tensor_scores = cv_model.best_estimator_.transform(tensor).detach()  # type: ignore
+    real_game_scores = full_tensor_scores[:, 0]
+
+    score_mean = real_game_scores.mean()
+    score_std = real_game_scores.std()
+    score_min = real_game_scores.min()
+    score_median = torch.median(real_game_scores)
+    score_max = real_game_scores.max()
+
+    print(f'{print_prefix.capitalize()} game scores: {score_mean:.4f} ± {score_std:.4f}, min = {score_min:.4f}, median = {score_median:.4f}, max = {score_max:.4f}')
+
+    negatives_scores = tensor[:, 1:].ravel()
+    negative_score_quantiles = torch.quantile(negatives_scores, torch.linspace(0, 1, 11)).tolist()
+    print(f'{print_prefix.capitalize()} negative quantiles: {negative_score_quantiles}')
+    print(torch.quantile(negatives_scores, 0.2))
+
+    return dict(mean=score_mean, std=score_std, min=score_min, median=score_median, max=score_max, negative_score_quantiles=negative_score_quantiles)
 
 
 if __name__ == '__main__':

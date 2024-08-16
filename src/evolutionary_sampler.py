@@ -172,6 +172,8 @@ parser.add_argument('--map-elites-behavioral-feature-exemplar-distance-metric', 
 parser.add_argument('--map-elites-good-threshold', type=float, default=None)
 parser.add_argument('--map-elites-great-threshold', type=float, default=None)
 
+parser.add_argument('--prior-only-sampling', action='store_true')
+
 DEFAULT_RELATIVE_PATH = '.'
 parser.add_argument('--relative-path', type=str, default=DEFAULT_RELATIVE_PATH)
 DEFAULT_NGRAM_MODEL_PATH = LATEST_AST_N_GRAM_MODEL_PATH
@@ -659,12 +661,14 @@ class PopulationBasedSampler():
         #     logger.error(traceback.format_exc())
         #     raise e
 
-    def _gen_init_sample(self, idx):
+    def _gen_init_sample(self, idx, rng=None):
         '''
         Helper function for generating an initial sample (repeating until one is generated
         without errors)
         '''
         sample = None
+        if rng is None:
+            rng = self.rng
 
         while sample is None:
             try:
@@ -2327,6 +2331,34 @@ class MAPElitesSampler(PopulationBasedSampler):
         return self.population[key]
 
 
+class PriorSamplingOnlyMAPElitesSampler(MAPElitesSampler):
+    def __init__(self,
+                 generation_size: int,
+                 key_type: MAPElitesKeyType,
+                 weight_strategy: MAPElitesWeightStrategy,
+                 initialization_strategy: MAPElitesInitializationStrategy,
+                 good_threshold: typing.Optional[float] = None, great_threshold: typing.Optional[float] = None,
+                 custom_featurizer: typing.Optional[BehavioralFeaturizer] = None,
+                 selector_kwargs: typing.Optional[typing.Dict[str, typing.Any]] = None,
+                 previous_sampler_population_seed_path: typing.Optional[str] = None,
+                 initial_candidate_pool_size: typing.Optional[int] = None,
+                 use_crossover: bool = False,
+                 use_cognitive_operators: bool = False,
+                 *args, **kwargs):
+
+        super().__init__(
+            generation_size=generation_size, key_type=key_type, weight_strategy=weight_strategy, initialization_strategy=initialization_strategy,
+            good_threshold=good_threshold, great_threshold=great_threshold, custom_featurizer=custom_featurizer, selector_kwargs=selector_kwargs,
+            previous_sampler_population_seed_path=previous_sampler_population_seed_path, initial_candidate_pool_size=initial_candidate_pool_size,
+            use_crossover=False, use_cognitive_operators=False, *args, **kwargs)
+
+    def _generate_prior_sample(self, parent, rng):
+        return self._gen_init_sample(0, rng)
+
+    def _get_operator(self, rng):
+        return self._generate_prior_sample
+
+
 feature_names = [f'length_of_then_modals_{i}' for i in range(3, 6)]
 def filter_samples_then_three_or_longer(sample: ASTType, sample_features: typing.Dict[str, int], sample_fitness: float) -> bool:
     return any(sample_features[name] for name in feature_names) or bool(sample_features['at_end_found'])
@@ -2539,7 +2571,9 @@ def main(args):
                 args.start_step = int(latest_generation)  # type: ignore
 
         if evosampler is None:
-            evosampler = MAPElitesSampler(
+            sampler_class = MAPElitesSampler if not args.prior_only_sampling else PriorSamplingOnlyMAPElitesSampler
+
+            evosampler = sampler_class(
                 key_type=MAPElitesKeyType(args.map_elites_key_type),
                 generation_size=args.map_elites_generation_size,
                 weight_strategy=args.map_elites_weight_strategy,

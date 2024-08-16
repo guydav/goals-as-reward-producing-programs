@@ -143,4 +143,10 @@ MAP_ELITES_MODELS = {
         'BC Ablations | Predicate and object groups with no game object | Using "Goodness" BC ',
         '2024_04_02',
     ),
+
+    'prior_sampling_only': MapElitesModelSpec(
+        'map_elites_prior_sampling_only_exemplar_preferences_bc_max_prefs_expected_values_uniform_seed_42_gen_8192_final_2024_08_15',
+        'Prior Sampling Only | Exemplar Preferenecs BCs | Count BCs, with max preference count | Using "Goodness" BC',
+        '2024_08_15',
+    ),
 }

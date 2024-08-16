@@ -94,7 +94,7 @@ def save_model_and_feature_columns(cv: GridSearchCV, feature_columns: typing.Lis
     save_dict = {SAVE_MODEL_KEY: cv.best_estimator_, SAVE_FEATURE_COLUMNS_KEY: feature_columns}
     if extra_data is not None:
         save_dict.update(extra_data)
-    save_data(save_dict, folder=folder, name=name, relative_path=relative_path)
+    save_data(save_dict, folder=folder, name=name, relative_path=relative_path, data_name='fitness model')
 
 
 def get_data_path(folder: str, name: str, relative_path: str = '..', delta: typing.Optional[timedelta] = None):
@@ -104,7 +104,8 @@ def get_data_path(folder: str, name: str, relative_path: str = '..', delta: typi
     return f'{relative_path}/{folder}/{name}_{date.strftime("%Y_%m_%d")}.pkl.gz'
 
 
-def save_data(data: typing.Any, folder: str, name: str, relative_path: str = '..', log_message: bool = True, overwrite: bool = False):
+def save_data(data: typing.Any, folder: str, name: str, relative_path: str = '..', log_message: bool = True,
+              overwrite: bool = False, data_name: str = 'data'):
     output_path = get_data_path(folder, name, relative_path)
 
     i = 0
@@ -118,12 +119,12 @@ def save_data(data: typing.Any, folder: str, name: str, relative_path: str = '..
         filename = filename + f'_{i}'
         output_path = os.path.join(folder, filename + period + extensions)
 
-    save_data_to_path(data, output_path, log_message=log_message, overwrite=overwrite)
+    save_data_to_path(data, output_path, log_message=log_message, overwrite=overwrite, data_name=data_name)
 
 
-def save_data_to_path(data: typing.Any, path: str, log_message: bool = True, overwrite: bool = False):
-    if log_message:
-        logger.info(f'Saving data to {path} ...')
+def save_data_to_path(data: typing.Any, path: str, log_message: bool = True, overwrite: bool = False, data_name: str = 'data'):
+    if log_message or data_name != 'data':
+        logger.info(f'Saving {data_name} to {path} ...')
 
     if not overwrite and os.path.exists(path):
         raise FileExistsError(f'File {path} already exists.')
@@ -172,11 +173,15 @@ DEFAULT_TRAINING_PROP = 0.8
 
 
 def train_test_split_by_game_name(df: pd.DataFrame, training_prop: float = DEFAULT_TRAINING_PROP,
-    random_seed: int = DEFAULT_RANDOM_SEED, positive_column: str = 'real', positive_value: typing.Any = True):
+    random_seed: int = DEFAULT_RANDOM_SEED, positive_column: str = 'real', positive_value: typing.Any = True,
+    print_test_game_names: bool = False):
 
     real_game_names = df[df[positive_column] == positive_value].original_game_name.unique()
 
     train_game_names, test_game_names = train_test_split(real_game_names, train_size=training_prop, random_state=random_seed)
+    if print_test_game_names:
+        print(test_game_names)
+    
     train_df = df[df.game_name.isin(train_game_names) | df.original_game_name.isin(train_game_names)]
     test_df = df[df.game_name.isin(test_game_names) | df.original_game_name.isin(test_game_names)]
     return train_df, test_df
@@ -1508,7 +1513,7 @@ def model_fitting_experiment(input_data: typing.Union[pd.DataFrame, torch.Tensor
         train_kwargs = {}
 
     cv_tensor, test_tensor = _input_data_to_train_test_tensors(input_data=input_data, feature_columns=feature_columns,
-        split_test_set=split_test_set, random_seed=random_seed, train_prop=train_prop)
+        split_test_set=split_test_set, random_seed=random_seed, train_prop=train_prop, print_test_game_names=True)
 
     if test_tensor is not None:
         print(f'Train tensor shape: {cv_tensor.shape} | Test tensor shape: {test_tensor.shape}')  # type: ignore
@@ -1547,7 +1552,7 @@ def _input_data_to_train_test_tensors(
     split_test_set: bool = True,
     random_seed: int = DEFAULT_RANDOM_SEED,
     train_prop: float = DEFAULT_TRAINING_PROP,
-    ignore_original_game: bool = False) -> typing.Tuple[torch.Tensor, typing.Optional[torch.Tensor]]:
+    ignore_original_game: bool = False, print_test_game_names: bool = False) -> typing.Tuple[torch.Tensor, typing.Optional[torch.Tensor]]:
 
     test_tensor = None
 
@@ -1556,7 +1561,7 @@ def _input_data_to_train_test_tensors(
             feature_columns = [str(c) for c in input_data.columns if c not in NON_FEATURE_COLUMNS]
 
         if split_test_set:
-            input_data, test_data = train_test_split_by_game_name(input_data, random_seed=random_seed)
+            input_data, test_data = train_test_split_by_game_name(input_data, random_seed=random_seed, print_test_game_names=print_test_game_names)
             test_tensor = df_to_tensor(test_data, feature_columns, ignore_original_game=ignore_original_game)
 
         input_data = typing.cast(pd.DataFrame, input_data)
