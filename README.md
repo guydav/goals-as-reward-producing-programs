@@ -23,13 +23,13 @@ The easiest way to view games including in the human evaluation, including their
 Otherwise, you can also use the [`game_viewer.ipynb`](https://github.com/guydav/goals-as-reward-producing-programs/blob/main/reproduction_notebooks/game_viewer.ipynb) to view any game from our participant-created dataset or model productions.
 
 ## Setup
-Create a conda environment, e.g. `conda env create -n game-gen python=3.10` (we worked with Python 3.10 on OS X and Ubuntu, though other versions should work, too).
+Create a conda environment, e.g. `conda create -n game-gen python=3.10 anaconda` (we worked with Python 3.10 on OS X and Ubuntu, though other versions should work, too).
 
 Activate the environment with `conda activate game-gen`.
 
 Install the requirements with `pip install -r requirements.txt`.
 
-Running the R notebook `human_evaluations_mixed_models.ipynb` requires installing the R kernel for Jupyter, we use VS Code's integration, which requires following a few [additional setup steps](https://saturncloud.io/blog/how-to-use-jupyter-r-kernel-with-visual-studio-code/).
+Running the R notebook `human_evaluations_mixed_models.ipynb` requires installing the R kernel for Jupyter, we use VS Code's integration, which requires following a few [additional setup steps](https://saturncloud.io/blog/how-to-use-jupyter-r-kernel-with-visual-studio-code/) (if these instructions fail, try the ones [here](https://drazraut.medium.com/linux-mint-running-r-in-jupyter-notebook-in-vs-code-5e7480a56731)).
 
 All in all, the setup should not take particularly long if you already have VS Code and conda installed.
 
