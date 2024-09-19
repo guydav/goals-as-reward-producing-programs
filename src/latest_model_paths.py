@@ -149,4 +149,10 @@ MAP_ELITES_MODELS = {
         'Prior Sampling Only | Exemplar Preferenecs BCs | Count BCs, with max preference count | Using "Goodness" BC',
         '2024_08_15',
     ),
+
+    'held_out_games': MapElitesModelSpec(
+        'map_elites_minimal_counting_grammar_use_forall_L2_held_out_fitness_exemplar_preferences_bc_max_prefs_expected_values_uniform_seed_42_gen_8192_final_2024_08_16',
+        'Fitness function with held out games | Exemplar Preferenecs BCs | Count BCs, with max preference count | Using "Goodness" BC',
+        '2024_08_17',
+    ),
 }
