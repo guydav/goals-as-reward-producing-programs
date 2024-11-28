@@ -1,6 +1,8 @@
 # Goals as Reward-Producing Programs
 A cleaned up version of the long-running development repository for our paper [Goals as Reward-Producing Programs](https://exps.gureckislab.org/guydav/goal_programs_viewer/main/).
 
+[![DOI](https://zenodo.org/badge/800076356.svg)](https://doi.org/10.5281/zenodo.14238892)
+
 Quick links:
 * [Project webpage](https://exps.gureckislab.org/guydav/goal_programs_viewer/main/)
 * [Paper](https://arxiv.org/abs/2405.13242)
